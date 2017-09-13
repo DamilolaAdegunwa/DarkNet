@@ -71,7 +71,7 @@
   <ItemGroup>
     <Compile Include="Authorization\Permission\Permission.cs" />
     <Compile Include="Authorization\Permission\PermissionContext.cs" />
-    <Compile Include="Authorization\Authorize\AuthorizationProvider.cs" />
+    <Compile Include="Authorization\Permission\AuthorizationProvider.cs" />
     <Compile Include="Authorization\Authorize\PermissionChecker.cs" />
     <Compile Include="Application\Service\Dto\PageDto.cs" />
     <Compile Include="Application\Service\Dto\PageListDto.cs" />
