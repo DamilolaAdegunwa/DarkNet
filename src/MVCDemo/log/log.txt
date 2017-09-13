@@ -1,0 +1,10 @@
+2017-08-18 13:08:56,443 [5] INFO  MVCDemo.Common.Logger.Logger - 系统初始化Logger模块
+2017-08-18 13:08:56,453 [5] INFO  MVCDemo.Common.Crawler.CrawlerHelper - down file by 
+2017-08-18 13:08:57,835 [5] WARN  MVCDemo.Common.Crawler.CrawlerHelper - 该规则://*[@id="wrapper"]/div[4]/div/div[2]/h1 未找到数据
+2017-08-18 13:08:57,842 [5] WARN  MVCDemo.Common.Crawler.CrawlerHelper - 该规则://*[@id="wrapper"]/div[4]/div/div[2]/div[1]/a[4] 未找到数据
+2017-08-18 13:09:09,534 [5] INFO  MVCDemo.Common.Crawler.CrawlerHelper - down file by 
+2017-08-18 13:09:10,644 [5] WARN  MVCDemo.Common.Crawler.CrawlerHelper - 该规则://*[@id="wrapper"]/div[4]/div/div[2]/h1 未找到数据
+2017-08-18 13:09:10,648 [5] WARN  MVCDemo.Common.Crawler.CrawlerHelper - 该规则://*[@id="wrapper"]/div[4]/div/div[2]/div[1]/a[4] 未找到数据
+2017-08-18 13:09:37,901 [5] INFO  MVCDemo.Common.Crawler.CrawlerHelper - down file by 
+2017-08-18 13:09:41,634 [5] WARN  MVCDemo.Common.Crawler.CrawlerHelper - 该规则://*[@id="wrapper"]/div[4]/div/div[2]/h1 未找到数据
+2017-08-18 13:09:41,637 [5] WARN  MVCDemo.Common.Crawler.CrawlerHelper - 该规则://*[@id="wrapper"]/div[4]/div/div[2]/div[1]/a[4] 未找到数据

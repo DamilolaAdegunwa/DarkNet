@@ -1,0 +1,33 @@
+﻿@using System.Web.Optimization;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/EasyUI/themes/css")
+    @Styles.Render("~/CSS/css")
+
+    @Scripts.Render("~/EasyUI/js")
+    @Scripts.Render("~/Scripts/js")
+
+</head>
+<body>
+    <div class="easyui-layout" data-options="fit:true,border:false">
+        <div data-options="region:'north',height:50">banner</div>
+        <div data-options="region:'west',title:'菜单',width:200">
+
+        </div>
+        <div data-options="region:'center'">
+            <div class="easyui-tabs" data-options="fit:true,border:false">
+                <div title="测试"></div>
+                <div title="我的测试数据" data-options="href:'/Home/TestIndex'"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

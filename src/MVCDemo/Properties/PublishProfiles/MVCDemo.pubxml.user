@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\website\MVCDemo</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>04/15/2017 21:25:15</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>04/15/2017 21:25:15</publishTime>
+    </File>
+    <File Include="bin/Dark.Core.dll">
+      <publishTime>06/19/2017 14:32:32</publishTime>
+    </File>
+    <File Include="bin/HtmlAgilityPack.dll">
+      <publishTime>07/14/2016 11:01:16</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>01/03/2011 14:16:38</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
+    </File>
+    <File Include="bin/Lucene.Net.dll">
+      <publishTime>10/26/2012 00:52:54</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>11/30/2016 16:07:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/07/2016 11:45:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/06/2016 15:15:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/07/2016 11:49:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/06/2016 15:09:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>05/05/2014 11:25:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>10/05/2015 09:37:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>10/05/2015 09:37:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/23/2012 15:23:58</publishTime>
+    </File>
+    <File Include="bin/MVCDemo.Common.dll">
+      <publishTime>06/19/2017 14:32:32</publishTime>
+    </File>
+    <File Include="bin/MVCDemo.dll">
+      <publishTime>06/19/2017 14:42:22</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/25/2013 15:40:12</publishTime>
+    </File>
+    <File Include="bin/PanGu.dll">
+      <publishTime>05/27/2013 02:13:12</publishTime>
+    </File>
+    <File Include="bin/PanGu.Lucene.Analyzer.dll">
+      <publishTime>05/27/2013 02:13:12</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 17:03:52</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>01/28/2015 04:02:22</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>01/28/2015 04:02:34</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
+      <publishTime>01/28/2015 04:04:32</publishTime>
+    </File>
+    <File Include="CfgFiles/log4net.cfg.xml">
+      <publishTime>04/23/2017 16:08:45</publishTime>
+    </File>
+    <File Include="CfgFiles/unity.cfg.xml">
+      <publishTime>04/21/2017 18:12:21</publishTime>
+    </File>
+    <File Include="CSS/easyui.extend.css">
+      <publishTime>06/19/2017 13:46:10</publishTime>
+    </File>
+    <File Include="CSS/main.css">
+      <publishTime>06/19/2017 11:35:34</publishTime>
+    </File>
+    <File Include="EasyUI/easyloader.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/jquery.easyui.extend.js">
+      <publishTime>06/19/2017 11:30:01</publishTime>
+    </File>
+    <File Include="EasyUI/jquery.easyui.min.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/jquery.min.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/locale/easyui-lang-en.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/locale/easyui-lang-zh_CN.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/locale/easyui-lang-zh_TW.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.accordion.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.calendar.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.combo.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.combobox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.combogrid.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.combotree.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.combotreegrid.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.datagrid.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.datalist.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.datebox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.datetimebox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.datetimespinner.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.dialog.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.draggable.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.droppable.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.filebox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.form.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.layout.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.linkbutton.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.menu.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.menubutton.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.messager.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.mobile.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.numberbox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.numberspinner.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.pagination.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.panel.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.parser.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.passwordbox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.progressbar.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.propertygrid.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.resizable.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.searchbox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.slider.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.spinner.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.splitbutton.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.switchbutton.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.tabs.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.tagbox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.textbox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.timespinner.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.tooltip.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.tree.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.treegrid.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.validatebox.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/plugins/jquery.window.js">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/color.css">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icon.css">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/back.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/blank.gif">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/cancel.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/clear.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/cut.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/edit_add.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/edit_remove.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/filesave.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/filter.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/help.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/large_chart.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/large_clipart.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/large_picture.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/large_shapes.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/large_smartart.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/lock.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/man.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/mini_add.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/mini_edit.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/mini_refresh.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/more.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/no.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/ok.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/pencil.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/print.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/redo.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/reload.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/search.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/sum.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/tip.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/icons/undo.png">
+      <publishTime>06/19/2017 11:27:04</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/accordion.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/calendar.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/combo.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/combobox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/datagrid.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/datalist.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/datebox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/dialog.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/easyui.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/filebox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/accordion_arrows.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/blank.gif">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/calendar_arrows.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/combo_arrow.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/datagrid_icons.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/datebox_arrow.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/layout_arrows.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/linkbutton_bg.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/loading.gif">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/menu_arrows.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/messager_icons.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/pagination_icons.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/panel_tools.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/passwordbox_close.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/passwordbox_open.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/searchbox_button.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/slider_handle.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/spinner_arrows.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/tabs_icons.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/tagbox_icons.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/tree_icons.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/images/validatebox_warning.png">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/layout.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/linkbutton.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/menu.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/menubutton.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/messager.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/numberbox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/pagination.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/panel.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/passwordbox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/progressbar.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/propertygrid.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/searchbox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/slider.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/spinner.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/splitbutton.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/switchbutton.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/tabs.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/tagbox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/textbox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/tooltip.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/tree.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/validatebox.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/metro/window.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="EasyUI/themes/mobile.css">
+      <publishTime>06/19/2017 11:27:05</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/15/2017 21:25:05</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/06/2017 15:23:04</publishTime>
+    </File>
+    <File Include="Scripts/main.js">
+      <publishTime>06/19/2017 13:43:41</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>06/19/2017 13:44:39</publishTime>
+    </File>
+    <File Include="Views/Home/TestIndex.cshtml">
+      <publishTime>06/19/2017 13:34:15</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>04/15/2017 21:25:05</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/19/2017 14:32:37</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

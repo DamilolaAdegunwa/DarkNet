@@ -1,0 +1,2 @@
+D:\Work\MVCDemo\Dark.Core\obj\Debug\Dark.Framework.csprojResolveAssemblyReference.cache
+D:\Work\MVCDemo\Dark.Core\obj\Debug\Dark.Framework.csproj.CoreCompileInputs.cache

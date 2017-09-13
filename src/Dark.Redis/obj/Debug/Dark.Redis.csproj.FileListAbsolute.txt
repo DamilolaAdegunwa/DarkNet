@@ -1,0 +1,13 @@
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\Dark.Redis.dll
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\Dark.Redis.pdb
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Common.dll
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Interfaces.dll
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Redis.dll
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Text.dll
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Common.xml
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Interfaces.xml
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Redis.xml
+D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Text.xml
+D:\Work\MVCDemo\Dark.Redis\obj\Debug\Dark.Redis.csprojResolveAssemblyReference.cache
+D:\Work\MVCDemo\Dark.Redis\obj\Debug\Dark.Redis.dll
+D:\Work\MVCDemo\Dark.Redis\obj\Debug\Dark.Redis.pdb

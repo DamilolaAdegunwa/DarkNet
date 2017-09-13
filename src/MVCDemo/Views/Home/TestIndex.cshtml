@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestIndex</title>
+</head>
+<body>
+    <div class="easyui-layout" id="ly_test" data-options="fit:true,border:false">
+        <div data-options="region:'center'">
+            <input class="easyui-textbox" data-options="buttonIcon:'icon-ok'" width="300" id="txtInput" />
+            <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="dbClick()">惦记我</a>
+        </div> 
+    </div>
+
+    <script>
+        $(function () {
+            //$.parser.parse();
+        });
+        function dbClick() {
+            alert($('#txtInput').textbox('getValue'));
+            $.test();
+        }
+    </script>
+</body>
+</html>

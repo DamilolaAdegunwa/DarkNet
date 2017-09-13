@@ -1,0 +1,17 @@
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\MVCDemo.Common.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\MVCDemo.Common.pdb
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\HtmlAgilityPack.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\log4net.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\Lucene.Net.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\PanGu.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\PanGu.HighLight.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\PanGu.Lucene.Analyzer.dll
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\HtmlAgilityPack.pdb
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\HtmlAgilityPack.xml
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\log4net.xml
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\Lucene.Net.pdb
+D:\Work\MVCDemo\MVCDemo.Common\bin\Release\Lucene.Net.xml
+D:\Work\MVCDemo\MVCDemo.Common\obj\Release\MVCDemo.Common.csprojResolveAssemblyReference.cache
+D:\Work\MVCDemo\MVCDemo.Common\obj\Release\MVCDemo.Common.dll
+D:\Work\MVCDemo\MVCDemo.Common\obj\Release\MVCDemo.Common.pdb
