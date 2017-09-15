@@ -42,5 +42,9 @@ namespace Dark.Web.Domain.Entity
         /// </summary>
         public bool IsLock { get; set; }
 
+        /// <summary>
+        /// 是否是激活状态
+        /// </summary>
+        public bool IsActive { get; set; }
     }
 }

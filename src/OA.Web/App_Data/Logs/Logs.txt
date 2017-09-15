@@ -4,3 +4,18 @@ DEBUG 2017-09-14 17:05:43,389 [1    ] Dark.Core.Modules.ModuleManager          -
 DEBUG 2017-09-14 17:05:43,389 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
 DEBUG 2017-09-14 17:05:43,389 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
 DEBUG 2017-09-14 17:05:46,177 [5    ] A.Application.ShopMallApp.ShopAppService - 商品展示
+DEBUG 2017-09-15 17:04:05,002 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-15 17:04:05,031 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-15 17:04:05,031 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-15 17:04:05,031 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-15 17:04:05,032 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-15 17:06:37,325 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-15 17:06:37,342 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-15 17:06:37,342 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-15 17:06:37,342 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-15 17:06:37,342 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-15 17:07:17,764 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-15 17:07:17,780 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-15 17:07:17,780 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-15 17:07:17,780 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-15 17:07:17,780 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded

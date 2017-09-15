@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Authorization.Users;
 using Castle.Core.Internal;
+using Dark.Core.Auditing;
 using Dark.Core.DI;
+using Dark.Core.Domain.Repository;
 using Dark.Web.Authorization.Roles;
 using Dark.Web.Authorization.Users;
 using Dark.Web.Domain.Entity;
@@ -14,35 +16,45 @@ using Microsoft.AspNet.Identity;
 
 namespace Dark.Web.Authorization
 {
+
+    public interface ILoginManager
+    {
+        Task<AjaxResult> LoginAsync(LoginModel login);
+    }
+
     public class LoginManager : ITransientDependency
     {
 
         protected IdUserManager UserManager { get; }
         protected IIocManager IocResolver { get; }
         protected IdRoleManager RoleManager { get; }
+        private IClientInfoProvider _clientProvider;
 
-        protected LoginManager(
+        private IRepository<Sys_UserLoginAttempts> _loginAttemptsRepository;
+        public LoginManager(
             IdUserManager userManager,
             IIocManager iocResolver,
-            IdRoleManager roleManager)
+            IdRoleManager roleManager,
+            IClientInfoProvider clientInfoProvider,
+            IRepository<Sys_UserLoginAttempts> loginAttemptsRepository)
         {
 
             IocResolver = iocResolver;
             RoleManager = roleManager;
             UserManager = userManager;
+            _clientProvider = clientInfoProvider;
+            _loginAttemptsRepository = loginAttemptsRepository;
 
         }
 
 
-        //protected virtual async Task<AjaxResult> LoginAsyncInternal(LoginView login)
-        //{
-        //    return await CreateLoginResultAsync(login);
-        //}
-
-        public virtual async Task<AjaxResult> LoginAsync(string account, string plainPassword, bool isRemember = false)
+        public virtual async Task<AjaxResult> LoginAsync(LoginModel login)
         {
-            var result = await LoginAsyncInternal(account, plainPassword, isRemember);
-            await SaveLoginAttempt(result, account);
+            //1:登陆
+            var result = await LoginAsyncInternal(login.Account, login.Password, login.Remember);
+            //2:记录登陆尝试
+            await SaveLoginAttempt(result, login.Account);
+            //2:返回登陆结果
             return result;
         }
 
@@ -60,45 +72,104 @@ namespace Dark.Web.Authorization
 
             //Get and check tenant
 
-            using (UnitOfWorkManager.Current.SetTenantId(tenantId))
+            //TryLoginFromExternalAuthenticationSources method may create the user, that's why we are calling it before AbpStore.FindByNameOrEmailAsync
+            //var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(account, plainPassword);
+
+
+            var idUser = await UserManager.FindByNameAsync(account);
+            //检查人员是否存在
+            if (idUser == null)
             {
-                //TryLoginFromExternalAuthenticationSources method may create the user, that's why we are calling it before AbpStore.FindByNameOrEmailAsync
-                //var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(userNameOrEmailAddress, plainPassword, tenant);
-
-
-                var idUser = await UserManager.FindByNameAsync(account);
-                if (idUser == null)
-                {
-                    return AjaxResult.Fail(LoginPrompt.AccountNotExisit);
-                }
-
-                if (!loggedInFromExternalSource)
-                {
-                    UserManager.InitializeLockoutSettings(tenantId);
-
-                    if (await UserManager.IsLockedOutAsync(user.Id))
-                    {
-                        return new AbpLoginResult<TTenant, TUser>(AbpLoginResultType.LockedOut, tenant, user);
-                    }
-
-                    var verificationResult = UserManager.PasswordHasher.VerifyHashedPassword(user.Password, plainPassword);
-                    if (verificationResult == PasswordVerificationResult.Failed)
-                    {
-                        return await GetFailedPasswordValidationAsLoginResultAsync(user, tenant, shouldLockout);
-                    }
-
-                    if (verificationResult == PasswordVerificationResult.SuccessRehashNeeded)
-                    {
-                        return await GetSuccessRehashNeededAsLoginResultAsync(user, tenant);
-                    }
-
-                    await UserManager.ResetAccessFailedCountAsync(user.Id);
-                }
-
-                return await CreateLoginResultAsync(user, tenant);
+                return AjaxResult.Fail(LoginPrompt.AccountNotExisit);
             }
+            //检查密码是否正常
+            if (idUser.Password != plainPassword)
+            {
+                return AjaxResult.Fail(LoginPrompt.PwdError);
+            }
+
+            return await CreateLoginResultAsync(idUser);
         }
 
+
+        protected virtual async Task<AjaxResult> CreateLoginResultAsync(IdUser user)
+        {
+            if (!user.IsActive)
+            {
+                return AjaxResult.Fail(LoginPrompt.DisableAccount);
+            }
+
+            user.LastTime = DateTime.Now;
+
+            await UserManager.UpdateAsync(user);
+
+            return AjaxResult.Ok(
+                LoginPrompt.LoginSuccess,
+                await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie)
+            );
+        }
+
+        /// <summary>
+        /// 检查是否是第三方登陆
+        /// </summary>
+        /// <param name="userNameOrEmailAddress"></param>
+        /// <param name="plainPassword"></param>
+        /// <returns></returns>
+        //protected virtual async Task<bool> TryLoginFromExternalAuthenticationSources(string account, string plainPassword)
+        //{
+        //    if (!UserManagementConfig.ExternalAuthenticationSources.Any())
+        //    {
+        //        return false;
+        //    }
+
+        //    foreach (var sourceType in UserManagementConfig.ExternalAuthenticationSources)
+        //    {
+        //        using (var source = IocResolver.ResolveAsDisposable<IExternalAuthenticationSource<TTenant, TUser>>(sourceType))
+        //        {
+        //            if (await source.Object.TryAuthenticateAsync(userNameOrEmailAddress, plainPassword, tenant))
+        //            {
+        //                var tenantId = tenant == null ? (int?)null : tenant.Id;
+        //                using (UnitOfWorkManager.Current.SetTenantId(tenantId))
+        //                {
+        //                    var user = await UserManager.AbpStore.FindByNameOrEmailAsync(tenantId, userNameOrEmailAddress);
+        //                    if (user == null)
+        //                    {
+        //                        user = await source.Object.CreateUserAsync(userNameOrEmailAddress, tenant);
+
+        //                        user.TenantId = tenantId;
+        //                        user.AuthenticationSource = source.Object.Name;
+        //                        user.Password = UserManager.PasswordHasher.HashPassword(Guid.NewGuid().ToString("N").Left(16)); //Setting a random password since it will not be used
+
+        //                        if (user.Roles == null)
+        //                        {
+        //                            user.Roles = new List<UserRole>();
+        //                            foreach (var defaultRole in RoleManager.Roles.Where(r => r.TenantId == tenantId && r.IsDefault).ToList())
+        //                            {
+        //                                user.Roles.Add(new UserRole(tenantId, user.Id, defaultRole.Id));
+        //                            }
+        //                        }
+
+        //                        await UserManager.AbpStore.CreateAsync(user);
+        //                    }
+        //                    else
+        //                    {
+        //                        await source.Object.UpdateUserAsync(user, tenant);
+
+        //                        user.AuthenticationSource = source.Object.Name;
+
+        //                        await UserManager.AbpStore.UpdateAsync(user);
+        //                    }
+
+        //                    await UnitOfWorkManager.Current.SaveChangesAsync();
+
+        //                    return true;
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    return false;
+        //}
         /// <summary>
         /// 登陆尝试
         /// </summary>
@@ -108,26 +179,20 @@ namespace Dark.Web.Authorization
         /// <returns></returns>
         protected virtual async Task SaveLoginAttempt(AjaxResult loginResult, string account)
         {
-            using (var uow = UnitOfWorkManager.Begin(TransactionScopeOption.Suppress))
+            var loginAttempt = new Sys_UserLoginAttempts
             {
-                var loginAttempt = new Sys_UserLoginAttempts
-                {
 
-                    UserId = (loginResult.Data as IdUser)?.Id,
-                    Account = account,
+                UserId = (loginResult.Data as IdUser)?.Id,
+                Account = account,
 
-                    Result = loginResult.PromptMsg,
+                Result = loginResult.PromptMsg,
 
-                    BrowserInfo = ClientInfoProvider.BrowserInfo,
-                    ClientIpAddress = ClientInfoProvider.ClientIpAddress,
-                    ClientName = ClientInfoProvider.ComputerName,
-                };
+                ClientInfo = _clientProvider.ClientInfo,
+                ClientIp = _clientProvider.ClientIpAddress,
+                ClientName = _clientProvider.ClientName,
+            };
 
-                await UserLoginAttemptRepository.InsertAsync(loginAttempt);
-                await UnitOfWorkManager.Current.SaveChangesAsync();
-
-                await uow.CompleteAsync();
-            }
+            await _loginAttemptsRepository.InsertAsync(loginAttempt);
         }
 
         //protected virtual async Task<AbpLoginResult<TTenant, TUser>> GetFailedPasswordValidationAsLoginResultAsync(TUser user, TTenant tenant = null, bool shouldLockout = false)

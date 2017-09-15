@@ -2,17 +2,30 @@
 using System;
 using System.Text;
 using System.Web.Mvc;
+using Dark.Core.Runtime.Session;
 using Dark.Web.Extensions;
+using Dark.Web.Models;
 
 namespace Dark.Web.Controllers
 {
 
     public class BaseController : Controller
     {
+
+        private IBaseSession BaseSession { get; set; }
+        public BaseController()
+        {
+            BaseSession = NullSession.Instance;
+        }
         //1:JSON重写,日期格式重置
         //2:Logger注入
         //3:权限检查
         //4:DTO规则验证
+
+        protected JsonResult RedirectAjaxData(AjaxResult reuslt)
+        {
+            return ToJSON(reuslt);
+        }
 
         #region 1.0 Json重构
         /// <summary>

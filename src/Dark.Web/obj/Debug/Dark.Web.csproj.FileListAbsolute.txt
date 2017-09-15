@@ -82,3 +82,5 @@ D:\sutdy\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.csprojResolveAssemblyRef
 D:\sutdy\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.csproj.CoreCompileInputs.cache
 D:\sutdy\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.dll
 D:\sutdy\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.pdb
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.AspNet.Identity.Core.xml

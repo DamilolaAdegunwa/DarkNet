@@ -202,3 +202,5 @@ D:\sutdy\github\DarkNet\src\OA.Web\bin\zh-Hans\System.Web.Webpages.Deployment.re
 D:\sutdy\github\DarkNet\src\OA.Web\bin\zh-Hans\System.Web.Webpages.Razor.resources.dll
 D:\sutdy\github\DarkNet\src\OA.Web\bin\zh-Hans\System.Web.Helpers.resources.dll
 D:\sutdy\github\DarkNet\src\OA.Web\bin\zh-Hans\System.Web.Mvc.resources.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\Microsoft.AspNet.Identity.Core.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\Microsoft.AspNet.Identity.Core.xml
