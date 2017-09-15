@@ -1,4 +1,5 @@
 ﻿using Castle.Core.Logging;
+using Dark.Core.Configuration;
 using Dark.Core.DI;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace Dark.Core.Modules
         /// 日志
         /// </summary>
         protected ILogger Logger { get; set; }
+
+        protected internal IBaseConfiguration Configuration { get; internal set; }
 
 
         public BaseModule(IIocManager iocManager)

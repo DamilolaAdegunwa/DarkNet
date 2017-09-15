@@ -1,5 +1,4 @@
-﻿using Dark.Core.Application.Permission;
-using Dark.Core.DI;
+﻿using Dark.Core.DI;
 using Dark.Core.Extension;
 using Dark.Core.Runtime.Session;
 using System;
@@ -12,23 +11,27 @@ using System.Threading.Tasks;
 namespace Dark.Core.Authorization
 {
 
+    #region 1.0 授权的帮助接口 IAuthorizeHelper
     public interface IAuthorizeHelper
     {
         Task AuthorizeAsync(MethodInfo method, Type type);
         Task AuthorizeAsync(IEnumerable<IBaseAuthorizeAttribute> attributes);
     }
+    #endregion
 
 
+    #region 2.0 授权的具体实现 AuthorizeHelper
     public class AuthorizeHelper : IAuthorizeHelper, ITransientDependency
     {
 
-        private IPermissionChecker _permissionChecker;
+        protected IPermissionChecker PermissionChecker { get; set; }
 
-        private IBaseSession Session { get; set; }
+        protected IBaseSession Session { get; set; }
 
-        public AuthorizeHelper(IPermissionChecker permissionChecker, IBaseSession baseSession)
+        public AuthorizeHelper()
         {
-            _permissionChecker = permissionChecker;
+            Session = NullSession.Instance;
+            PermissionChecker = NullPermissionChecker.Instance;
         }
 
         /// <summary>
@@ -45,15 +48,7 @@ namespace Dark.Core.Authorization
             {
                 return;
             }
-
-
-            //2.检查session 是否有用户登陆记录,如果用户未登陆,那么直接异常
-            if (!Session.UserId.HasValue)
-            {
-                throw new Exception("人员未登陆");
-            }
-
-
+         
             //3.检查该方法是否有BaseAuthorizeAttribute特性
             var authorizes = GetAttributes<BaseAuthorizeAttribute>(method, type);
             //3.1 如果没有授权的话,那么也直接返回
@@ -63,18 +58,19 @@ namespace Dark.Core.Authorization
             }
 
             //4. 存在的话,那么就校验权限是否符合
-
             await AuthorizeAsync(authorizes);
         }
 
         public async Task AuthorizeAsync(IEnumerable<IBaseAuthorizeAttribute> authorizeAttributes)
         {
 
+            //2.检查session 是否有用户登陆记录,如果用户未登陆,那么直接异常
             if (!Session.UserId.HasValue)
             {
-                throw new Exception("人员未登陆");
+                throw new Exception($"UserId={Session.UserId}:未授权");
             }
-            bool isGrant = false;;
+
+            bool isGrant = false; ;
             //检查特性是否有授权
             foreach (var authorizeAttribute in authorizeAttributes)
             {
@@ -84,7 +80,7 @@ namespace Dark.Core.Authorization
                 }
                 foreach (var pName in authorizeAttribute.Permissions)
                 {
-                    if( await _permissionChecker.IsGrantAsync(pName))
+                    if (await PermissionChecker.IsGrantedAsync(pName))
                     {
                         isGrant = true;
                         break;
@@ -103,18 +99,15 @@ namespace Dark.Core.Authorization
         }
 
 
-
-
         private IEnumerable<T> GetAttributes<T>(MethodInfo method, Type type) where T : Attribute
         {
-            return
-                method.GetCustomAttributes<T>().Union(type.GetCustomAttributes<T>());
+            return method.GetCustomAttributes<T>().Union(type.GetCustomAttributes<T>());
         }
-
 
     }
 
 
+    #endregion
 
 
 }

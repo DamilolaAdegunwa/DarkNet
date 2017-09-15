@@ -1,6 +1,7 @@
 ﻿using Dark.Core.Modules;
 using Dark.Web;
 using OA.Application;
+using OA.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ using System.Web.Routing;
 
 namespace OA.Web
 {
-    [DependOn(typeof(OAApplicationModule), 
+    [DependOn(typeof(OACoreModule), 
+              typeof(OAApplicationModule), 
               typeof(MvcModule))]
     public class OAWebModule : BaseModule
     {
@@ -22,7 +24,7 @@ namespace OA.Web
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
 
         }
     }

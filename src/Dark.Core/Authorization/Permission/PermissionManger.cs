@@ -36,25 +36,77 @@ namespace Dark.Core.Authorization
     }
 
 
-    public class PermissionManager : PermissionDefineContext, IPermissionManager, ITransientDependency
+    public class PermissionManager : PermissionDefineContextBase, IPermissionManager, ISingletonDependency
     {
         private IIocManager _iocManager;
         private IAuthorizationConfiguration _authConfig;
 
-        public PermissionManager(IIocManager iocManager,IAuthorizationConfiguration authorizationConfiguration)
+        public PermissionManager(IIocManager iocManager, IAuthorizationConfiguration authorizationConfiguration)
         {
             _authConfig = authorizationConfiguration;
             _iocManager = iocManager;
         }
 
-        public IReadOnlyList<Permission> GetAllPermissions()
+
+        public void Initialize()
         {
+
+            //1.向字典Permissions中添加数据
             _authConfig.Providers.ForEach(u =>
             {
                 u.SetPermissions(this);
             });
-
             
+
+            AddAllToPermission();
+        }
+
+        private void AddAllToPermission()
+        {
+            //2:向权限字典集合中添加权限数据
+            var initPList = new List<Permission>();
+
+            Permissions.Select(u => u.Value).ToList().ForEach(p =>
+            {
+                if (!initPList.Contains(p))
+                {
+                    initPList.Add(p);
+                }
+                initPList.AddRange(GetRecursivePList(p));
+            });
+
+            foreach (var item in initPList)
+            {
+                if (!Permissions.ContainsKey(item.Name))
+                {
+                    Permissions[item.Name] = item;
+                }
+            }
+        }
+
+        public IReadOnlyList<Permission> GetAllPermissions()
+        {
+            return Permissions.Select(u => u.Value).ToList();
+        }
+
+        /// <summary>
+        /// 获取权限的集合 递归查找集合
+        /// </summary>
+        /// <param name="pList"></param>
+        /// <returns></returns>
+        private List<Permission> GetRecursivePList(Permission permission)
+        {
+            List<Permission> pList = new List<Permission>();
+            permission.Children.ForEach(p =>
+            {
+                if (!pList.Contains(p))
+                {
+                    pList.Add(p);
+                }
+                pList.AddRange(GetRecursivePList(p));
+            });
+
+            return pList;
         }
 
         public Permission GetPermission(string name)

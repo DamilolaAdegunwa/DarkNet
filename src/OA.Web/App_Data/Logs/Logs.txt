@@ -1,29 +1,6 @@
-DEBUG 2017-09-11 13:21:02,472 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule, OA.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:21:02,485 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule, Dark.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:21:02,485 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule, Dark.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:22:32,096 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule, OA.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:22:32,121 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule, OA.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:22:32,122 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule, Dark.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:22:32,122 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule, Dark.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:35:28,784 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule, OA.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:35:28,809 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule, OA.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:35:28,809 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule, Dark.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:35:28,809 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule, Dark.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 13:36:03,013 [5    ] A.Application.ShopMallApp.ShopAppService - 商品展示
-DEBUG 2017-09-11 17:15:34,796 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule, OA.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 17:15:34,813 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule, OA.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 17:15:34,813 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule, Dark.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 17:15:34,814 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule, Dark.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-11 17:15:39,227 [5    ] A.Application.ShopMallApp.ShopAppService - 商品展示
-DEBUG 2017-09-12 14:51:33,527 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule, OA.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-12 14:51:33,548 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule, OA.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-12 14:51:33,549 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule, Dark.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-12 14:51:33,549 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule, Dark.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null is loaded
-DEBUG 2017-09-12 14:51:34,343 [5    ] A.Application.ShopMallApp.ShopAppService - 商品展示
-DEBUG 2017-09-12 15:33:01,374 [6    ] Dark.Core.Log.Logger                     - 商品展示
-DEBUG 2017-09-12 15:35:17,307 [6    ]                                          - 商品展示
-DEBUG 2017-09-12 15:43:01,465 [17   ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
-DEBUG 2017-09-12 15:43:01,480 [17   ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
-DEBUG 2017-09-12 15:43:01,480 [17   ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
-DEBUG 2017-09-12 15:43:01,480 [17   ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
-DEBUG 2017-09-12 15:43:02,167 [7    ] A.Application.ShopMallApp.ShopAppService - 商品展示
+DEBUG 2017-09-14 17:05:43,376 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-14 17:05:43,388 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-14 17:05:43,389 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-14 17:05:43,389 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-14 17:05:43,389 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-14 17:05:46,177 [5    ] A.Application.ShopMallApp.ShopAppService - 商品展示

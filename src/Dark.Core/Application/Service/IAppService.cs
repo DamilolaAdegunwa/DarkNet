@@ -1,5 +1,5 @@
 ﻿using Castle.Core.Logging;
-using Dark.Core.Application.Permission;
+using Dark.Core.Authorization;
 using Dark.Core.DI;
 using Dark.Core.Log;
 using System;

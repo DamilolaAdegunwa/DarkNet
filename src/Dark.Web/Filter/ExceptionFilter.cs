@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Dark.Core.DI;
 
 namespace Dark.Web.Filter
 {
-    public class ExceptionFilter : HandleErrorAttribute
+    public class ExceptionFilter : HandleErrorAttribute,ITransientDependency
     {
 
         private ILogger _logger;

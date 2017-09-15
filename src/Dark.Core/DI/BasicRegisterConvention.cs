@@ -30,7 +30,7 @@ namespace Dark.Core.DI
                .If(type => !type.GetTypeInfo().IsGenericTypeDefinition)
                .WithService.Self()
                .WithService.DefaultInterfaces()
-               .LifestyleTransient());
+               .LifestyleSingleton());
         }
     }
 }

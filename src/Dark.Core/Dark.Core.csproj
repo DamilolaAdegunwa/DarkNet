@@ -70,15 +70,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorization\Permission\Permission.cs" />
-    <Compile Include="Authorization\Permission\PermissionContext.cs" />
+    <Compile Include="Authorization\Permission\PermissionDefineContextBase.cs" />
     <Compile Include="Authorization\Permission\AuthorizationProvider.cs" />
-    <Compile Include="Authorization\Authorize\PermissionChecker.cs" />
+    <Compile Include="Authorization\Permission\PermissionChecker.cs" />
     <Compile Include="Application\Service\Dto\PageDto.cs" />
     <Compile Include="Application\Service\Dto\PageListDto.cs" />
     <Compile Include="Authorization\Authorize\AuthorizeHelper.cs" />
     <Compile Include="Authorization\Authorize\BaseAuthorizeAttribute.cs" />
     <Compile Include="Authorization\Authorize\SkipAttribute.cs" />
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="Configuration\BaseConfiguration.cs" />
     <Compile Include="Configuration\Startup\AuthorizationConfiguration.cs" />
     <Compile Include="CoreModule.cs" />
     <Compile Include="DI\BasicRegisterConvention.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Domain\Entity\FullEntity.cs" />
     <Compile Include="Domain\Entity\IHasDelete.cs" />
     <Compile Include="Domain\Entity\IHasModify.cs" />
+    <Compile Include="Domain\Service\IDomainService.cs" />
     <Compile Include="Extension\CollectionExtensions.cs" />
     <Compile Include="Extension\DictionaryExtensions.cs" />
     <Compile Include="Extension\PropertyInfoExtend.cs" />
@@ -109,7 +111,6 @@
     <Compile Include="Application\Navigation\MenuItem.cs" />
     <Compile Include="Application\Navigation\Menu.cs" />
     <Compile Include="Modules\DependOnAttribute.cs" />
-    <Compile Include="Modules\IModuleManager.cs" />
     <Compile Include="Modules\ModuleInfo.cs" />
     <Compile Include="Modules\ModuleManager.cs" />
     <Compile Include="Runtime\Cache\ICacheManager.cs" />
@@ -117,6 +118,9 @@
     <Compile Include="Authorization\Permission\PermissionManger.cs" />
     <Compile Include="Runtime\Session\BaseSession.cs" />
     <Compile Include="Domain\Uow\UowIntercept.cs" />
+    <Compile Include="Runtime\Session\ClaimsSession.cs" />
+    <Compile Include="Runtime\Session\DefaultPrincipalAccessor.cs" />
+    <Compile Include="Runtime\Session\NullSession.cs" />
     <Compile Include="Runtime\Validation\ValidationIntercept.cs" />
     <Compile Include="Utils\ChineseTool.cs" />
     <Compile Include="Utils\EmailTool.cs" />
@@ -138,7 +142,7 @@
     <Compile Include="Domain\Repository\DbHelper.cs" />
     <Compile Include="Domain\Repository\IDbHelper.cs" />
     <Compile Include="Domain\Repository\IRepository.cs" />
-    <Compile Include="Domain\Repository\Repository.cs" />
+    <Compile Include="Domain\Repository\AbsRepository.cs" />
     <Compile Include="Security\DesEncrypt.cs" />
     <Compile Include="Security\MD5Encrypt.cs" />
     <Compile Include="Security\RsaEncrypt.cs" />
@@ -155,7 +159,6 @@
     <Folder Include="Attributes\" />
     <Folder Include="Domain\Entity\Caching\" />
     <Folder Include="Domain\Event\" />
-    <Folder Include="Domain\Service\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

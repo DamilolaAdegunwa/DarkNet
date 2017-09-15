@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Dark.Web.Authorization;
 
 namespace Dark.Web
 {
@@ -31,6 +32,7 @@ namespace Dark.Web
         public override void PostInitialize()
         {
             GlobalFilters.Filters.Add(IocManager.Resolve<AuthorizeFilter>());
+            GlobalFilters.Filters.Add(IocManager.Resolve<ExceptionFilter>());
             //GlobalFilters.Filters.Add(new )
         }
     }

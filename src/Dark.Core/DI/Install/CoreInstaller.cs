@@ -8,8 +8,9 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Dark.Core.Modules;
 using Dark.Core.Application.Service;
-using Dark.Core.Application.Permission;
 using Dark.Core.Log;
+using Dark.Core.Configuration.Startup;
+using Dark.Core.Configuration;
 
 namespace Dark.Core.DI.Install
 {
@@ -19,7 +20,8 @@ namespace Dark.Core.DI.Install
         {
             container.Register(
                 Component.For<IModuleManager, ModuleManager>().ImplementedBy<ModuleManager>().LifestyleSingleton(),
-                Component.For<IPermissionManager, PermissionManager>().ImplementedBy<PermissionManager>().LifestyleSingleton()
+                Component.For<IBaseConfiguration, BaseConfiguration>().ImplementedBy<BaseConfiguration>().LifestyleSingleton(),
+                Component.For<IAuthorizationConfiguration, AuthorizationConfiguration>().ImplementedBy<AuthorizationConfiguration>().LifestyleSingleton()
             );
         }
     }

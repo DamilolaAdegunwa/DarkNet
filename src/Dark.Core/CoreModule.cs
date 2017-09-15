@@ -1,4 +1,5 @@
-﻿using Dark.Core.DI;
+﻿using Dark.Core.Authorization;
+using Dark.Core.DI;
 using Dark.Core.Modules;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace Dark.Core
         public override void Initialize()
         {
             IocManager.RegisterConvention(typeof(CoreModule).Assembly);
+        }
+
+        public override void PostInitialize()
+        {
+            IocManager.Resolve<PermissionManager>().Initialize();
         }
     }
 }

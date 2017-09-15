@@ -6,9 +6,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.Configuration;
 
 namespace Dark.Core.Modules
 {
+
+    #region 1.0 接口 IModuleManager
+    public interface IModuleManager
+    {
+        ModuleInfo StartModule { get; }
+
+        void Initialize(Type startType);
+
+        void StartModules();
+
+        void Shutdown();
+    }
+    #endregion
+
+    #region 2.0 具体实现
     public class ModuleManager : IModuleManager
     {
 
@@ -104,6 +120,7 @@ namespace Dark.Core.Modules
                 if (instance != null)
                 {
                     instance.IocManager = _iocManager;
+                    instance.Configuration = _iocManager.Resolve<IBaseConfiguration>();
                     //3:初始化模块
                     ModuleInfo moduleInfo = new ModuleInfo(type, instance);
                     
@@ -176,5 +193,6 @@ namespace Dark.Core.Modules
             modules.Add(startModule);
             return modules;
         }
-    }
+    } 
+    #endregion
 }

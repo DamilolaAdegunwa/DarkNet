@@ -1,6 +1,7 @@
 ﻿using Castle.Core.Logging;
 using Castle.MicroKernel.Registration;
 using Dark.Core.Application.Service;
+using Dark.Core.Configuration;
 using Dark.Core.DI;
 using Dark.Core.DI.Install;
 using Dark.Core.Modules;
@@ -101,10 +102,12 @@ namespace Dark.Core
                 //3:注册核心组件
                 IocManager.IocContainer.Install(new CoreInstaller());
 
+                IocManager.Resolve<BaseConfiguration>().Initialize();
 
                 _moduleManger = IocManager.Resolve<ModuleManager>();
                 //4:初始化module
                 _moduleManger.Initialize(StartType);
+
                 //5:执行所有模块注册
                 _moduleManger.StartModules();
 

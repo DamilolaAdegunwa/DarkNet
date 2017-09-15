@@ -15,5 +15,10 @@ namespace Dark.Core.Configuration.Startup
     public class AuthorizationConfiguration : IAuthorizationConfiguration
     {
         public List<AuthorizationProvider> Providers { get; }
+
+        public AuthorizationConfiguration()
+        {
+            Providers = new List<AuthorizationProvider>();
+        }
     }
 }

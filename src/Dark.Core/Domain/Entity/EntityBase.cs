@@ -15,7 +15,7 @@ namespace Dark.Core.Domain.Entity
         /// <summary>
         /// 创建人
         /// </summary>
-        public long Creator { get; set; }
+        public int Creator { get; set; }
 
         /// <summary>
         /// 创建日期
@@ -23,12 +23,42 @@ namespace Dark.Core.Domain.Entity
         public DateTime CreateTime { get; set; }
     }
 
+
     /// <summary>
     /// 默认的Id是 int 类型 
     /// </summary>
-    public class Entity : IEntity<long>
+    public class Entity : Entity<int>
     {
-        public long Id { get; set; }
+
+    }
+
+    public abstract class Entity<T> : IEntity<T>
+    {
+        public virtual T Id { get; set; }
+        /// <summary>
+        /// 用于建从Id 键是否存在
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsTransient()
+        {
+            if (EqualityComparer<T>.Default.Equals(Id, default(T)))
+            {
+                return true;
+            }
+
+            //Workaround for EF Core since it sets int/long to min value when attaching to dbcontext
+            if (typeof(T) == typeof(int))
+            {
+                return Convert.ToInt32(Id) <= 0;
+            }
+
+            if (typeof(T) == typeof(long))
+            {
+                return Convert.ToInt64(Id) <= 0;
+            }
+
+            return false;
+        }
     }
 
     /// <summary>

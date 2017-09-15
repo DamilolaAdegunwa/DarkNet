@@ -11,7 +11,9 @@ namespace OA.Application.ShopMallApp
     {
         public void Show()
         {
-            PermissionManager.IsGrant();
+
+            var pList = PermissionManager.GetAllPermissions();
+
             Logger.Debug("商品展示");
         }
     }
