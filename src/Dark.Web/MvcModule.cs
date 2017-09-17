@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Dark.Web.Authorization;
+using Dark.Core.Auditing;
+using Dark.Web.Auditing;
 
 namespace Dark.Web
 {
@@ -19,6 +21,10 @@ namespace Dark.Web
         public override void PreInitialize()
         {
             IocManager.AddRegisterConvention(new MvcRegisterConvention());
+            //自定义
+            IocManager.Register<IClientInfoProvider, WebClientInfoProvider>(Core.DI.DependencyLife.Transient);
+
+
         }
 
         public override void Initialize()

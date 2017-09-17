@@ -80,9 +80,11 @@
     <Compile Include="Authorization\Authorize\BaseAuthorizeAttribute.cs" />
     <Compile Include="Authorization\Authorize\SkipAttribute.cs" />
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="Configuration\BaseConfiguration.cs" />
     <Compile Include="Configuration\Startup\AuthorizationConfiguration.cs" />
     <Compile Include="CoreModule.cs" />
+    <Compile Include="DisposeAction.cs" />
     <Compile Include="DI\BasicRegisterConvention.cs" />
     <Compile Include="DI\DependencyLife.cs" />
     <Compile Include="DI\Install\CoreInstaller.cs" />
@@ -100,8 +102,21 @@
     <Compile Include="Domain\Entity\IHasDelete.cs" />
     <Compile Include="Domain\Entity\IHasModify.cs" />
     <Compile Include="Domain\Service\IDomainService.cs" />
+    <Compile Include="Domain\Uow\CurrentUnitOfWorkProvider.cs" />
+    <Compile Include="Domain\Uow\DataFilterConfiguration.cs" />
+    <Compile Include="Domain\Uow\DefaultConnectionStringResolver.cs" />
+    <Compile Include="Domain\Uow\IActiveUnitOfWork.cs" />
+    <Compile Include="Domain\Uow\InnerUnitOfWorkCompleteHandle.cs" />
+    <Compile Include="Domain\Uow\IUnitOfWorkFilterExecuter.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkAttribute.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkDefaultOptions.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkFailedEventArgs.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkHelper.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkManager.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkOptions.cs" />
     <Compile Include="Extension\CollectionExtensions.cs" />
     <Compile Include="Extension\DictionaryExtensions.cs" />
+    <Compile Include="Extension\EventHandlerExtensions.cs" />
     <Compile Include="Extension\PropertyInfoExtend.cs" />
     <Compile Include="Extension\TypeExtension.cs" />
     <Compile Include="Log\Log4NetFactory.cs" />
@@ -118,7 +133,7 @@
     <Compile Include="Runtime\Cache\RuntimeCache.cs" />
     <Compile Include="Authorization\Permission\PermissionManger.cs" />
     <Compile Include="Runtime\Session\BaseSession.cs" />
-    <Compile Include="Domain\Uow\UowIntercept.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkInterceptor.cs" />
     <Compile Include="Runtime\Session\ClaimsSession.cs" />
     <Compile Include="Runtime\Session\DefaultPrincipalAccessor.cs" />
     <Compile Include="Runtime\Session\NullSession.cs" />
@@ -152,8 +167,8 @@
     <Compile Include="Serializer\XmlHelper.cs" />
     <Compile Include="Application\Service\AppService.cs" />
     <Compile Include="Application\Service\IAppService.cs" />
-    <Compile Include="Domain\Uow\IUnitWork.cs" />
-    <Compile Include="Domain\Uow\UnitWork.cs" />
+    <Compile Include="Domain\Uow\IUnitOfWork.cs" />
+    <Compile Include="Domain\Uow\UnitOfWorkBase.cs" />
     <Compile Include="Domain\Uow\UnitWorkAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

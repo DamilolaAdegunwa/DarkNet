@@ -15,6 +15,8 @@ namespace Dark.Core.Configuration
     public interface IBaseConfiguration
     {
         IAuthorizationConfiguration AuthConfig { get; }
+
+        string DefaultNameOrConnectionString { get; set; }
     }
 
     #endregion
@@ -29,6 +31,8 @@ namespace Dark.Core.Configuration
         public IAuthorizationConfiguration AuthConfig { get; set; }
 
         private IIocManager _iocManager;
+
+        public string DefaultNameOrConnectionString { get; set; }
 
         public BaseConfiguration(IIocManager iocManager)
         {

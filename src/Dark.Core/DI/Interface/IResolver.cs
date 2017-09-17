@@ -25,5 +25,7 @@ namespace Dark.Core.DI
         /// <param name="implName"></param>
         /// <returns></returns>
         TInter Resolve<TInter>(string implName);
+
+        void Release(object obj);
     }
 }

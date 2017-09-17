@@ -19,7 +19,7 @@ namespace Dark.Core.DI
         IWindsorContainer IocContainer { get; }
 
 
-        void Release(object obj);
+       
 
         void Dispose();
 

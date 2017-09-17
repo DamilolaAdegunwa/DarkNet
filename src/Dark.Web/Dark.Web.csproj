@@ -120,6 +120,7 @@
     <Compile Include="Runtime\Session\HttpContextPrincipalAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Domain\Reposities\" />
     <Folder Include="Html\" />
   </ItemGroup>
   <ItemGroup>

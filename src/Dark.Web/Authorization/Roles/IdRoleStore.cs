@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.DI;
 using Dark.Core.Domain.Repository;
 using Dark.Web.Domain.Entity;
 using Microsoft.AspNet.Identity;
 
 namespace Dark.Web.Authorization.Roles
 {
-    public class IdRoleStore : IRoleStore<IdRole, int>
+    public class IdRoleStore : IRoleStore<IdRole, int>, ITransientDependency
     {
         private IRepository<Sys_Role> _roleRepository;
 

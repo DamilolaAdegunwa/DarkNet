@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Authorization.Users;
+using Dark.Core.DI;
 using Dark.Core.Domain.Repository;
 using Dark.Web.Domain.Entity;
 using Microsoft.AspNet.Identity;
@@ -11,7 +12,7 @@ using Microsoft.AspNet.Identity;
 namespace Dark.Web.Authorization.Users
 {
     public class IdUserStore : IUserStore<IdUser, int>,
-        IUserPasswordStore<IdUser,int>
+        IUserPasswordStore<IdUser,int>,ITransientDependency
     {
         private IRepository<Sys_Account> _accountRepository;
         
