@@ -21,7 +21,7 @@ namespace Dark.EntityFramework.Repositories
     /// <typeparam name="TEntity">Type of the Entity for this repository</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key of the entity</typeparam>
     public class EfRepositoryBase<TDbContext, TEntity, TPrimaryKey> : AbsRepository<TEntity, TPrimaryKey>, IRepositoryWithDbContext
-        where TEntity : Entity<TPrimaryKey>
+        where TEntity :  Entity<TPrimaryKey>
         where TDbContext : DbContext
     {
         /// <summary>
@@ -38,10 +38,9 @@ namespace Dark.EntityFramework.Repositories
         {
             get
             {
-                return (DbTransaction)TransactionProvider?.GetActiveTransaction(new ActiveTransactionProviderArgs
+                return (DbTransaction)TransactionProvider?.GetActiveTransaction(new Dictionary<string, object>
                 {
-                    {"ContextType", typeof(TDbContext) },
-                    {"MultiTenancySide", MultiTenancySide }
+                    {"ContextType", typeof(TDbContext) }
                 });
             }
         }

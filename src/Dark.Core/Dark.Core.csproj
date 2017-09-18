@@ -101,11 +101,12 @@
     <Compile Include="Domain\Entity\FullEntity.cs" />
     <Compile Include="Domain\Entity\IHasDelete.cs" />
     <Compile Include="Domain\Entity\IHasModify.cs" />
+    <Compile Include="Domain\Event\IEventBus.cs" />
+    <Compile Include="Domain\Event\NullEventBus.cs" />
     <Compile Include="Domain\Service\IDomainService.cs" />
     <Compile Include="Domain\Uow\CurrentUnitOfWorkProvider.cs" />
     <Compile Include="Domain\Uow\DataFilterConfiguration.cs" />
     <Compile Include="Domain\Uow\DefaultConnectionStringResolver.cs" />
-    <Compile Include="Domain\Uow\IActiveUnitOfWork.cs" />
     <Compile Include="Domain\Uow\InnerUnitOfWorkCompleteHandle.cs" />
     <Compile Include="Domain\Uow\IUnitOfWorkFilterExecuter.cs" />
     <Compile Include="Domain\Uow\UnitOfWorkAttribute.cs" />
@@ -175,7 +176,6 @@
   <ItemGroup>
     <Folder Include="Attributes\" />
     <Folder Include="Domain\Entity\Caching\" />
-    <Folder Include="Domain\Event\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

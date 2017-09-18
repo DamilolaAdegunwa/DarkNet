@@ -10,11 +10,13 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using OA.EntityFramework;
 
 namespace OA.Web
 {
     [DependOn(typeof(OACoreModule), 
-              typeof(OAApplicationModule), 
+              typeof(OAApplicationModule),
+              typeof(OAEntityFrameworkModule),
               typeof(MvcModule))]
     public class OAWebModule : BaseModule
     {

@@ -309,3 +309,15 @@ E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.csprojResolveAssemblyReference.cac
 E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.csproj.CoreCompileInputs.cache
 E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.dll
 E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.pdb
+E:\github\DarkNet\src\OA.Web\bin\EntityFramework.dll
+E:\github\DarkNet\src\OA.Web\bin\EntityFramework.SqlServer.dll
+E:\github\DarkNet\src\OA.Web\bin\OA.EntityFramework.dll
+E:\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.dll
+E:\github\DarkNet\src\OA.Web\bin\OA.EntityFramework.pdb
+E:\github\DarkNet\src\OA.Web\bin\OA.EntityFramework.dll.config
+E:\github\DarkNet\src\OA.Web\bin\EntityFramework.xml
+E:\github\DarkNet\src\OA.Web\bin\EntityFramework.SqlServer.xml
+E:\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.pdb
+E:\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.dll.config
+E:\github\DarkNet\src\OA.Web\bin\zh-Hans\EntityFramework.resources.dll
+E:\github\DarkNet\src\OA.Web\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
