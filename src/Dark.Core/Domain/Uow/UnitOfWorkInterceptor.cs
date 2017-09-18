@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.Extension;
+using Dark.Core.Thread;
 
 namespace Dark.Core.Domain.Uow
 {
@@ -39,7 +41,8 @@ namespace Dark.Core.Domain.Uow
 
         private void PerformUow(IInvocation invocation, UnitOfWorkOptions options)
         {
-            if (AsyncHelper.IsAsyncMethod(invocation.Method))
+            //检查是否是异步方法
+            if (invocation.Method.IsAsync())
             {
                 PerformAsyncUow(invocation, options);
             }

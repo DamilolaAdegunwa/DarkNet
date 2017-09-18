@@ -80,7 +80,6 @@ namespace Dark.Core.Domain.Uow
         /// </summary>
         private Exception _exception;
 
-        private int? _tenantId;
 
         /// <summary>
         /// Constructor.

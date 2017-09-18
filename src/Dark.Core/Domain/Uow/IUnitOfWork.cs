@@ -8,7 +8,7 @@ namespace Dark.Core.Domain.Uow
 {
 
 
-    public interface IUnitOfWorkCompleteHandle
+    public interface IUnitOfWorkCompleteHandle : IDisposable
     {
         /// <summary>
         /// Completes this unit of work.

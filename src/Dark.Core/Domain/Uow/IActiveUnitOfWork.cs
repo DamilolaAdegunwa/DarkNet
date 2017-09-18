@@ -32,7 +32,7 @@ namespace Dark.Core.Domain.Uow
         /// <summary>
         /// Gets data filter configurations for this unit of work.
         /// </summary>
-        IList<DataFilterConfiguration> Filters { get; }
+        IReadOnlyList<DataFilterConfiguration> Filters { get; }
 
         /// <summary>
         /// Is this UOW disposed?

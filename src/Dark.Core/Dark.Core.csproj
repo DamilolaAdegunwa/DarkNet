@@ -117,6 +117,7 @@
     <Compile Include="Extension\CollectionExtensions.cs" />
     <Compile Include="Extension\DictionaryExtensions.cs" />
     <Compile Include="Extension\EventHandlerExtensions.cs" />
+    <Compile Include="Extension\MethodInfoExtensions.cs" />
     <Compile Include="Extension\PropertyInfoExtend.cs" />
     <Compile Include="Extension\TypeExtension.cs" />
     <Compile Include="Log\Log4NetFactory.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Runtime\Session\DefaultPrincipalAccessor.cs" />
     <Compile Include="Runtime\Session\NullSession.cs" />
     <Compile Include="Runtime\Validation\ValidationIntercept.cs" />
+    <Compile Include="Thread\InternalAsyncHelper.cs" />
     <Compile Include="Utils\ChineseTool.cs" />
     <Compile Include="Utils\EmailTool.cs" />
     <Compile Include="Utils\ExcelTool.cs" />
@@ -169,7 +171,6 @@
     <Compile Include="Application\Service\IAppService.cs" />
     <Compile Include="Domain\Uow\IUnitOfWork.cs" />
     <Compile Include="Domain\Uow\UnitOfWorkBase.cs" />
-    <Compile Include="Domain\Uow\UnitWorkAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Attributes\" />
