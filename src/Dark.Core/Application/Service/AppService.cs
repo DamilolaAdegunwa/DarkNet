@@ -13,41 +13,16 @@ using Dark.Core.Runtime.Session;
 
 namespace Dark.Core.Application.Service
 {
-    public class AppService : IAppService, ITransientDependency
+    public class AppService :AppServiceBase, IAppService, ITransientDependency
     {
-        /// <summary>
-        /// 日志
-        /// </summary>
-        public ILogger Logger { get; set; }
-
-        /// <summary>
-        /// 工作单元
-        /// </summary>
-        protected IUnitOfWork UnitWork { get; set; }
-
-        /// <summary>
-        /// 缓存管理
-        /// </summary>
-        protected ICacheManager CacheManager { get; set; }
-
-        /// <summary>
-        /// 权限检查
-        /// </summary>
-        public IPermissionManager PermissionManager { get; set; }
-
-
         public IBaseSession BaseSession { get; set; }
-
-        public IPermissionChecker PermissionChecker { get; set; }
 
         /// <summary>
         /// 注册Logger
         /// </summary>
         public AppService()
         {
-            Logger = NullLogger.Instance;
             BaseSession = NullSession.Instance;
-            PermissionChecker = NullPermissionChecker.Instance;
         }
     }
 }

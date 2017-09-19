@@ -61,3 +61,35 @@ System.ArgumentNullException: 值不能为 null。
    在 System.Collections.Generic.List`1.ForEach(Action`1 action)
    在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 76
    在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+DEBUG 2017-09-19 15:49:47,182 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-19 15:49:47,199 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-19 15:49:47,199 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-19 15:49:47,199 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-19 15:49:47,199 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-19 15:49:47,199 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-19 15:49:47,200 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-19 15:49:47,200 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+FATAL 2017-09-19 15:50:01,611 [1    ] Dark.Core.Bootstrap                      - System.ArgumentNullException: 值不能为 null。
+参数名: 这个权限的名称已经存在: Admin
+   在 Dark.Core.Authorization.PermissionDefineContextBase.CreatePermission(String name, String displayName, String description) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionDefineContextBase.cs:行号 34
+   在 OA.Core.Authorization.OAAuthorizationProvider.SetPermissions(IPermissionDefineContext context) 位置 D:\sutdy\github\DarkNet\src\OA.Core\Authorization\OAAuthorizationProvider.cs:行号 15
+   在 Dark.Core.Authorization.PermissionManager.<Initialize>b__3_0(AuthorizationProvider u) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 57
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Authorization.PermissionManager.Initialize() 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 55
+   在 Dark.Core.CoreModule.PostInitialize() 位置 E:\github\DarkNet\src\Dark.Core\CoreModule.cs:行号 27
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__13_2(ModuleInfo module) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 76
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 76
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+System.ArgumentNullException: 值不能为 null。
+参数名: 这个权限的名称已经存在: Admin
+   在 Dark.Core.Authorization.PermissionDefineContextBase.CreatePermission(String name, String displayName, String description) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionDefineContextBase.cs:行号 34
+   在 OA.Core.Authorization.OAAuthorizationProvider.SetPermissions(IPermissionDefineContext context) 位置 D:\sutdy\github\DarkNet\src\OA.Core\Authorization\OAAuthorizationProvider.cs:行号 15
+   在 Dark.Core.Authorization.PermissionManager.<Initialize>b__3_0(AuthorizationProvider u) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 57
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Authorization.PermissionManager.Initialize() 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 55
+   在 Dark.Core.CoreModule.PostInitialize() 位置 E:\github\DarkNet\src\Dark.Core\CoreModule.cs:行号 27
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__13_2(ModuleInfo module) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 76
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 76
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112

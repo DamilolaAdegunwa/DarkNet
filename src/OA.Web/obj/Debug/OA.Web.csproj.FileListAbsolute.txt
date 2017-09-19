@@ -321,3 +321,15 @@ E:\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.pdb
 E:\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.dll.config
 E:\github\DarkNet\src\OA.Web\bin\zh-Hans\EntityFramework.resources.dll
 E:\github\DarkNet\src\OA.Web\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\EntityFramework.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\EntityFramework.SqlServer.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\OA.EntityFramework.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.pdb
+D:\sutdy\github\DarkNet\src\OA.Web\bin\Dark.EntityFramework.dll.config
+D:\sutdy\github\DarkNet\src\OA.Web\bin\OA.EntityFramework.pdb
+D:\sutdy\github\DarkNet\src\OA.Web\bin\OA.EntityFramework.dll.config
+D:\sutdy\github\DarkNet\src\OA.Web\bin\EntityFramework.xml
+D:\sutdy\github\DarkNet\src\OA.Web\bin\EntityFramework.SqlServer.xml
+D:\sutdy\github\DarkNet\src\OA.Web\bin\zh-Hans\EntityFramework.resources.dll
+D:\sutdy\github\DarkNet\src\OA.Web\bin\zh-Hans\EntityFramework.SqlServer.resources.dll

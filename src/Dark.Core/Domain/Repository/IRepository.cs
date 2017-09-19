@@ -9,7 +9,24 @@ using System.Threading.Tasks;
 
 namespace Dark.Core.Domain.Repository
 {
-    public interface IRepository<TEntity, TKey> : ITransientDependency
+
+
+    /// <summary>
+    /// 默认实现主键为int类型的仓储
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    public interface IRepository<TEntity> : IRepository<TEntity, int>
+        where TEntity : class, IEntity<int>
+    {
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="TKey"></typeparam>
+    public interface IRepository<TEntity, TKey> : IRepository
         where TEntity : class, Entity.IEntity<TKey>
     {
         #region Select/Get/Query
@@ -332,12 +349,12 @@ namespace Dark.Core.Domain.Repository
 
 
     /// <summary>
-    /// 为了简化书写
+    /// 继承依赖注入的接口
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public interface IRepository<TEntity> : IRepository<TEntity, int> 
-        where TEntity : class, IEntity<int>
+    public interface IRepository : ITransientDependency
     {
 
     }
+
+   
 }

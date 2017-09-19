@@ -215,6 +215,11 @@ namespace Dark.Core.DI
             return IocContainer.Resolve<TInter>(implName);
         }
 
+        public object Resolve(Type type, object argumentsAsAnonymousType)
+        {
+            return IocContainer.Resolve(type, argumentsAsAnonymousType);
+        }
+
         #endregion
 
     }

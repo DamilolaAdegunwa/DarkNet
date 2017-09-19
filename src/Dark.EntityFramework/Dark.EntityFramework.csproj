@@ -48,6 +48,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,14 +58,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDbContext.cs" />
+    <Compile Include="Common\EfGenericRepositoryRegistrar.cs" />
+    <Compile Include="DefaultDbContextResolver.cs" />
+    <Compile Include="EfDbContextEntityFinder.cs" />
     <Compile Include="EntityFrameworkModule.cs" />
     <Compile Include="IDbContextProvider.cs" />
+    <Compile Include="IDbContextResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EfRepository.cs" />
     <Compile Include="Repositories\EfRepositoryBase.cs" />
     <Compile Include="Repositories\IActiveTransactionProvider.cs" />
     <Compile Include="Repositories\IRepositoryWithDbContext.cs" />
     <Compile Include="SimpleDbContextProvider.cs" />
+    <Compile Include="Uow\ActiveTransactionInfo.cs" />
+    <Compile Include="Uow\DbContextEfTransactionStrategy.cs" />
+    <Compile Include="Uow\EfDynamicFiltersUnitOfWorkFilterExecuter.cs" />
+    <Compile Include="Uow\EfUnitOfWork.cs" />
+    <Compile Include="Uow\UnitOfWorkDbContextProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dark.Core\Dark.Core.csproj">

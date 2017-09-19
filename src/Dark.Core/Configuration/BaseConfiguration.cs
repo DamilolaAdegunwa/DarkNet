@@ -17,6 +17,12 @@ namespace Dark.Core.Configuration
         IAuthorizationConfiguration AuthConfig { get; }
 
         string DefaultNameOrConnectionString { get; set; }
+        /// <summary>
+        /// 对注入的服务进行替换
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="replaceAction"></param>
+        void ReplaceService(Type type, Action replaceAction);
     }
 
     #endregion
@@ -34,16 +40,27 @@ namespace Dark.Core.Configuration
 
         public string DefaultNameOrConnectionString { get; set; }
 
+
+        public Dictionary<Type, Action> ServiceReplaceActions { get; private set; }
+
         public BaseConfiguration(IIocManager iocManager)
         {
             _iocManager = iocManager;
+            ServiceReplaceActions = new Dictionary<Type, Action>();
         }
 
         public void Initialize()
         {
             AuthConfig = _iocManager.Resolve<IAuthorizationConfiguration>();
         }
-    } 
+
+        public void ReplaceService(Type type, Action replaceAction)
+        {
+            ServiceReplaceActions[type] = replaceAction;
+        }
+
+
+    }
 
 
     #endregion

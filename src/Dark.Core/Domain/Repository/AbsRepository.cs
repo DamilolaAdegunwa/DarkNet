@@ -4,6 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.DI;
+using Dark.Core.Domain.Uow;
 
 namespace Dark.Core.Domain.Repository
 {
@@ -11,9 +13,9 @@ namespace Dark.Core.Domain.Repository
         where TEntity :  Entity.Entity<TKey>
     {
 
-        //public IUnitOfWorkManager UnitOfWorkManager { get; set; }
+        public IUnitOfWorkManager UnitOfWorkManager { get; set; }
 
-        //public IIocResolve IocResolver { get; set; }
+        public IResolver IocResolver { get; set; }
 
 
         public abstract IQueryable<TEntity> GetAll();

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Castle.DynamicProxy;
 
 namespace Dark.Core.DI
 {
@@ -31,6 +32,16 @@ namespace Dark.Core.DI
                .WithService.Self()
                .WithService.DefaultInterfaces()
                .LifestyleSingleton());
+
+            //3:注入拦截器
+            context.IocManager.IocContainer.Register(
+                Classes.FromAssembly(context.Assembly)
+                    .IncludeNonPublicTypes()
+                    .BasedOn<IInterceptor>()
+                    .If(type => !type.GetTypeInfo().IsGenericTypeDefinition)
+                    .WithService.Self()
+                    .LifestyleTransient()
+                );
         }
     }
 }

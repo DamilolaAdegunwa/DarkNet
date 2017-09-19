@@ -101,6 +101,9 @@ namespace Dark.Core.Domain.Uow
         ///// </summary>
         ///// <returns></returns>
         //int? GetTenantId();
+
+        TDbContext GetDbContext<TDbContext>();
+        
     }
     #endregion
 

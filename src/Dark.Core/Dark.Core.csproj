@@ -69,6 +69,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServiceBase.cs" />
     <Compile Include="Auditing\IClientInfoProvider.cs" />
     <Compile Include="Authorization\Permission\Permission.cs" />
     <Compile Include="Authorization\Permission\PermissionDefineContextBase.cs" />
@@ -98,11 +99,14 @@
     <Compile Include="DI\Interface\ITransientDependency.cs" />
     <Compile Include="DI\RegisterContext.cs" />
     <Compile Include="Domain\Entity\AuditedEntity.cs" />
+    <Compile Include="Domain\Entity\EntityHelper.cs" />
+    <Compile Include="Domain\Entity\EntityTypeInfo.cs" />
     <Compile Include="Domain\Entity\FullEntity.cs" />
     <Compile Include="Domain\Entity\IHasDelete.cs" />
     <Compile Include="Domain\Entity\IHasModify.cs" />
     <Compile Include="Domain\Event\IEventBus.cs" />
     <Compile Include="Domain\Event\NullEventBus.cs" />
+    <Compile Include="Domain\Service\DomainService.cs" />
     <Compile Include="Domain\Service\IDomainService.cs" />
     <Compile Include="Domain\Uow\CurrentUnitOfWorkProvider.cs" />
     <Compile Include="Domain\Uow\DataFilterConfiguration.cs" />
