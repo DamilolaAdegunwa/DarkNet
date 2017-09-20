@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.Core.Logging;
+using Castle.MicroKernel.Registration;
 using Dark.Core.DI;
 
 namespace Dark.EntityFramework.Common

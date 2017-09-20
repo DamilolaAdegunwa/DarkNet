@@ -30,7 +30,10 @@ namespace Dark.EntityFramework.Uow
 
 
     #region 2.0 具体实现
-    public class DbContextEfTransactionStrategy : IEfTransactionStrategy
+    public class DbContextEfTransactionStrategy : 
+        IEfTransactionStrategy,
+        //默认实现该
+        ITransientDependency
     {
         protected UnitOfWorkOptions Options { get; private set; }
 
@@ -64,7 +67,7 @@ namespace Dark.EntityFramework.Uow
             {
                 dbContext = dbContextResolver.Resolve<TDbContext>(connectionString);
 
-                var dbtransaction = dbContext.Database.BeginTransaction((Options.IsolationLevel ?? IsolationLevel.ReadUncommitted).ToSystemDataIsolationLevel());
+                var dbtransaction = dbContext.Database.BeginTransaction(System.Data.IsolationLevel.ReadUncommitted);
 
                 activeTransaction = new ActiveTransactionInfo(dbtransaction, dbContext);
 
@@ -72,8 +75,8 @@ namespace Dark.EntityFramework.Uow
             }
             else
             {
-                //dbContext = dbContextResolver.Resolve<TDbContext>(activeTransaction.DbContextTransaction.UnderlyingTransaction.Connection, false);
-                dbContext?.Database.UseTransaction(activeTransaction.DbContextTransaction.UnderlyingTransaction);
+                dbContext = dbContextResolver.Resolve<TDbContext>(activeTransaction.DbContextTransaction.UnderlyingTransaction.Connection, false);
+                dbContext.Database.UseTransaction(activeTransaction.DbContextTransaction.UnderlyingTransaction);
                 activeTransaction.AttendedDbContexts.Add(dbContext);
             }
 

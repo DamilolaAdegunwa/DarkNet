@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dark.Core.DI;
 using Dark.Core.Domain.Uow;
+using Dark.Core.Extension;
 
 namespace Dark.EntityFramework.Uow
 {
@@ -15,7 +18,7 @@ namespace Dark.EntityFramework.Uow
         protected IResolver IocResolver { get; }
 
         private readonly IDbContextResolver _dbContextResolver;
-        //private readonly IDbContextTypeMatcher _dbContextTypeMatcher;
+        private readonly IDbContextTypeMatcher _dbContextTypeMatcher;
         private readonly IEfTransactionStrategy _transactionStrategy;
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace Dark.EntityFramework.Uow
             IDbContextResolver dbContextResolver,
             IEfUnitOfWorkFilterExecuter filterExecuter,
             IUnitOfWorkDefaultOptions defaultOptions,
-            //IDbContextTypeMatcher dbContextTypeMatcher,
+            IDbContextTypeMatcher dbContextTypeMatcher,
             IEfTransactionStrategy transactionStrategy)
             : base(
                   connectionStringResolver,
@@ -36,7 +39,7 @@ namespace Dark.EntityFramework.Uow
         {
             IocResolver = iocResolver;
             _dbContextResolver = dbContextResolver;
-            //_dbContextTypeMatcher = dbContextTypeMatcher;
+            _dbContextTypeMatcher = dbContextTypeMatcher;
             _transactionStrategy = transactionStrategy;
 
             ActiveDbContexts = new Dictionary<string, DbContext>();
@@ -96,10 +99,8 @@ namespace Dark.EntityFramework.Uow
         {
             var concreteDbContextType = _dbContextTypeMatcher.GetConcreteType(typeof(TDbContext));
 
-            var connectionStringResolveArgs = new ConnectionStringResolveArgs(multiTenancySide);
-            connectionStringResolveArgs["DbContextType"] = typeof(TDbContext);
-            connectionStringResolveArgs["DbContextConcreteType"] = concreteDbContextType;
-            var connectionString = ResolveConnectionString(connectionStringResolveArgs);
+
+            var connectionString = ResolveConnectionString();
 
             var dbContextKey = concreteDbContextType.FullName + "#" + connectionString;
 
@@ -173,10 +174,11 @@ namespace Dark.EntityFramework.Uow
             dbContext.Configuration.AutoDetectChangesEnabled = false;
             var previousState = dbContext.Entry(e.Entity).State;
 
-            DateTimePropertyInfoHelper.NormalizeDatePropertyKinds(e.Entity, entityType);
+            //DateTimePropertyInfoHelper.NormalizeDatePropertyKinds(e.Entity, entityType);
 
             dbContext.Entry(e.Entity).State = previousState;
             dbContext.Configuration.AutoDetectChangesEnabled = true;
         }
+      
     }
 }

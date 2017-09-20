@@ -16,7 +16,7 @@ namespace Dark.Core.Domain.Uow
         /// Gets a connection string name (in config file) or a valid connection string.
         /// </summary>
         /// <param name="args">Arguments that can be used while resolving connection string.</param>
-        string GetNameOrConnectionString(string conStr);
+        string GetNameOrConnectionString();
     }
     #endregion
     /// <summary>
@@ -37,9 +37,8 @@ namespace Dark.Core.Domain.Uow
             _configuration = configuration;
         }
 
-        public virtual string GetNameOrConnectionString(string conStr)
+        public virtual string GetNameOrConnectionString()
         {
-            Check.NotNull(conStr, nameof(conStr));
 
             var defaultConnectionString = _configuration.DefaultNameOrConnectionString;
             if (!string.IsNullOrWhiteSpace(defaultConnectionString))
