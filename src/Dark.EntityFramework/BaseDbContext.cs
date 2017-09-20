@@ -21,9 +21,9 @@ namespace Dark.EntityFramework
 
         public IBaseSession Session { get; set; }
 
-        public IEventBus EventBus { get; set; }
+        //public IEventBus EventBus { get; set; }
 
-        public ICurrentUnitOfWorkProvider CurrentUnitOfWorkProvider { get; set; }
+        //public ICurrentUnitOfWorkProvider CurrentUnitOfWorkProvider { get; set; }
 
 
 

@@ -5,10 +5,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
+using Dark.Core;
 using Dark.Core.Modules;
 
 namespace Dark.EntityFramework
 {
+    [DependOn(typeof(CoreModule))]
     public class EntityFrameworkModule:BaseModule
     {
         public override void Initialize()
