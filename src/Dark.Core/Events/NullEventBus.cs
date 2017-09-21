@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dark.Core.Domain.Event
+namespace Dark.Core.Events
 {
     public class NullEventBus:IEventBus
     {

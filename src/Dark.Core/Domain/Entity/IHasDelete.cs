@@ -11,7 +11,7 @@ namespace Dark.Core.Domain.Entity
     /// </summary>
     public interface IHasDelete
     {
-        bool IsDelete { get; set; }
+        bool IsDel { get; set; }
 
         long? DeleteUser { get; set; }
 

@@ -9,6 +9,13 @@ namespace OA.Application.ShopMallApp
 {
     public class ShopAppService : AppService, IShopAppService
     {
+
+
+        public ShopAppService()
+        {
+
+        }
+
         public void Show()
         {
 

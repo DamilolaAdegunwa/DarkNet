@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using Castle.Core.Logging;
 using Castle.MicroKernel.Registration;
 using Dark.Core.DI;
+using Dark.Core.Domain.Entity;
+using Dark.Core.Domain.Repository;
 
 namespace Dark.EntityFramework.Common
 {
     public interface IEfGenericRepositoryRegistrar
     {
-        void RegisterForDbContext(Type dbContextType, IIocManager iocManager, AutoRepositoryTypesAttribute defaultAutoRepositoryTypesAttribute);
+        void RegisterForDbContext(Type dbContextType, IIocManager iocManager);
     }
 
     public class EfGenericRepositoryRegistrar : IEfGenericRepositoryRegistrar, ITransientDependency
@@ -29,33 +31,41 @@ namespace Dark.EntityFramework.Common
 
         public void RegisterForDbContext(
             Type dbContextType,
-            IIocManager iocManager,
-            AutoRepositoryTypesAttribute defaultAutoRepositoryTypesAttribute)
+            IIocManager iocManager)
         {
-            var autoRepositoryAttr = dbContextType.GetTypeInfo().GetSingleAttributeOrNull<AutoRepositoryTypesAttribute>() ?? defaultAutoRepositoryTypesAttribute;
+            //var autoRepositoryAttr = dbContextType.GetTypeInfo().GetSingleAttributeOrNull<AutoRepositoryTypesAttribute>() ?? defaultAutoRepositoryTypesAttribute;
 
-            RegisterForDbContext(
-                dbContextType,
-                iocManager,
-                autoRepositoryAttr.RepositoryInterface,
-                autoRepositoryAttr.RepositoryInterfaceWithPrimaryKey,
-                autoRepositoryAttr.RepositoryImplementation,
-                autoRepositoryAttr.RepositoryImplementationWithPrimaryKey
-            );
+            //RegisterForDbContext(
+            //    dbContextType,
+            //    iocManager,
+            //    typeof(IRepository<>),
+            //    autoRepositoryAttr.RepositoryInterfaceWithPrimaryKey,
+            //    autoRepositoryAttr.RepositoryImplementation,
+            //    autoRepositoryAttr.RepositoryImplementationWithPrimaryKey
+            //);
 
-            if (autoRepositoryAttr.WithDefaultRepositoryInterfaces)
-            {
-                RegisterForDbContext(
-                    dbContextType,
-                    iocManager,
-                    defaultAutoRepositoryTypesAttribute.RepositoryInterface,
-                    defaultAutoRepositoryTypesAttribute.RepositoryInterfaceWithPrimaryKey,
-                    autoRepositoryAttr.RepositoryImplementation,
-                    autoRepositoryAttr.RepositoryImplementationWithPrimaryKey
-                );
-            }
+            //if (autoRepositoryAttr.WithDefaultRepositoryInterfaces)
+            //{
+            //    RegisterForDbContext(
+            //        dbContextType,
+            //        iocManager,
+            //        defaultAutoRepositoryTypesAttribute.RepositoryInterface,
+            //        defaultAutoRepositoryTypesAttribute.RepositoryInterfaceWithPrimaryKey,
+            //        autoRepositoryAttr.RepositoryImplementation,
+            //        autoRepositoryAttr.RepositoryImplementationWithPrimaryKey
+            //    );
+            //}
         }
 
+        /// <summary>
+        /// 用于注册dbContext的所有实体对象
+        /// </summary>
+        /// <param name="dbContextType"></param>
+        /// <param name="iocManager"></param>
+        /// <param name="repositoryInterface"></param>
+        /// <param name="repositoryInterfaceWithPrimaryKey"></param>
+        /// <param name="repositoryImplementation"></param>
+        /// <param name="repositoryImplementationWithPrimaryKey"></param>
         private void RegisterForDbContext(
             Type dbContextType,
             IIocManager iocManager,

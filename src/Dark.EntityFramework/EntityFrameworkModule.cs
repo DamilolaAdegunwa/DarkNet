@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Dark.Core;
 using Dark.Core.Modules;
+using Dark.EntityFramework.Uow;
 
 namespace Dark.EntityFramework
 {

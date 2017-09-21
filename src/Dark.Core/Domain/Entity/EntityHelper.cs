@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.Utils;
 
 namespace Dark.Core.Domain.Entity
 {
@@ -11,7 +12,7 @@ namespace Dark.Core.Domain.Entity
     {
         public static bool IsEntity(Type type)
         {
-            return ReflectionHelper.IsAssignableToGenericType(type, typeof(IEntity<>));
+            return ReflectionTools.IsAssignableToGenericType(type, typeof(IEntity<>));
         }
 
         public static Type GetPrimaryKeyType<TEntity>()

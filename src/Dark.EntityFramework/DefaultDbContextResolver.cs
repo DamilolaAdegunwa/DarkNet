@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Dark.EntityFramework
         private readonly IResolver _iocResolver;
         private readonly IDbContextTypeMatcher _dbContextTypeMatcher;
 
-        public DefaultDbContextResolver(IIocResolver iocResolver, IDbContextTypeMatcher dbContextTypeMatcher)
+        public DefaultDbContextResolver(IResolver iocResolver, IDbContextTypeMatcher dbContextTypeMatcher)
         {
             _iocResolver = iocResolver;
             _dbContextTypeMatcher = dbContextTypeMatcher;

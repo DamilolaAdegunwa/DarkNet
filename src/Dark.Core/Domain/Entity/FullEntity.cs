@@ -22,7 +22,7 @@ namespace Dark.Core.Entity
             get; set;
         }
 
-        public bool IsDelete
+        public bool IsDel
         {
             get; set;
         }

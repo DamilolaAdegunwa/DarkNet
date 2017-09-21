@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Authorization\OAAuthorizationProvider.cs" />
     <Compile Include="Authorization\PermissionChecker.cs" />
+    <Compile Include="Domain\Entities\OA_Commodity.cs" />
+    <Compile Include="Domain\Entities\OA_Category.cs" />
     <Compile Include="OACoreModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dark.Core.Domain.Event
+namespace Dark.Core.Events.Bus.Entities
 {
-    public interface IEventBus
+    public enum EntityChangeType
     {
+        Created,
+        Updated,
+        Deleted
     }
 }
