@@ -29,5 +29,16 @@ namespace Dark.Core.DI
         object Resolve(Type type, object argumentsAsAnonymousType);
 
         void Release(object obj);
+
+
+        object[] ResolveAll(Type type);
+        object[] ResolveAll(Type type, object arg);
+        TInter[] ResolveAll<TInter>();
+        TInter[] ResolveAll<TInter>(object argumentsAsAnonymousType);
+
+
+        bool IsRegistered(Type type);
+        bool IsRegistered<TInter>();
+
     }
 }

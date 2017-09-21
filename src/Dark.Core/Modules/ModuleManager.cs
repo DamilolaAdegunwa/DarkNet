@@ -16,6 +16,8 @@ namespace Dark.Core.Modules
     {
         ModuleInfo StartModule { get; }
 
+        IReadOnlyList<ModuleInfo> Modules { get; }
+
         void Initialize(Type startType);
 
         void StartModules();
@@ -36,6 +38,7 @@ namespace Dark.Core.Modules
 
         public ModuleInfo StartModule { get; set; }
 
+        public IReadOnlyList<ModuleInfo> Modules => modules.ToList();
 
         private List<ModuleInfo> modules;
 

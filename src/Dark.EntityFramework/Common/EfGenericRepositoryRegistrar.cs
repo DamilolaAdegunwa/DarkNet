@@ -9,6 +9,7 @@ using Castle.MicroKernel.Registration;
 using Dark.Core.DI;
 using Dark.Core.Domain.Entity;
 using Dark.Core.Domain.Repository;
+using Dark.EntityFramework.Repositories;
 
 namespace Dark.EntityFramework.Common
 {
@@ -35,14 +36,14 @@ namespace Dark.EntityFramework.Common
         {
             //var autoRepositoryAttr = dbContextType.GetTypeInfo().GetSingleAttributeOrNull<AutoRepositoryTypesAttribute>() ?? defaultAutoRepositoryTypesAttribute;
 
-            //RegisterForDbContext(
-            //    dbContextType,
-            //    iocManager,
-            //    typeof(IRepository<>),
-            //    autoRepositoryAttr.RepositoryInterfaceWithPrimaryKey,
-            //    autoRepositoryAttr.RepositoryImplementation,
-            //    autoRepositoryAttr.RepositoryImplementationWithPrimaryKey
-            //);
+            RegisterForDbContext(
+                dbContextType,
+                iocManager,
+                typeof(IRepository<>),
+                typeof(IRepository<,>),
+                typeof(EfRepository<,>),
+                typeof(EfRepositoryBase<,,>)
+            );
 
             //if (autoRepositoryAttr.WithDefaultRepositoryInterfaces)
             //{

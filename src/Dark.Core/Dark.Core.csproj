@@ -88,6 +88,7 @@
     <Compile Include="DisposeAction.cs" />
     <Compile Include="DI\BasicRegisterConvention.cs" />
     <Compile Include="DI\DependencyLife.cs" />
+    <Compile Include="DI\DisposableDependencyObjectWrapper.cs" />
     <Compile Include="DI\Install\CoreInstaller.cs" />
     <Compile Include="DI\Interface\IIocManager.cs" />
     <Compile Include="DI\Interface\IRegisterConvention.cs" />
@@ -97,7 +98,9 @@
     <Compile Include="DI\Interface\IResolver.cs" />
     <Compile Include="DI\Interface\ISingletonDependency.cs" />
     <Compile Include="DI\Interface\ITransientDependency.cs" />
+    <Compile Include="DI\IResolverExtensions.cs" />
     <Compile Include="DI\RegisterContext.cs" />
+    <Compile Include="DI\ScopedIocResolver.cs" />
     <Compile Include="Domain\Entity\AuditedEntity.cs" />
     <Compile Include="Domain\Entity\EntityAuditingHelper.cs" />
     <Compile Include="Domain\Entity\EntityHelper.cs" />
@@ -143,6 +146,8 @@
     <Compile Include="Modules\DependOnAttribute.cs" />
     <Compile Include="Modules\ModuleInfo.cs" />
     <Compile Include="Modules\ModuleManager.cs" />
+    <Compile Include="Reflections\AssemblyFinder.cs" />
+    <Compile Include="Reflections\TypeFinder.cs" />
     <Compile Include="Runtime\Cache\ICacheManager.cs" />
     <Compile Include="Runtime\Cache\RuntimeCache.cs" />
     <Compile Include="Authorization\Permission\PermissionManger.cs" />

@@ -220,6 +220,31 @@ namespace Dark.Core.DI
             return IocContainer.Resolve(type, argumentsAsAnonymousType);
         }
 
+
+        ///<inheritdoc/>
+        public T[] ResolveAll<T>()
+        {
+            return IocContainer.ResolveAll<T>();
+        }
+
+        ///<inheritdoc/>
+        public T[] ResolveAll<T>(object argumentsAsAnonymousType)
+        {
+            return IocContainer.ResolveAll<T>(argumentsAsAnonymousType);
+        }
+
+        ///<inheritdoc/>
+        public object[] ResolveAll(Type type)
+        {
+            return IocContainer.ResolveAll(type).Cast<object>().ToArray();
+        }
+
+        ///<inheritdoc/>
+        public object[] ResolveAll(Type type, object argumentsAsAnonymousType)
+        {
+            return IocContainer.ResolveAll(type, argumentsAsAnonymousType).Cast<object>().ToArray();
+        }
+
         #endregion
 
     }

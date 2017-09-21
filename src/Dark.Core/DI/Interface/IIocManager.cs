@@ -17,14 +17,6 @@ namespace Dark.Core.DI
         /// Windsor 容器
         /// </summary>
         IWindsorContainer IocContainer { get; }
-
-
-       
-
         void Dispose();
-
-        bool IsRegistered(Type type);
-
-        bool IsRegistered<TInter>();
     }
 }
