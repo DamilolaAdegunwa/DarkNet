@@ -33,7 +33,7 @@ namespace Dark.Core.Domain.Uow
 
         public ILogger Logger { get; set; }
 
-        private const string ContextKey = "Abp.UnitOfWork.Current";
+        private const string ContextKey = "Dark.UnitOfWork.Current";
 
         private static readonly ConcurrentDictionary<string, IUnitOfWork> UnitOfWorkDictionary = new ConcurrentDictionary<string, IUnitOfWork>();
 

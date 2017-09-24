@@ -10,7 +10,7 @@ namespace Dark.Web.Domain.Entity
     /// <summary>
     /// 登陆尝试
     /// </summary>
-    public class Sys_UserLoginAttempts : IEntity<int>
+    public class Sys_UserLoginAttempts : EntityBase
     {
         public int Id { get; set; }
 

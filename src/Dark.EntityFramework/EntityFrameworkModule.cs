@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Dark.Core;
+using Dark.Core.DI;
 using Dark.Core.Domain.Uow;
 using Dark.Core.Extension;
 using Dark.Core.Modules;
@@ -78,12 +79,12 @@ namespace Dark.EntityFramework
                     repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
 
                     //
-                    IocManager.IocContainer.Register(
-                        Component.For<ISecondaryOrmRegistrar>()
-                            .Named(Guid.NewGuid().ToString("N"))
-                            .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
-                            .LifestyleTransient()
-                    );
+                    //IocManager.IocContainer.Register(
+                    //    Component.For<ISecondaryOrmRegistrar>()
+                    //        .Named(Guid.NewGuid().ToString("N"))
+                    //        .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
+                    //        .LifestyleTransient()
+                    //);
                 }
 
                 scope.Resolve<IDbContextTypeMatcher>().Populate(dbContextTypes);

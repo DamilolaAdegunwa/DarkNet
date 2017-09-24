@@ -59,7 +59,6 @@ namespace Dark.Core.Configuration
             ServiceReplaceActions[type] = replaceAction;
         }
 
-
     }
 
 

@@ -205,6 +205,8 @@ namespace Dark.Core.DI
             return IocContainer.Resolve<TInter>();
         }
 
+
+
         public object Resolve(Type type)
         {
             return IocContainer.Resolve(type);
@@ -215,11 +217,19 @@ namespace Dark.Core.DI
             return IocContainer.Resolve<TInter>(implName);
         }
 
+       
+
+        
+
         public object Resolve(Type type, object argumentsAsAnonymousType)
         {
             return IocContainer.Resolve(type, argumentsAsAnonymousType);
         }
 
+        public TInter Resolve<TInter>(object argumentsAsAnonymousType)
+        {
+            return IocContainer.Resolve<TInter>(argumentsAsAnonymousType);
+        }
 
         ///<inheritdoc/>
         public T[] ResolveAll<T>()

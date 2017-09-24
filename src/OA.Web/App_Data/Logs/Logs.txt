@@ -93,3 +93,236 @@ System.ArgumentNullException: 值不能为 null。
    在 System.Collections.Generic.List`1.ForEach(Action`1 action)
    在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 76
    在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+DEBUG 2017-09-22 21:43:28,567 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 21:43:28,600 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 21:43:28,600 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 21:43:28,601 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+FATAL 2017-09-22 21:43:28,756 [1    ] Dark.Core.Bootstrap                      - Castle.MicroKernel.Handlers.HandlerException: Can't create component 'Dark.EntityFramework.EntityFrameworkModule' as it has dependencies to be satisfied.
+
+'Dark.EntityFramework.EntityFrameworkModule' is waiting for the following dependencies:
+- Service 'Dark.Core.Reflections.ITypeFinder' which was not registered.
+
+   在 Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service)
+   在 Dark.Core.DI.IocManager.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\IocManager.cs:行号 212
+   在 Dark.Core.Modules.ModuleManager.<CreateModules>b__19_0(Type type) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 122
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.CreateModules(List`1 types) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 119
+   在 Dark.Core.Modules.ModuleManager.Initialize(Type startType) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 62
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 109
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'Dark.EntityFramework.EntityFrameworkModule' as it has dependencies to be satisfied.
+
+'Dark.EntityFramework.EntityFrameworkModule' is waiting for the following dependencies:
+- Service 'Dark.Core.Reflections.ITypeFinder' which was not registered.
+
+   在 Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service)
+   在 Dark.Core.DI.IocManager.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\IocManager.cs:行号 212
+   在 Dark.Core.Modules.ModuleManager.<CreateModules>b__19_0(Type type) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 122
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.CreateModules(List`1 types) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 119
+   在 Dark.Core.Modules.ModuleManager.Initialize(Type startType) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 62
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 109
+DEBUG 2017-09-22 21:59:16,665 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 21:59:16,690 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 21:59:16,691 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 21:59:16,691 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+FATAL 2017-09-22 21:59:16,761 [1    ] Dark.Core.Bootstrap                      - Castle.MicroKernel.Handlers.HandlerException: Can't create component 'Dark.EntityFramework.EntityFrameworkModule' as it has dependencies to be satisfied.
+
+'Dark.EntityFramework.EntityFrameworkModule' is waiting for the following dependencies:
+- Service 'Dark.Core.Reflections.ITypeFinder' which was not registered.
+
+   在 Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service)
+   在 Dark.Core.DI.IocManager.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\IocManager.cs:行号 212
+   在 Dark.Core.Modules.ModuleManager.<CreateModules>b__19_0(Type type) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 122
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.CreateModules(List`1 types) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 119
+   在 Dark.Core.Modules.ModuleManager.Initialize(Type startType) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 62
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 109
+Castle.MicroKernel.Handlers.HandlerException: Can't create component 'Dark.EntityFramework.EntityFrameworkModule' as it has dependencies to be satisfied.
+
+'Dark.EntityFramework.EntityFrameworkModule' is waiting for the following dependencies:
+- Service 'Dark.Core.Reflections.ITypeFinder' which was not registered.
+
+   在 Castle.MicroKernel.Handlers.DefaultHandler.AssertNotWaitingForDependency()
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service)
+   在 Dark.Core.DI.IocManager.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\IocManager.cs:行号 212
+   在 Dark.Core.Modules.ModuleManager.<CreateModules>b__19_0(Type type) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 122
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.CreateModules(List`1 types) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 119
+   在 Dark.Core.Modules.ModuleManager.Initialize(Type startType) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 62
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 109
+DEBUG 2017-09-22 22:00:34,627 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 22:00:34,642 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:00:34,642 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 22:00:34,642 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:03:26,336 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 22:03:26,351 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:03:26,351 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 22:03:26,351 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:03:26,351 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:03:26,351 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:03:26,352 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:03:26,352 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-22 22:03:26,352 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:05:20,492 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 22:05:20,514 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:05:20,514 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 22:05:20,514 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:05:20,515 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:05:20,515 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:05:20,515 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:05:20,515 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-22 22:05:20,515 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:14:46,060 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 22:14:46,076 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:14:46,077 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 22:14:46,077 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:14:46,077 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:14:46,077 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:14:46,077 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:14:46,078 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-22 22:14:46,078 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+FATAL 2017-09-22 22:16:14,981 [1    ] Dark.Core.Bootstrap                      - Castle.MicroKernel.ComponentActivator.ComponentActivatorException: Could not find a public constructor for type Dark.EntityFramework.DbContextTypeMatcher.
+Windsor by default cannot instantiate types that don't expose public constructors.
+To expose the type as a service add public constructor, or use custom component activator.
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   在 Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service)
+   在 Dark.Core.DI.IocManager.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\IocManager.cs:行号 212
+   在 Dark.Core.DI.ScopedIocResolver.Resolve(Type type, Object argumentsAsAnonymousType) 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 45
+   在 Dark.Core.DI.ScopedIocResolver.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 40
+   在 Dark.Core.DI.ScopedIocResolver.Resolve[T](Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 30
+   在 Dark.Core.DI.ScopedIocResolver.Resolve[T]() 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 25
+   在 Dark.EntityFramework.EntityFrameworkModule.RegisterGenericRepositoriesAndMatchDbContexes() 位置 E:\github\DarkNet\src\Dark.EntityFramework\EntityFrameworkModule.cs:行号 90
+   在 Dark.EntityFramework.EntityFrameworkModule.Initialize() 位置 E:\github\DarkNet\src\Dark.EntityFramework\EntityFrameworkModule.cs:行号 52
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 78
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 78
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+Castle.MicroKernel.ComponentActivator.ComponentActivatorException: Could not find a public constructor for type Dark.EntityFramework.DbContextTypeMatcher.
+Windsor by default cannot instantiate types that don't expose public constructors.
+To expose the type as a service add public constructor, or use custom component activator.
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.FastCreateInstance(Type implType, Object[] arguments, ConstructorCandidate constructor)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstanceCore(ConstructorCandidate constructor, Object[] arguments, Type implType)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.CreateInstance(CreationContext context, ConstructorCandidate constructor, Object[] arguments)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.Instantiate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.DefaultComponentActivator.InternalCreate(CreationContext context)
+   在 Castle.MicroKernel.ComponentActivator.AbstractComponentActivator.Create(CreationContext context, Burden burden)
+   在 Castle.MicroKernel.Lifestyle.AbstractLifestyleManager.CreateInstance(CreationContext context, Boolean trackedExternally)
+   在 Castle.MicroKernel.Lifestyle.SingletonLifestyleManager.Resolve(CreationContext context, IReleasePolicy releasePolicy)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.ResolveCore(CreationContext context, Boolean requiresDecommission, Boolean instanceRequired, Burden& burden)
+   在 Castle.MicroKernel.Handlers.DefaultHandler.Resolve(CreationContext context, Boolean instanceRequired)
+   在 Castle.MicroKernel.Handlers.AbstractHandler.Resolve(CreationContext context)
+   在 Castle.MicroKernel.DefaultKernel.ResolveComponent(IHandler handler, Type service, IDictionary additionalArguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Castle.MicroKernel.IKernelInternal.Resolve(Type service, IDictionary arguments, IReleasePolicy policy)
+   在 Castle.MicroKernel.DefaultKernel.Resolve(Type service, IDictionary arguments)
+   在 Castle.Windsor.WindsorContainer.Resolve(Type service)
+   在 Dark.Core.DI.IocManager.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\IocManager.cs:行号 212
+   在 Dark.Core.DI.ScopedIocResolver.Resolve(Type type, Object argumentsAsAnonymousType) 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 45
+   在 Dark.Core.DI.ScopedIocResolver.Resolve(Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 40
+   在 Dark.Core.DI.ScopedIocResolver.Resolve[T](Type type) 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 30
+   在 Dark.Core.DI.ScopedIocResolver.Resolve[T]() 位置 E:\github\DarkNet\src\Dark.Core\DI\ScopedIocResolver.cs:行号 25
+   在 Dark.EntityFramework.EntityFrameworkModule.RegisterGenericRepositoriesAndMatchDbContexes() 位置 E:\github\DarkNet\src\Dark.EntityFramework\EntityFrameworkModule.cs:行号 90
+   在 Dark.EntityFramework.EntityFrameworkModule.Initialize() 位置 E:\github\DarkNet\src\Dark.EntityFramework\EntityFrameworkModule.cs:行号 52
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__15_1(ModuleInfo module) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 78
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 78
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+DEBUG 2017-09-22 22:20:37,314 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 22:20:37,336 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-22 22:20:37,337 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:36:24,308 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-22 22:36:24,325 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:36:24,325 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-22 22:36:24,325 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:36:24,326 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-22 22:36:24,326 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-22 22:36:24,326 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-22 22:36:24,327 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-22 22:36:24,327 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+FATAL 2017-09-22 22:38:22,983 [1    ] Dark.Core.Bootstrap                      - System.ArgumentNullException: 值不能为 null。
+参数名: 这个权限的名称已经存在: Admin
+   在 Dark.Core.Authorization.PermissionDefineContextBase.CreatePermission(String name, String displayName, String description) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionDefineContextBase.cs:行号 34
+   在 OA.Core.Authorization.OAAuthorizationProvider.SetPermissions(IPermissionDefineContext context) 位置 E:\github\DarkNet\src\OA.Core\Authorization\OAAuthorizationProvider.cs:行号 15
+   在 Dark.Core.Authorization.PermissionManager.<Initialize>b__3_0(AuthorizationProvider u) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 57
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Authorization.PermissionManager.Initialize() 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 55
+   在 Dark.Core.CoreModule.PostInitialize() 位置 E:\github\DarkNet\src\Dark.Core\CoreModule.cs:行号 27
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__15_2(ModuleInfo module) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+System.ArgumentNullException: 值不能为 null。
+参数名: 这个权限的名称已经存在: Admin
+   在 Dark.Core.Authorization.PermissionDefineContextBase.CreatePermission(String name, String displayName, String description) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionDefineContextBase.cs:行号 34
+   在 OA.Core.Authorization.OAAuthorizationProvider.SetPermissions(IPermissionDefineContext context) 位置 E:\github\DarkNet\src\OA.Core\Authorization\OAAuthorizationProvider.cs:行号 15
+   在 Dark.Core.Authorization.PermissionManager.<Initialize>b__3_0(AuthorizationProvider u) 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 57
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Authorization.PermissionManager.Initialize() 位置 E:\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 55
+   在 Dark.Core.CoreModule.PostInitialize() 位置 E:\github\DarkNet\src\Dark.Core\CoreModule.cs:行号 27
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__15_2(ModuleInfo module) 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 E:\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 Dark.Core.Bootstrap.Start() 位置 E:\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+DEBUG 2017-09-23 23:22:15,257 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-23 23:22:15,307 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-23 23:22:15,307 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-23 23:22:15,307 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-23 23:22:15,308 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-23 23:22:15,308 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-23 23:22:15,308 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-23 23:22:15,309 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-23 23:22:15,309 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-23 23:31:26,309 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-23 23:31:26,323 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-23 23:31:26,323 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-23 23:31:26,323 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-23 23:31:26,324 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-23 23:31:26,324 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-23 23:31:26,324 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-23 23:31:26,324 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-23 23:31:26,324 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded

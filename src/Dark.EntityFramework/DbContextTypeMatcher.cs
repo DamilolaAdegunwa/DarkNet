@@ -23,7 +23,7 @@ namespace Dark.EntityFramework
         private readonly ICurrentUnitOfWorkProvider _currentUnitOfWorkProvider;
         private readonly Dictionary<Type, List<Type>> _dbContextTypes;
 
-        protected DbContextTypeMatcher(ICurrentUnitOfWorkProvider currentUnitOfWorkProvider)
+        public DbContextTypeMatcher(ICurrentUnitOfWorkProvider currentUnitOfWorkProvider)
         {
             _currentUnitOfWorkProvider = currentUnitOfWorkProvider;
             _dbContextTypes = new Dictionary<Type, List<Type>>();

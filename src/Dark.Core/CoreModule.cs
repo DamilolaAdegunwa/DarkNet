@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.Configuration;
 
 namespace Dark.Core
 {
@@ -19,6 +20,12 @@ namespace Dark.Core
 
         public override void Initialize()
         {
+
+            foreach (var replaceAction in ((BaseConfiguration)Configuration).ServiceReplaceActions.Values)
+            {
+                replaceAction();
+            }
+
             IocManager.RegisterConvention(typeof(CoreModule).Assembly);
         }
 

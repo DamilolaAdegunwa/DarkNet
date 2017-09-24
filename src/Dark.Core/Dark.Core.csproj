@@ -148,6 +148,7 @@
     <Compile Include="Modules\ModuleManager.cs" />
     <Compile Include="Reflections\AssemblyFinder.cs" />
     <Compile Include="Reflections\TypeFinder.cs" />
+    <Compile Include="Reflections\TypeHelper.cs" />
     <Compile Include="Runtime\Cache\ICacheManager.cs" />
     <Compile Include="Runtime\Cache\RuntimeCache.cs" />
     <Compile Include="Authorization\Permission\PermissionManger.cs" />

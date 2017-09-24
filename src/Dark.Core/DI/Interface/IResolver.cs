@@ -25,8 +25,10 @@ namespace Dark.Core.DI
         /// <param name="implName"></param>
         /// <returns></returns>
         TInter Resolve<TInter>(string implName);
+        TInter Resolve<TInter>(object argumnets);
 
         object Resolve(Type type, object argumentsAsAnonymousType);
+
 
         void Release(object obj);
 
