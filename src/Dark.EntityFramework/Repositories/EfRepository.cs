@@ -14,8 +14,8 @@ namespace Dark.EntityFramework.Repositories
     /// <typeparam name="TDbContext"></typeparam>
     /// <typeparam name="TEntity"></typeparam>
     public class EfRepository<TDbContext, TEntity> : EfRepositoryBase<TDbContext, TEntity, int>
-         where TDbContext : DbContext
          where TEntity : Entity
+         where TDbContext : DbContext
     {
         public EfRepository(IDbContextProvider<TDbContext> dbContextProvider) : base(dbContextProvider)
         {

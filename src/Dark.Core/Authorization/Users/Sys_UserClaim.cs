@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dark.Core.Domain.Entity;
 
-namespace Dark.Web.Domain.Entity
+namespace Dark.Core.Authorization.Users
 {
     public class Sys_UserClaim : EntityBase
     {

@@ -17,7 +17,7 @@ using Dark.EntityFramework.Uow;
 namespace Dark.EntityFramework
 {
     [DependOn(typeof(CoreModule))]
-    public class EntityFrameworkModule:BaseModule
+    public class EntityFrameworkModule : BaseModule
     {
         private readonly ITypeFinder _typeFinder;
         public EntityFrameworkModule(ITypeFinder typeFinder)
@@ -27,15 +27,16 @@ namespace Dark.EntityFramework
 
         public override void PreInitialize()
         {
-            Configuration.ReplaceService(typeof(IUnitOfWorkFilterExecuter),() =>
-            {
-                IocManager.IocContainer.Register(
-                    Component
-                    .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
-                    .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
-                    .LifestyleTransient()
-                );
-            });
+          
+            //Configuration.ReplaceService(typeof(IUnitOfWorkFilterExecuter),() =>
+            //{
+            //    IocManager.IocContainer.Register(
+            //        Component
+            //        .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
+            //        .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
+            //        .LifestyleTransient()
+            //    );
+            //});
         }
 
         public override void Initialize()
@@ -48,7 +49,12 @@ namespace Dark.EntityFramework
                    .ImplementedBy(typeof(UnitOfWorkDbContextProvider<>))
                    .LifestyleTransient()
                );
-
+            IocManager.IocContainer.Register(
+                  Component
+                  .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
+                  .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
+                  .LifestyleTransient()
+              );
             RegisterGenericRepositoriesAndMatchDbContexes();
         }
 

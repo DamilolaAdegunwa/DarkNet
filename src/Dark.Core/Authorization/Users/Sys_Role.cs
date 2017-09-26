@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Dark.Core.Domain.Entity;
 using Dark.Core.Entity;
 
-namespace Dark.Web.Domain.Entity
+namespace Dark.Core.Authorization.Users
 {
     public class Sys_Role:EntityBase
     {

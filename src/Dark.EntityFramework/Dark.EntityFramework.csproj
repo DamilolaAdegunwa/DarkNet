@@ -86,16 +86,13 @@
       <Project>{D5D8D408-FEB8-4DB9-B332-19F4F120E627}</Project>
       <Name>Dark.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dark.Web\Dark.Web.csproj">
-      <Project>{F17546F8-5DFE-4E82-9591-79CAD6105832}</Project>
-      <Name>Dark.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entity\" />
     <Folder Include="Intercepts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-using Dark.Web.Domain.Entity;
+using Dark.Core.Authorization.Users;
 using Microsoft.AspNet.Identity;
 
 namespace Abp.Authorization.Users

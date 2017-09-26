@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dark.Core.Entity;
 
-namespace Dark.Web.Domain.Entity
+namespace Dark.Core.Authorization.Users
 {
     /// <summary>
     /// 系统账户信息

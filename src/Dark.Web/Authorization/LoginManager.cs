@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using Abp.Authorization.Users;
 using Castle.Core.Internal;
 using Dark.Core.Auditing;
+using Dark.Core.Authorization.Users;
 using Dark.Core.DI;
 using Dark.Core.Domain.Repository;
 using Dark.Web.Authorization.Roles;
 using Dark.Web.Authorization.Users;
-using Dark.Web.Domain.Entity;
 using Dark.Web.Models;
 using Microsoft.AspNet.Identity;
 
@@ -30,13 +30,13 @@ namespace Dark.Web.Authorization
         protected IdRoleManager RoleManager { get; }
         private IClientInfoProvider _clientProvider;
 
-        private IRepository<Sys_UserLoginAttempts> _loginAttemptsRepository;
+        private IRepository<Sys_UserLogin> _loginAttemptsRepository;
         public LoginManager(
             IdUserManager userManager,
             IIocManager iocResolver,
             IdRoleManager roleManager,
             IClientInfoProvider clientInfoProvider,
-            IRepository<Sys_UserLoginAttempts> loginAttemptsRepository)
+            IRepository<Sys_UserLogin> loginAttemptsRepository)
         {
 
             IocResolver = iocResolver;
@@ -179,7 +179,7 @@ namespace Dark.Web.Authorization
         /// <returns></returns>
         protected virtual async Task SaveLoginAttempt(AjaxResult loginResult, string account)
         {
-            var loginAttempt = new Sys_UserLoginAttempts
+            var loginAttempt = new Sys_UserLogin
             {
 
                 UserId = (loginResult.Data as IdUser)?.Id,

@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Dark.Core.Domain.Entity;
 
-namespace Dark.Web.Domain.Entity
+namespace Dark.Core.Authorization.Users
 {
     /// <summary>
     /// 登陆尝试
     /// </summary>
-    public class Sys_UserLoginAttempts : EntityBase
+    public class Sys_UserLogin : EntityBase
     {
-        public int Id { get; set; }
-
+     
         public int? UserId { get; set; }
 
         public string Account { get; set; }

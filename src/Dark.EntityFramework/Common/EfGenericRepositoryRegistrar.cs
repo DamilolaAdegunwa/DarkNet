@@ -92,7 +92,7 @@ namespace Dark.EntityFramework.Common
                             Component
                                 .For(genericRepositoryType)
                                 .ImplementedBy(implType)
-                                .Named(Guid.NewGuid().ToString("N"))
+                                //.Named(Guid.NewGuid().ToString("N"))
                                 .LifestyleTransient()
                         );
                     }
@@ -105,11 +105,14 @@ namespace Dark.EntityFramework.Common
                         ? repositoryImplementationWithPrimaryKey.MakeGenericType(entityTypeInfo.EntityType, primaryKeyType)
                         : repositoryImplementationWithPrimaryKey.MakeGenericType(entityTypeInfo.DeclaringType, entityTypeInfo.EntityType, primaryKeyType);
 
+
+                    var keyName = "Pk_" + primaryKeyType.Name + "_" + entityTypeInfo.EntityType.Name;
+
                     iocManager.IocContainer.Register(
                         Component
                             .For(genericRepositoryTypeWithPrimaryKey)
                             .ImplementedBy(implType)
-                            .Named(Guid.NewGuid().ToString("N"))
+                            .Named(keyName)
                             .LifestyleTransient()
                     );
                 }

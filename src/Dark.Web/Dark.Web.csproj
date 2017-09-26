@@ -100,12 +100,6 @@
     <Compile Include="ControllerFactory\WindsorControllerFactory.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="BaseWebApplication.cs" />
-    <Compile Include="Domain\Entity\Sys_Account.cs" />
-    <Compile Include="Domain\Entity\Sys_Permission.cs" />
-    <Compile Include="Domain\Entity\Sys_Role.cs" />
-    <Compile Include="Domain\Entity\Sys_UserClaim.cs" />
-    <Compile Include="Domain\Entity\Sys_UserLogin.cs" />
-    <Compile Include="Domain\Entity\Sys_UserRole.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Models\LoginView.cs" />
@@ -120,6 +114,7 @@
     <Compile Include="Runtime\Session\HttpContextPrincipalAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Domain\Entity\" />
     <Folder Include="Domain\Reposities\" />
     <Folder Include="Html\" />
   </ItemGroup>

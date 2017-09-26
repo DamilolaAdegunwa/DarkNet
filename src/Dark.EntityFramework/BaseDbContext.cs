@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Castle.Core.Logging;
+using Dark.Core.Authorization.Users;
 using Dark.Core.DI;
 using Dark.Core.Domain.Entity;
 using Dark.Core.Domain.Uow;
@@ -21,14 +22,12 @@ using Dark.Core.Events.Bus.Entities;
 using Dark.Core.Extension;
 using Dark.Core.Runtime.Session;
 using Dark.Core.Utils;
-using Dark.Web.Domain.Entity;
 using EntityFramework.DynamicFilters;
 
 namespace Dark.EntityFramework
 {
-    public abstract class BaseDbContext : DbContext,ITransientDependency
+    public abstract class BaseDbContext : DbContext, ITransientDependency
     {
-
         #region 0.0 公共属性
         public ILogger Logger { get; set; }
 
@@ -148,7 +147,7 @@ namespace Dark.EntityFramework
         public virtual IDbSet<Sys_Role> Sys_Roles { get; set; }
         public virtual IDbSet<Sys_UserRole> Sys_UserRoles { get; set; }
         public virtual IDbSet<Sys_UserClaim> Sys_UserClaims { get; set; }
-        public virtual IDbSet<Sys_UserLoginAttempts> Sys_UserLoginAttemptss { get; set; }
+        public virtual IDbSet<Sys_UserLogin> Sys_UserLogins { get; set; }
         public virtual IDbSet<Sys_Permission> Sys_Permissions { get; set; }
         #endregion
 
@@ -217,9 +216,9 @@ namespace Dark.EntityFramework
                     CheckAndSetId(entry.Entity);
                     EntityAuditingHelper.SetCreationAuditProperties(entry, GetAuditUserId());
                     break;
-                //case EntityState.Deleted: //It's not going here at all
-                //    SetDeletionAuditProperties(entry.Entity, GetAuditUserId());
-                //    break;
+                    //case EntityState.Deleted: //It's not going here at all
+                    //    SetDeletionAuditProperties(entry.Entity, GetAuditUserId());
+                    //    break;
             }
         }
 
@@ -234,7 +233,7 @@ namespace Dark.EntityFramework
             modelBuilder.Filter("SoftDelete", (IHasDelete d) => d.IsDel, false);
         }
 
-        
+
         protected virtual EntityChangeReport ApplyAbpConcepts()
         {
             var changeReport = new EntityChangeReport();
@@ -331,7 +330,7 @@ namespace Dark.EntityFramework
                 }
             }
         }
-      
+
         protected virtual void LogDbEntityValidationException(DbEntityValidationException exception)
         {
             Logger.Error("There are some validation errors while saving changes in EntityFramework:");
@@ -351,6 +350,6 @@ namespace Dark.EntityFramework
             return null;
         }
 
-       
+
     }
 }

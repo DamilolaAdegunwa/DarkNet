@@ -12,7 +12,7 @@ using OA.EntityFramework.EntityFramework;
 
 namespace OA.EntityFramework
 {
-    [DependOn(typeof(EntityFrameworkModule), typeof(OACoreModule))]
+    [DependOn(typeof(EntityFrameworkModule))]
     public class OAEntityFrameworkModule:BaseModule
     {
         public override void PreInitialize()
