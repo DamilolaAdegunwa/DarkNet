@@ -42,7 +42,7 @@ namespace Dark.EntityFramework.Common
                 typeof(IRepository<>),
                 typeof(IRepository<,>),
                 typeof(EfRepository<,>),
-                typeof(EfRepositoryBase<,,>)
+                typeof(EfRepository<,,>)
             );
 
             //if (autoRepositoryAttr.WithDefaultRepositoryInterfaces)
@@ -75,7 +75,8 @@ namespace Dark.EntityFramework.Common
             Type repositoryImplementation,
             Type repositoryImplementationWithPrimaryKey)
         {
-            foreach (var entityTypeInfo in _dbContextEntityFinder.GetEntityTypeInfos(dbContextType))
+            IEnumerable<EntityTypeInfo> entityTypes = _dbContextEntityFinder.GetEntityTypeInfos(dbContextType);
+            foreach (var entityTypeInfo in entityTypes)
             {
                 var primaryKeyType = EntityHelper.GetPrimaryKeyType(entityTypeInfo.EntityType);
                 if (primaryKeyType == typeof(int))
@@ -88,9 +89,10 @@ namespace Dark.EntityFramework.Common
                             : repositoryImplementation.MakeGenericType(entityTypeInfo.DeclaringType,
                                 entityTypeInfo.EntityType);
 
+                        
                         iocManager.IocContainer.Register(
                             Component
-                                .For(genericRepositoryType)
+                                .For(genericRepositoryType,implType)
                                 .ImplementedBy(implType)
                                 //.Named(Guid.NewGuid().ToString("N"))
                                 .LifestyleTransient()
@@ -106,11 +108,11 @@ namespace Dark.EntityFramework.Common
                         : repositoryImplementationWithPrimaryKey.MakeGenericType(entityTypeInfo.DeclaringType, entityTypeInfo.EntityType, primaryKeyType);
 
 
-                    var keyName = "Pk_" + primaryKeyType.Name + "_" + entityTypeInfo.EntityType.Name;
+                    var keyName = "PK_" + primaryKeyType.Name + "_" + entityTypeInfo.EntityType.Name;
 
                     iocManager.IocContainer.Register(
                         Component
-                            .For(genericRepositoryTypeWithPrimaryKey)
+                            .For(genericRepositoryTypeWithPrimaryKey, implType)
                             .ImplementedBy(implType)
                             .Named(keyName)
                             .LifestyleTransient()

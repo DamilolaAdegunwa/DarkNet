@@ -26,7 +26,7 @@ using EntityFramework.DynamicFilters;
 
 namespace Dark.EntityFramework
 {
-    public abstract class BaseDbContext : DbContext, ITransientDependency
+    public  class BaseDbContext : DbContext, ITransientDependency
     {
         #region 0.0 公共属性
         public ILogger Logger { get; set; }
@@ -143,12 +143,13 @@ namespace Dark.EntityFramework
         #endregion
 
         #region 3.0 系统自带的默认表
-        public virtual IDbSet<Sys_Account> Sys_Accounts { get; set; }
+       
         public virtual IDbSet<Sys_Role> Sys_Roles { get; set; }
         public virtual IDbSet<Sys_UserRole> Sys_UserRoles { get; set; }
         public virtual IDbSet<Sys_UserClaim> Sys_UserClaims { get; set; }
         public virtual IDbSet<Sys_UserLogin> Sys_UserLogins { get; set; }
         public virtual IDbSet<Sys_Permission> Sys_Permissions { get; set; }
+        public virtual IDbSet<Sys_Account> Sys_Accounts { get; set; }
         #endregion
 
 

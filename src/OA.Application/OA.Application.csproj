@@ -53,6 +53,10 @@
       <Project>{D5D8D408-FEB8-4DB9-B332-19F4F120E627}</Project>
       <Name>Dark.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OA.Core\OA.Core.csproj">
+      <Project>{A68E4DAD-B836-4683-BD43-F6EFB0565C8E}</Project>
+      <Name>OA.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

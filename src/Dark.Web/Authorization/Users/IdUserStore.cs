@@ -14,7 +14,7 @@ namespace Dark.Web.Authorization.Users
     public class IdUserStore : IUserStore<IdUser, int>,
         IUserPasswordStore<IdUser,int>,ITransientDependency
     {
-        private IRepository<Sys_Account> _accountRepository;
+        private readonly IRepository<Sys_Account> _accountRepository;
         
         public IdUserStore(IRepository<Sys_Account> accountRepository)
         {

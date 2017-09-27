@@ -18,11 +18,11 @@ namespace OA.Web.Controllers
     {
         private IShopAppService _shopAppService;
 
-        private LoginManager _loginManager;
+        //private LoginManager _loginManager;
 
-        public HomeController(IShopAppService shopAppService, LoginManager loginManager)
+        public HomeController(IShopAppService shopAppService)
         {
-            _loginManager = loginManager;
+            //_loginManager = loginManager;
             _shopAppService = shopAppService;
         }
         // GET: Home
@@ -51,7 +51,8 @@ namespace OA.Web.Controllers
                 return RedirectAjaxData(AjaxResult.Fail("表单数据错误"));
             }
 
-            return ToJSON(await _loginManager.LoginAsync(login));
+            return ToJSON(null);
+            //return ToJSON(await _loginManager.LoginAsync(login));
         }
     }
 }

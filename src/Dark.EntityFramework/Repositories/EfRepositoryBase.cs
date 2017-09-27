@@ -20,9 +20,10 @@ namespace Dark.EntityFramework.Repositories
     /// <typeparam name="TDbContext">DbContext which contains <typeparamref name="TEntity"/>.</typeparam>
     /// <typeparam name="TEntity">Type of the Entity for this repository</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key of the entity</typeparam>
-    public class EfRepositoryBase<TDbContext, TEntity, TPrimaryKey> : AbsRepository<TEntity, TPrimaryKey>, IRepositoryWithDbContext
-        where TEntity :  Entity<TPrimaryKey>
+    public class EfRepository<TDbContext, TEntity, TPrimaryKey> : AbsRepository<TEntity, TPrimaryKey>, IRepositoryWithDbContext
         where TDbContext : DbContext
+        where TEntity :  Entity<TPrimaryKey>
+       
     {
         /// <summary>
         /// Gets EF DbContext object.
@@ -68,7 +69,7 @@ namespace Dark.EntityFramework.Repositories
         /// Constructor
         /// </summary>
         /// <param name="dbContextProvider"></param>
-        public EfRepositoryBase(IDbContextProvider<TDbContext> dbContextProvider)
+        public EfRepository(IDbContextProvider<TDbContext> dbContextProvider)
         {
             _dbContextProvider = dbContextProvider;
         }

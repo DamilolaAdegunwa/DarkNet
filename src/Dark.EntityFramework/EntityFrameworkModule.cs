@@ -27,7 +27,7 @@ namespace Dark.EntityFramework
 
         public override void PreInitialize()
         {
-          
+
             //Configuration.ReplaceService(typeof(IUnitOfWorkFilterExecuter),() =>
             //{
             //    IocManager.IocContainer.Register(
@@ -63,15 +63,14 @@ namespace Dark.EntityFramework
         {
             var dbContextTypes =
                 _typeFinder.Find(type =>
-                    type.IsPublic &&
-                    !type.IsAbstract &&
-                    type.IsClass &&
-                    typeof(BaseDbContext).IsAssignableFrom(type)
+                    type.IsPublic && !type.IsAbstract && type.IsClass &&
+
+                    (typeof(BaseDbContext).IsAssignableFrom(type))
                     );
 
             if (dbContextTypes.IsNullOrEmpty())
             {
-                Logger.Warn("No class found derived from AbpDbContext.");
+                Logger.Warn("No class found derived from BaseDbContext.");
                 return;
             }
 
@@ -81,7 +80,7 @@ namespace Dark.EntityFramework
 
                 foreach (var dbContextType in dbContextTypes)
                 {
-                    Logger.Debug("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
+                    Logger.Info("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
                     repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
 
                     //
