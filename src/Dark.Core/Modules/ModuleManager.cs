@@ -72,7 +72,7 @@ namespace Dark.Core.Modules
         public void StartModules()
         {
             //1:获取所有module,并且进行排序,按照依赖的先后顺序排
-            var sortModules = SortModules(StartModule.Type);
+            var sortModules = SortModules(StartModule);
             //2:执行所有的modules 方法
             sortModules.ForEach(module => module.Instance.PreInitialize());
             sortModules.ForEach(module => module.Instance.Initialize());
@@ -126,7 +126,7 @@ namespace Dark.Core.Modules
                     instance.Configuration = _iocManager.Resolve<IBaseConfiguration>();
                     //3:初始化模块
                     ModuleInfo moduleInfo = new ModuleInfo(type, instance);
-                    
+
                     //4：递归查找模块的所有依赖
                     modules.Add(moduleInfo);
                     //5：检查该类型和启动类型是否一致,如果一致,那么设置启动模块
@@ -167,35 +167,70 @@ namespace Dark.Core.Modules
         }
 
 
+
         /// <summary>
         /// 给模块排序
         /// </summary>
         /// <returns></returns>
-        private List<ModuleInfo> SortModules(Type startType)
+        //private List<ModuleInfo> SortModules(Type startType)
+        //{
+        //    //1:将coremodule放在第一个
+        //    var coreIndex = modules.FindIndex(u => u.Type == typeof(CoreModule));
+        //    if (coreIndex < 0)
+        //    {
+        //        Logger.Fatal("未正确加载CoreModule模块");
+        //        throw new Exception("未找到CoreModule");
+        //    }
+        //    var coreModule = modules[coreIndex];
+        //    modules.RemoveAt(coreIndex);
+        //    modules.Insert(0, coreModule);
+        //    //2:将startmodule 放在最后一个
+        //    var startIndex = modules.FindIndex(u => u.Type == startType);
+        //    if (startIndex < 0)
+        //    {
+        //        Logger.Fatal("未正确加载CoreModule模块");
+        //        throw new Exception("未找到CoreModule");
+        //    }
+        //    var startModule = modules[startIndex];
+        //    modules.RemoveAt(startIndex);
+        //    modules.Add(startModule);
+        //    //3:排除最前和最后的,那么按照依赖顺序来排列
+
+        //    return modules;
+        //}
+
+        private List<ModuleInfo> SortModules(ModuleInfo startType)
         {
+            List<ModuleInfo> startModules = startType.Dependencies;
+            List<ModuleInfo> sortModules = new List<ModuleInfo>();
+            startModules.ForEach(module =>
+            {
+                if (module.Dependencies.Count == 0)
+                {
+                    sortModules.Add(module);
+                }
+                else
+                {
+                    module.Dependencies.ForEach(u =>
+                    {
+                        sortModules.AddIfNotContains(u);
+                    });
+                    sortModules.AddIfNotContains(module);
+                }
+            });
+            sortModules.Add(startType);
             //1:将coremodule放在第一个
-            var coreIndex = modules.FindIndex(u => u.Type == typeof(CoreModule));
+            var coreIndex = sortModules.FindIndex(u => u.Type == typeof(CoreModule));
             if (coreIndex < 0)
             {
                 Logger.Fatal("未正确加载CoreModule模块");
                 throw new Exception("未找到CoreModule");
             }
-            var coreModule = modules[coreIndex];
-            modules.RemoveAt(coreIndex);
-            modules.Insert(0, coreModule);
-            //2:将startmodule 放在最后一个
-
-            var startIndex = modules.FindIndex(u => u.Type == startType);
-            if (startIndex < 0)
-            {
-                Logger.Fatal("未正确加载CoreModule模块");
-                throw new Exception("未找到CoreModule");
-            }
-            var startModule = modules[startIndex];
-            modules.RemoveAt(startIndex);
-            modules.Add(startModule);
-            return modules;
+            var coreModule = sortModules[coreIndex];
+            sortModules.RemoveAt(coreIndex);
+            sortModules.Insert(0, coreModule);
+            return sortModules;
         }
-    } 
+    }
     #endregion
 }

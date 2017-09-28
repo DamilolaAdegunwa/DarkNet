@@ -851,3 +851,124 @@ System.ArgumentNullException: 值不能为 null。
    在 System.Collections.Generic.List`1.ForEach(Action`1 action)
    在 Dark.Core.Modules.ModuleManager.StartModules() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
    在 Dark.Core.Bootstrap.Start() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+DEBUG 2017-09-28 17:49:29,009 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 17:49:29,028 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 17:49:29,028 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 17:49:29,028 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 17:49:29,029 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 17:49:29,029 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 17:49:29,029 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 17:49:29,029 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+FATAL 2017-09-28 17:53:35,813 [1    ] Dark.Core.Bootstrap                      - System.ArgumentNullException: 值不能为 null。
+参数名: 这个权限的名称已经存在: Admin
+   在 Dark.Core.Authorization.PermissionDefineContextBase.CreatePermission(String name, String displayName, String description) 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionDefineContextBase.cs:行号 34
+   在 OA.Core.Authorization.OAAuthorizationProvider.SetPermissions(IPermissionDefineContext context) 位置 D:\sutdy\github\DarkNet\src\OA.Core\Authorization\OAAuthorizationProvider.cs:行号 15
+   在 Dark.Core.Authorization.PermissionManager.<Initialize>b__3_0(AuthorizationProvider u) 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 57
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Authorization.PermissionManager.Initialize() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 55
+   在 Dark.Core.CoreModule.PostInitialize() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\CoreModule.cs:行号 34
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__15_2(ModuleInfo module) 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 Dark.Core.Bootstrap.Start() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+System.ArgumentNullException: 值不能为 null。
+参数名: 这个权限的名称已经存在: Admin
+   在 Dark.Core.Authorization.PermissionDefineContextBase.CreatePermission(String name, String displayName, String description) 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionDefineContextBase.cs:行号 34
+   在 OA.Core.Authorization.OAAuthorizationProvider.SetPermissions(IPermissionDefineContext context) 位置 D:\sutdy\github\DarkNet\src\OA.Core\Authorization\OAAuthorizationProvider.cs:行号 15
+   在 Dark.Core.Authorization.PermissionManager.<Initialize>b__3_0(AuthorizationProvider u) 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 57
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Authorization.PermissionManager.Initialize() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Authorization\Permission\PermissionManger.cs:行号 55
+   在 Dark.Core.CoreModule.PostInitialize() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\CoreModule.cs:行号 34
+   在 Dark.Core.Modules.ModuleManager.<>c.<StartModules>b__15_2(ModuleInfo module) 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 System.Collections.Generic.List`1.ForEach(Action`1 action)
+   在 Dark.Core.Modules.ModuleManager.StartModules() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Modules\ModuleManager.cs:行号 79
+   在 Dark.Core.Bootstrap.Start() 位置 D:\sutdy\github\DarkNet\src\Dark.Core\Bootstrap.cs:行号 112
+DEBUG 2017-09-28 17:54:42,497 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 17:54:42,508 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 17:54:42,508 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 17:54:42,508 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 17:54:42,509 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 17:54:42,510 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 17:54:42,510 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 17:54:42,510 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:22:15,385 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:22:15,404 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:22:15,404 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:22:15,404 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:22:15,404 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:22:15,404 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:22:15,405 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:22:15,405 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:22:44,723 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:22:44,735 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:22:44,735 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:22:44,735 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:22:44,735 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:22:44,735 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:22:44,735 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:22:44,736 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:26:50,944 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:26:50,957 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:26:50,957 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:26:50,957 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:26:50,958 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:26:50,958 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:26:50,958 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:26:50,958 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:28:06,433 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:28:06,445 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:28:06,445 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:28:06,445 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:28:06,446 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:28:06,446 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:28:06,446 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:28:06,446 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:29:16,584 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:29:16,598 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:29:16,599 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:29:16,599 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:29:16,599 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:29:16,599 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:29:16,600 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:29:16,600 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:50:51,537 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:50:51,553 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:50:51,554 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:50:51,554 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:50:51,554 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:50:51,554 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:50:51,555 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:50:51,555 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:54:12,871 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 18:54:12,890 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 18:54:12,890 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 18:54:12,890 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 18:54:12,890 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 18:54:12,891 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:54:12,891 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 18:54:12,891 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 19:16:45,291 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 19:16:45,314 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 19:16:45,314 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 19:16:45,315 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 19:16:45,315 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 19:16:45,315 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 19:16:45,317 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 19:16:45,317 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 19:23:13,548 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 19:23:13,560 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 19:23:13,561 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 19:23:13,561 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 19:23:13,561 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 19:23:13,561 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 19:23:13,561 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 19:23:13,562 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 19:23:18,301 [5    ] A.Application.ShopMallApp.ShopAppService - 商品展示
+DEBUG 2017-09-28 19:24:34,247 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Web.OAWebModule is loaded
+DEBUG 2017-09-28 19:24:34,269 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Web.MvcModule is loaded
+DEBUG 2017-09-28 19:24:34,269 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded
+DEBUG 2017-09-28 19:24:34,269 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Core.OACoreModule is loaded
+DEBUG 2017-09-28 19:24:34,269 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.Application.OAApplicationModule is loaded
+DEBUG 2017-09-28 19:24:34,269 [1    ] Dark.Core.Modules.ModuleManager          - module:OA.EntityFramework.OAEntityFrameworkModule is loaded
+DEBUG 2017-09-28 19:24:34,270 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.EntityFramework.EntityFrameworkModule is loaded
+DEBUG 2017-09-28 19:24:34,270 [1    ] Dark.Core.Modules.ModuleManager          - module:Dark.Core.CoreModule is loaded

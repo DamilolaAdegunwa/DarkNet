@@ -60,3 +60,5 @@ E:\github\DarkNet\src\OA.Application\obj\Debug\OA.Application.dll
 E:\github\DarkNet\src\OA.Application\obj\Debug\OA.Application.pdb
 E:\github\DarkNet\src\OA.Application\bin\Debug\OA.Core.dll
 E:\github\DarkNet\src\OA.Application\bin\Debug\OA.Core.pdb
+D:\sutdy\github\DarkNet\src\OA.Application\bin\Debug\OA.Core.dll
+D:\sutdy\github\DarkNet\src\OA.Application\bin\Debug\OA.Core.pdb

@@ -92,7 +92,7 @@ namespace Dark.EntityFramework.Common
                         
                         iocManager.IocContainer.Register(
                             Component
-                                .For(genericRepositoryType,implType)
+                                .For(genericRepositoryType)
                                 .ImplementedBy(implType)
                                 //.Named(Guid.NewGuid().ToString("N"))
                                 .LifestyleTransient()
@@ -112,7 +112,7 @@ namespace Dark.EntityFramework.Common
 
                     iocManager.IocContainer.Register(
                         Component
-                            .For(genericRepositoryTypeWithPrimaryKey, implType)
+                            .For(genericRepositoryTypeWithPrimaryKey)
                             .ImplementedBy(implType)
                             .Named(keyName)
                             .LifestyleTransient()

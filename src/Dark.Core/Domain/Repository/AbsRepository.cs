@@ -5,12 +5,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Dark.Core.DI;
+using Dark.Core.Domain.Entity;
 using Dark.Core.Domain.Uow;
 
 namespace Dark.Core.Domain.Repository
 {
     public abstract class AbsRepository<TEntity, TKey> : IRepository<TEntity, TKey>
-        where TEntity :  Entity.Entity<TKey>
+        where TEntity : class, IEntity<TKey>
     {
 
         public IUnitOfWorkManager UnitOfWorkManager { get; set; }

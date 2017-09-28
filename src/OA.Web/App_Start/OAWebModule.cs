@@ -14,10 +14,11 @@ using OA.EntityFramework;
 
 namespace OA.Web
 {
-    [DependOn(typeof(OACoreModule), 
+    [DependOn(typeof(MvcModule),
+              typeof(OACoreModule), 
               typeof(OAApplicationModule),
-              typeof(OAEntityFrameworkModule),
-              typeof(MvcModule))]
+              typeof(OAEntityFrameworkModule)
+              )]
     public class OAWebModule : BaseModule
     {
         public override void Initialize()

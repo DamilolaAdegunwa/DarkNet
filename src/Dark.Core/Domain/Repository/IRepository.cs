@@ -27,7 +27,7 @@ namespace Dark.Core.Domain.Repository
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TKey"></typeparam>
     public interface IRepository<TEntity, TKey> : IRepository
-        where TEntity : class, Entity.IEntity<TKey>
+        where TEntity : class, IEntity<TKey>
     {
         #region Select/Get/Query
 

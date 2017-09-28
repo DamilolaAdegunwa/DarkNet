@@ -20,6 +20,7 @@ namespace Dark.EntityFramework
     public class EntityFrameworkModule : BaseModule
     {
         private readonly ITypeFinder _typeFinder;
+
         public EntityFrameworkModule(ITypeFinder typeFinder)
         {
             this._typeFinder = typeFinder;
@@ -74,26 +75,26 @@ namespace Dark.EntityFramework
                 return;
             }
 
-            using (var scope = IocManager.CreateScope())
+            //using (var scope = IocManager.CreateScope())
+            //{
+            var repositoryRegistrar = IocManager.Resolve<IEfGenericRepositoryRegistrar>();
+
+            foreach (var dbContextType in dbContextTypes)
             {
-                var repositoryRegistrar = scope.Resolve<IEfGenericRepositoryRegistrar>();
+                Logger.Info("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
+                repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
 
-                foreach (var dbContextType in dbContextTypes)
-                {
-                    Logger.Info("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
-                    repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
-
-                    //
-                    //IocManager.IocContainer.Register(
-                    //    Component.For<ISecondaryOrmRegistrar>()
-                    //        .Named(Guid.NewGuid().ToString("N"))
-                    //        .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
-                    //        .LifestyleTransient()
-                    //);
-                }
-
-                scope.Resolve<IDbContextTypeMatcher>().Populate(dbContextTypes);
+                //
+                //IocManager.IocContainer.Register(
+                //    Component.For<ISecondaryOrmRegistrar>()
+                //        .Named(Guid.NewGuid().ToString("N"))
+                //        .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
+                //        .LifestyleTransient()
+                //);
             }
+
+            IocManager.Resolve<IDbContextTypeMatcher>().Populate(dbContextTypes);
+            //}
         }
     }
 }

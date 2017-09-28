@@ -23,7 +23,10 @@ namespace OA.EntityFramework.EntityFramework
         public IDbSet<OA_Commodity> OA_Commodity { get; set; }
 
 
-        public OADbContext() : base()
+      
+
+
+        public OADbContext() : base("Default")
         {
 
         }
