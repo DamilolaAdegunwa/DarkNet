@@ -107,7 +107,7 @@ namespace Dark.EntityFramework.Uow
             DbContext dbContext;
             if (!ActiveDbContexts.TryGetValue(dbContextKey, out dbContext))
             {
-                if (Options.IsTransactional == true)
+                if (DefaultOptions.IsTransactional == true)
                 {
                     dbContext = _transactionStrategy.CreateDbContext<TDbContext>(connectionString, _dbContextResolver);
                 }
@@ -116,9 +116,9 @@ namespace Dark.EntityFramework.Uow
                     dbContext = _dbContextResolver.Resolve<TDbContext>(connectionString);
                 }
 
-                if (Options.Timeout.HasValue && !dbContext.Database.CommandTimeout.HasValue)
+                if (DefaultOptions.Timeout.HasValue && !dbContext.Database.CommandTimeout.HasValue)
                 {
-                    dbContext.Database.CommandTimeout = Options.Timeout.Value.TotalSeconds.To<int>();
+                    dbContext.Database.CommandTimeout = DefaultOptions.Timeout.Value.TotalSeconds.To<int>();
                 }
 
                 ((IObjectContextAdapter)dbContext).ObjectContext.ObjectMaterialized += (sender, args) =>

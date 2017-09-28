@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.Domain.Uow;
 
 namespace Dark.Core.Configuration
 {
@@ -17,6 +18,9 @@ namespace Dark.Core.Configuration
         IAuthorizationConfiguration AuthConfig { get; }
 
         string DefaultNameOrConnectionString { get; set; }
+
+
+        IUnitOfWorkDefaultOptions UnitOfWorkOpts { get; }
         /// <summary>
         /// 对注入的服务进行替换
         /// </summary>
@@ -40,6 +44,11 @@ namespace Dark.Core.Configuration
 
         public string DefaultNameOrConnectionString { get; set; }
 
+        /// <summary>
+        /// Used to configure unit of work defaults.
+        /// </summary>
+        public IUnitOfWorkDefaultOptions UnitOfWorkOpts { get; private set; }
+
 
         public Dictionary<Type, Action> ServiceReplaceActions { get; private set; }
 
@@ -52,6 +61,7 @@ namespace Dark.Core.Configuration
         public void Initialize()
         {
             AuthConfig = _iocManager.Resolve<IAuthorizationConfiguration>();
+            UnitOfWorkOpts = _iocManager.Resolve<IUnitOfWorkDefaultOptions>();
         }
 
         public void ReplaceService(Type type, Action replaceAction)

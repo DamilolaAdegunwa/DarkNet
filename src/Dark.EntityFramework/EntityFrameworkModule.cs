@@ -29,19 +29,28 @@ namespace Dark.EntityFramework
         public override void PreInitialize()
         {
 
-            //Configuration.ReplaceService(typeof(IUnitOfWorkFilterExecuter),() =>
-            //{
-            //    IocManager.IocContainer.Register(
-            //        Component
-            //        .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
-            //        .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
-            //        .LifestyleTransient()
-            //    );
-            //});
+            Configuration.ReplaceService(typeof(IUnitOfWorkFilterExecuter), () =>
+             {
+                 //IocManager.IocContainer.Register(
+                 //    Component
+                 //    .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
+                 //    .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
+                 //    .LifestyleTransient()
+                 //);
+
+                
+
+                 //IocManager.IocContainer.Register<IEfTransactionStrategy, DbContextEfTransactionStrategy>(DependencyLifeStyle.Transient);
+
+             });
         }
 
         public override void Initialize()
         {
+
+
+           
+
             IocManager.RegisterConvention(Assembly.GetExecutingAssembly());
 
             ///
