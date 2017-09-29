@@ -9,5 +9,6 @@ namespace OA.Application.ShopMallApp
     public interface IShopAppService
     {
         void Show();
+        void Test();
     }
 }

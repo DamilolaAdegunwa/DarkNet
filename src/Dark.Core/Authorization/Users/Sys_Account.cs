@@ -46,5 +46,10 @@ namespace Dark.Core.Authorization.Users
         /// 是否是激活状态
         /// </summary>
         public bool IsActive { get; set; }
+
+        public Sys_Account()
+        {
+
+        }
     }
 }

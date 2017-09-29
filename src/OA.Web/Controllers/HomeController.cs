@@ -44,13 +44,13 @@ namespace OA.Web.Controllers
         /// <param name="login"></param>
         /// <returns></returns>
         [Skip]
-        public async Task<JsonResult> LoginAsync(LoginModel login)
+        public JsonResult LoginAsync(LoginModel login)
         {
             if (!ModelState.IsValid)
             {
                 return RedirectAjaxData(AjaxResult.Fail("表单数据错误"));
             }
-
+            _shopAppService.Test();
             return ToJSON(null);
             //return ToJSON(await _loginManager.LoginAsync(login));
         }

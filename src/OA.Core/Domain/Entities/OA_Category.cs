@@ -22,6 +22,11 @@ namespace OA.Core.Domain.Entities
         /// </summary>
         public string Description { get; set; }
 
+        public OA_Category()
+        {
+
+        }
+
         public OA_Category(string name, int parentId,string desc = "")
         {
             this.Name = name;

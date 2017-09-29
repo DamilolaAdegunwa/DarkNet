@@ -26,5 +26,11 @@ namespace OA.Application.ShopMallApp
 
             Logger.Debug("商品展示");
         }
+
+
+        public void Test()
+        {
+            var temp = _categoryRepository.GetAllList();
+        }
     }
 }

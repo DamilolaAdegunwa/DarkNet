@@ -11,7 +11,7 @@ namespace Dark.Core.Domain.Entity
     /// </summary>
     public class EntityBase : Entity
     {
-
+        public EntityBase() { }
         /// <summary>
         /// 创建人
         /// </summary>

@@ -29,5 +29,10 @@ namespace OA.Core.Domain.Entities
             this.CategoryId = categoryId;
             this.Name = name;
         }
+
+        public OA_Commodity()
+        {
+
+        }
     }
 }
