@@ -89,12 +89,12 @@ namespace Dark.EntityFramework.Common
                             : repositoryImplementation.MakeGenericType(entityTypeInfo.DeclaringType,
                                 entityTypeInfo.EntityType);
 
-                        
+
                         iocManager.IocContainer.Register(
                             Component
                                 .For(genericRepositoryType)
                                 .ImplementedBy(implType)
-                                //.Named(Guid.NewGuid().ToString("N"))
+                                .Named(Guid.NewGuid().ToString("N"))
                                 .LifestyleTransient()
                         );
                     }

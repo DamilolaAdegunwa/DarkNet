@@ -18,7 +18,7 @@ namespace Dark.EntityFramework.Repositories
     /// </summary>
     /// <typeparam name="TDbContext"></typeparam>
     /// <typeparam name="TEntity"></typeparam>
-    public class EfRepository<TDbContext, TEntity> : EfRepository<TDbContext, TEntity, int>
+    public class EfRepository<TDbContext, TEntity> : EfRepository<TDbContext, TEntity, int>, IRepository<TEntity>
          where TEntity : class, IEntity<int>
          where TDbContext : DbContext
     {
@@ -37,7 +37,7 @@ namespace Dark.EntityFramework.Repositories
     public class EfRepository<TDbContext, TEntity, TPrimaryKey> : AbsRepository<TEntity, TPrimaryKey>, IRepositoryWithDbContext
         where TDbContext : DbContext
         where TEntity : class, IEntity<TPrimaryKey>
-       
+
     {
         /// <summary>
         /// Gets EF DbContext object.
@@ -86,7 +86,6 @@ namespace Dark.EntityFramework.Repositories
         public EfRepository(IDbContextProvider<TDbContext> dbContextProvider)
         {
             _dbContextProvider = dbContextProvider;
-            var temp = _dbContextProvider.GetDbContext();
         }
 
         public override IQueryable<TEntity> GetAll()

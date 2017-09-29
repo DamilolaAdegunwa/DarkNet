@@ -20,6 +20,7 @@ namespace OA.Application.ShopMallApp
 
         public void Show()
         {
+            var data = _categoryRepository.GetAllList();
 
             var pList = PermissionManager.GetAllPermissions();
 

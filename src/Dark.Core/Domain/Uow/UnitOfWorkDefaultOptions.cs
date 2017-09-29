@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using Dark.Core.Application.Service;
+using Dark.Core.Domain.Repository;
 
 namespace Dark.Core.Domain.Uow
 {
@@ -42,6 +44,11 @@ namespace Dark.Core.Domain.Uow
         IReadOnlyList<DataFilterConfiguration> Filters { get; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        List<Func<Type, bool>> ConventionalUowSelectors { get; }
+
+        /// <summary>
         /// Registers a data filter to unit of work system.
         /// </summary>
         /// <param name="filterName">Name of the filter.</param>
@@ -76,7 +83,12 @@ namespace Dark.Core.Domain.Uow
         {
             get { return _filters; }
         }
+
+     
+
         private readonly List<DataFilterConfiguration> _filters;
+
+        public List<Func<Type, bool>> ConventionalUowSelectors { get; }
 
         public void RegisterFilter(string filterName, bool isEnabledByDefault)
         {
@@ -86,6 +98,8 @@ namespace Dark.Core.Domain.Uow
             }
 
             _filters.Add(new DataFilterConfiguration(filterName, isEnabledByDefault));
+
+           
         }
 
         public void OverrideFilter(string filterName, bool isEnabledByDefault)
@@ -99,6 +113,12 @@ namespace Dark.Core.Domain.Uow
             _filters = new List<DataFilterConfiguration>();
             IsTransactional = true;
             Scope = TransactionScopeOption.Required;
+
+            ConventionalUowSelectors = new List<Func<Type, bool>>
+            {
+                type => typeof(IRepository).IsAssignableFrom(type) ||
+                        typeof(IAppService).IsAssignableFrom(type)
+            };
         }
     } 
     #endregion

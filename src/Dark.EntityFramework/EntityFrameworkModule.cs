@@ -31,14 +31,14 @@ namespace Dark.EntityFramework
 
             Configuration.ReplaceService(typeof(IUnitOfWorkFilterExecuter), () =>
              {
-                 //IocManager.IocContainer.Register(
-                 //    Component
-                 //    .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
-                 //    .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
-                 //    .LifestyleTransient()
-                 //);
+                 IocManager.IocContainer.Register(
+                     Component
+                     .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
+                     .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
+                     .LifestyleTransient()
+                 );
 
-                
+
 
                  //IocManager.IocContainer.Register<IEfTransactionStrategy, DbContextEfTransactionStrategy>(DependencyLifeStyle.Transient);
 
@@ -48,23 +48,15 @@ namespace Dark.EntityFramework
         public override void Initialize()
         {
 
-
-           
-
             IocManager.RegisterConvention(Assembly.GetExecutingAssembly());
 
-            ///
             IocManager.IocContainer.Register(
                Component.For(typeof(IDbContextProvider<>))
                    .ImplementedBy(typeof(UnitOfWorkDbContextProvider<>))
                    .LifestyleTransient()
                );
-            IocManager.IocContainer.Register(
-                  Component
-                  .For<IUnitOfWorkFilterExecuter, IEfUnitOfWorkFilterExecuter>()
-                  .ImplementedBy<EfDynamicFiltersUnitOfWorkFilterExecuter>()
-                  .LifestyleTransient()
-              );
+
+
             RegisterGenericRepositoriesAndMatchDbContexes();
         }
 
@@ -84,26 +76,26 @@ namespace Dark.EntityFramework
                 return;
             }
 
-            //using (var scope = IocManager.CreateScope())
-            //{
-            var repositoryRegistrar = IocManager.Resolve<IEfGenericRepositoryRegistrar>();
-
-            foreach (var dbContextType in dbContextTypes)
+            using (var scope = IocManager.CreateScope())
             {
-                Logger.Info("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
-                repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
+                var repositoryRegistrar = scope.Resolve<IEfGenericRepositoryRegistrar>();
 
-                //
-                //IocManager.IocContainer.Register(
-                //    Component.For<ISecondaryOrmRegistrar>()
-                //        .Named(Guid.NewGuid().ToString("N"))
-                //        .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
-                //        .LifestyleTransient()
-                //);
+                foreach (var dbContextType in dbContextTypes)
+                {
+                    Logger.Info("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
+                    repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
+
+                    //
+                    //IocManager.IocContainer.Register(
+                    //    Component.For<ISecondaryOrmRegistrar>()
+                    //        .Named(Guid.NewGuid().ToString("N"))
+                    //        .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
+                    //        .LifestyleTransient()
+                    //);
+                }
+
+                scope.Resolve<IDbContextTypeMatcher>().Populate(dbContextTypes);
             }
-
-            IocManager.Resolve<IDbContextTypeMatcher>().Populate(dbContextTypes);
-            //}
         }
     }
 }
