@@ -19,5 +19,10 @@ namespace Dark.Core.Authorization.Users
         /// 角色描述
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// 角色也可以分级
+        /// </summary>
+        public string ParentId { get; set; }
     }
 }

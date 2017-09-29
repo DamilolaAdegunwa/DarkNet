@@ -16,23 +16,20 @@ namespace OA.Web.Controllers
     [Skip]
     public class HomeController : BaseController
     {
-        private IShopAppService _shopAppService;
 
-        //private LoginManager _loginManager;
+        private LoginManager _loginManager;
 
-        public HomeController(IShopAppService shopAppService)
+        public HomeController(LoginManager loginManager)
         {
-            //_loginManager = loginManager;
-            _shopAppService = shopAppService;
+            _loginManager = loginManager;
+            //_shopAppService = shopAppService;
         }
         // GET: Home
         public ActionResult Index()
         {
-            _shopAppService.Show();
             return View();
         }
 
-        [Skip]
         public ActionResult Login()
         {
             return View();
@@ -43,16 +40,13 @@ namespace OA.Web.Controllers
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [Skip]
-        public JsonResult LoginAsync(LoginModel login)
+        public async Task<JsonResult> LoginAsync(LoginModel login)
         {
             if (!ModelState.IsValid)
             {
                 return RedirectAjaxData(AjaxResult.Fail("表单数据错误"));
             }
-            _shopAppService.Test();
-            return ToJSON(null);
-            //return ToJSON(await _loginManager.LoginAsync(login));
+            return ToJSON(await _loginManager.LoginAsync(login));
         }
     }
 }

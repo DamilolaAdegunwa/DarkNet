@@ -15,6 +15,7 @@ namespace OA.Core.Domain.Entities
 
         public decimal Price { get; set; }
 
+
         public int CategoryId { get; set; }
 
         /// <summary>
@@ -23,6 +24,8 @@ namespace OA.Core.Domain.Entities
         public string Picture { get; set; }
 
         public List<string> Pictures { get; set; }
+
+
 
         public OA_Commodity(int categoryId,string name)
         {

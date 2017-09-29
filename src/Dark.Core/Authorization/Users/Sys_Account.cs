@@ -47,9 +47,5 @@ namespace Dark.Core.Authorization.Users
         /// </summary>
         public bool IsActive { get; set; }
 
-        public Sys_Account()
-        {
-
-        }
     }
 }

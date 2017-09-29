@@ -34,7 +34,7 @@ namespace Dark.Web.Authorization.Users
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public async Task<IdUser> FindByIdAsync(int userId)

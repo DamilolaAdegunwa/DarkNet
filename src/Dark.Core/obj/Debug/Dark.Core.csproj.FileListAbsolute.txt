@@ -51,7 +51,7 @@ E:\github\DarkNet\src\Dark.Core\bin\Debug\Castle.Windsor.xml
 E:\github\DarkNet\src\Dark.Core\bin\Debug\itextsharp.xml
 E:\github\DarkNet\src\Dark.Core\bin\Debug\log4net.xml
 E:\github\DarkNet\src\Dark.Core\bin\Debug\Newtonsoft.Json.xml
-E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.csprojResolveAssemblyReference.cache
 E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.csproj.CoreCompileInputs.cache
 E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.dll
 E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.pdb
+E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.csprojResolveAssemblyReference.cache

@@ -48,6 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\OADbContext.cs" />
+    <Compile Include="Migrations\201709281344518_InitialCreate.cs" />
+    <Compile Include="Migrations\201709281344518_InitialCreate.Designer.cs">
+      <DependentUpon>201709281344518_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709291328046_add sys_role column parentId.cs" />
+    <Compile Include="Migrations\201709291328046_add sys_role column parentId.Designer.cs">
+      <DependentUpon>201709291328046_add sys_role column parentId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OAEntityFrameworkModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +80,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709281344518_InitialCreate.resx">
+      <DependentUpon>201709281344518_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709291328046_add sys_role column parentId.resx">
+      <DependentUpon>201709291328046_add sys_role column parentId.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
