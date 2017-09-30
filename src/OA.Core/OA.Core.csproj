@@ -53,5 +53,9 @@
       <Name>Dark.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authorization\Role\" />
+    <Folder Include="Authorization\User\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

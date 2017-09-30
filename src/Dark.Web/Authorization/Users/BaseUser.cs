@@ -1,50 +1,56 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Dark.Core.Authorization.Users;
+using Dark.Core.Domain.Entity;
 using Dark.Core.Entity;
+using Microsoft.AspNet.Identity;
 
-namespace Dark.Core.Authorization.Users
+namespace Abp.Authorization.Users
 {
-    /// <summary>
-    /// ç³»ç»Ÿè´¦æˆ·ä¿¡æ¯
-    /// </summary>
-    public class Sys_Account : FullEntity
+    [Table("Sys_Account")]
+    public abstract class BaseUser : FullEntity, IUser<int>
     {
         /// <summary>
-        /// å§“å
+        /// ĞÕÃû
         /// </summary>
+        [Required]
+        [StringLength(20)]
         public string UserName { get; set; }
         /// <summary>
         /// 
         /// </summary>
+        [Required]
+        [StringLength(20)]
         public string Password { get; set; }
 
+        [Required]
+        [StringLength(20)]
         public string Account { get; set; }
         /// <summary>
-        /// æ˜µç§°
+        /// êÇ³Æ
         /// </summary>
         public string NickName { get; set; }
 
         /// <summary>
-        /// è”ç³»æ–¹å¼
+        /// ÁªÏµ·½Ê½
         /// </summary>
         public string Phone { get; set; }
 
         /// <summary>
-        /// é‚®ç®±
+        /// ÓÊÏä
         /// </summary>
         public string Email { get; set; }
 
         /// <summary>
-        /// æ˜¯å¦è¢«é”ä½
+        /// ÊÇ·ñ±»Ëø×¡
         /// </summary>
+        [Required]
         public bool IsLock { get; set; }
 
         /// <summary>
-        /// æ˜¯å¦æ˜¯æ¿€æ´»çŠ¶æ€
+        /// ÊÇ·ñÊÇ¼¤»î×´Ì¬
         /// </summary>
+        [Required]
         public bool IsActive { get; set; }
 
     }

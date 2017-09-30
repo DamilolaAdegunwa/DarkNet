@@ -28,25 +28,25 @@ namespace Dark.Web.Filter
             }
 
             //2.如果异常没有处理,那么就返回错误结果,及对于的错误页面
-            string areaName = filterContext.RouteData.Values["area"].ToString();
             string controllerName = filterContext.RouteData.Values["controller"].ToString();
             string actionName = filterContext.RouteData.Values["action"].ToString();
             //找到当前登陆人的登陆信息
-            string userData = filterContext.HttpContext.Request.Cookies["userData"].Value;
+            //string userData = filterContext.HttpContext.Request.Cookies["userData"].Value;
 
             //3:记录错误信息
             Exception ex = filterContext.Exception;
+            StringBuilder sbMsg = new StringBuilder();
             while (ex != null)
             {
-                _logger.ErrorFormat("区域:{0},控制器:{1},方法:{2}:错误信息:{4}", areaName, controllerName, actionName, ex.Message.ToString());
+                sbMsg.AppendFormat("控制器:{0},方法:{1}:错误信息:{2}", controllerName, actionName, ex.Message.ToString());
                 ex = ex.InnerException;
             }
-
+            _logger.ErrorFormat(sbMsg.ToString());
             //4:处理错误信息
             //4.1 如果是ajax请求,返回错误信息
             if (filterContext.HttpContext.Request.IsAjaxRequest())
             {
-                filterContext.Result = new JsonResult() { Data = AjaxResult.Fail(ex.Message) };
+                filterContext.Result = new JsonResult() { Data = AjaxResult.Fail(sbMsg.ToString()) };
             }
             //4.2 如果是页面请求,那么就跳转到错误页面
             else

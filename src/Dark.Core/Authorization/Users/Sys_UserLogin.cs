@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,9 @@ namespace Dark.Core.Authorization.Users
      
         public int? UserId { get; set; }
 
+        [Required]
         public string Account { get; set; }
-
+        [Required]
         public string Result { get; set; }
 
         public string ClientInfo { get; set; }

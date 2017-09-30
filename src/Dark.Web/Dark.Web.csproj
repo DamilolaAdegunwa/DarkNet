@@ -89,10 +89,10 @@
     <Compile Include="Auditing\WebClientInfoProvider.cs" />
     <Compile Include="Authorization\LoginInfo.cs" />
     <Compile Include="Authorization\LoginManager.cs" />
-    <Compile Include="Authorization\Roles\IdentityRole.cs" />
+    <Compile Include="Authorization\Roles\BaseRole.cs" />
     <Compile Include="Authorization\Roles\IdRoleManager.cs" />
     <Compile Include="Authorization\Roles\IdRoleStore.cs" />
-    <Compile Include="Authorization\Users\IdUser.cs" />
+    <Compile Include="Authorization\Users\BaseUser.cs" />
     <Compile Include="Authorization\Users\IdUserManager.cs" />
     <Compile Include="Authorization\Users\IdUserStore.cs" />
     <Compile Include="Authorization\Users\IUserTokenProviderAccessor.cs" />
@@ -102,7 +102,7 @@
     <Compile Include="BaseWebApplication.cs" />
     <Compile Include="Extensions\ActionDescriptorExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
-    <Compile Include="Models\LoginView.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="MvcModule.cs" />
     <Compile Include="Authorization\AuthorizeFilter.cs" />
     <Compile Include="Filter\CompressFilter.cs" />
@@ -116,7 +116,7 @@
   <ItemGroup>
     <Folder Include="Domain\Entity\" />
     <Folder Include="Domain\Reposities\" />
-    <Folder Include="Html\" />
+    <Folder Include="Validation\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

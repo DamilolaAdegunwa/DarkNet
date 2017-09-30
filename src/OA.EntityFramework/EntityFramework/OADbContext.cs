@@ -9,7 +9,7 @@ using OA.Core.Domain.Entities;
 
 namespace OA.EntityFramework.EntityFramework
 {
-    public class OADbContext : BaseDbContext
+    public class OADbContext : BaseDbContext<IdUser,>
     {
 
         /// <summary>

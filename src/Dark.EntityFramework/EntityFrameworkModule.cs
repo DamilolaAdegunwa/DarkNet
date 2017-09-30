@@ -65,9 +65,10 @@ namespace Dark.EntityFramework
         {
             var dbContextTypes =
                 _typeFinder.Find(type =>
-                    type.IsPublic && !type.IsAbstract && type.IsClass &&
-
-                    (typeof(BaseDbContext).IsAssignableFrom(type))
+                    type.IsPublic 
+                    && !type.IsAbstract
+                    && type.IsClass
+                    && (typeof(BaseDbContext).IsAssignableFrom(type))
                     );
 
             if (dbContextTypes.IsNullOrEmpty())
@@ -80,18 +81,12 @@ namespace Dark.EntityFramework
             {
                 var repositoryRegistrar = scope.Resolve<IEfGenericRepositoryRegistrar>();
 
+                //给所有dbContext 的IDbSet对象的实体注册到IRepository中
                 foreach (var dbContextType in dbContextTypes)
                 {
                     Logger.Info("Registering DbContext: " + dbContextType.AssemblyQualifiedName);
                     repositoryRegistrar.RegisterForDbContext(dbContextType, IocManager);
-
-                    //
-                    //IocManager.IocContainer.Register(
-                    //    Component.For<ISecondaryOrmRegistrar>()
-                    //        .Named(Guid.NewGuid().ToString("N"))
-                    //        .Instance(new EfBasedSecondaryOrmRegistrar(dbContextType, scope.Resolve<IDbContextEntityFinder>()))
-                    //        .LifestyleTransient()
-                    //);
+                    
                 }
 
                 scope.Resolve<IDbContextTypeMatcher>().Populate(dbContextTypes);

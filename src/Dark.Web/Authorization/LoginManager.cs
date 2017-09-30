@@ -22,15 +22,16 @@ namespace Dark.Web.Authorization
         Task<AjaxResult> LoginAsync(LoginModel login);
     }
 
-    public class LoginManager : ITransientDependency
+    public class LoginManager : ILoginManager, ITransientDependency
     {
 
-        protected IdUserManager UserManager { get; }
-        protected IIocManager IocResolver { get; }
-        protected IdRoleManager RoleManager { get; }
+        private IdUserManager UserManager { get; }
+        private IIocManager IocResolver { get; }
+        private IdRoleManager RoleManager { get; }
         private IClientInfoProvider _clientProvider;
 
         private IRepository<Sys_UserLogin> _loginAttemptsRepository;
+
         public LoginManager(
             IdUserManager userManager,
             IIocManager iocResolver,
@@ -70,24 +71,22 @@ namespace Dark.Web.Authorization
                 throw new ArgumentNullException(nameof(plainPassword));
             }
 
-            //Get and check tenant
-
-            //TryLoginFromExternalAuthenticationSources method may create the user, that's why we are calling it before AbpStore.FindByNameOrEmailAsync
-            //var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(account, plainPassword);
-
-
             var idUser = await UserManager.FindByNameAsync(account);
-            //检查人员是否存在
+            //1.检查人员是否存在
             if (idUser == null)
             {
                 return AjaxResult.Fail(LoginPrompt.AccountNotExisit);
             }
-            //检查密码是否正常
+            //2.检查密码是否正常
             if (idUser.Password != plainPassword)
             {
                 return AjaxResult.Fail(LoginPrompt.PwdError);
             }
-
+            //3.检查账户是否有授权
+            if (!await RoleManager.IsGrantAsync(idUser.Id))
+            {
+                return AjaxResult.Fail(LoginPrompt.NoGrant);
+            }
             return await CreateLoginResultAsync(idUser);
         }
 
@@ -99,7 +98,7 @@ namespace Dark.Web.Authorization
                 return AjaxResult.Fail(LoginPrompt.DisableAccount);
             }
 
-            user.LastTime = DateTime.Now;
+            //user.LastTime = DateTime.Now;
 
             await UserManager.UpdateAsync(user);
 

@@ -34,7 +34,6 @@ namespace Dark.EntityFramework.Common
             Type dbContextType,
             IIocManager iocManager)
         {
-            //var autoRepositoryAttr = dbContextType.GetTypeInfo().GetSingleAttributeOrNull<AutoRepositoryTypesAttribute>() ?? defaultAutoRepositoryTypesAttribute;
 
             RegisterForDbContext(
                 dbContextType,
@@ -44,18 +43,7 @@ namespace Dark.EntityFramework.Common
                 typeof(EfRepository<,>),
                 typeof(EfRepository<,,>)
             );
-
-            //if (autoRepositoryAttr.WithDefaultRepositoryInterfaces)
-            //{
-            //    RegisterForDbContext(
-            //        dbContextType,
-            //        iocManager,
-            //        defaultAutoRepositoryTypesAttribute.RepositoryInterface,
-            //        defaultAutoRepositoryTypesAttribute.RepositoryInterfaceWithPrimaryKey,
-            //        autoRepositoryAttr.RepositoryImplementation,
-            //        autoRepositoryAttr.RepositoryImplementationWithPrimaryKey
-            //    );
-            //}
+            
         }
 
         /// <summary>

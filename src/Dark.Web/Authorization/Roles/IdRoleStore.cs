@@ -10,11 +10,11 @@ using Microsoft.AspNet.Identity;
 
 namespace Dark.Web.Authorization.Roles
 {
-    public class IdRoleStore : IRoleStore<IdRole, int>, ITransientDependency
+    public class IdRoleStore : IRoleStore<BaseRole, int>, ITransientDependency
     {
-        private IRepository<Sys_Role> _roleRepository;
+        private IRepository<BaseRole> _roleRepository;
 
-        public IdRoleStore(IRepository<Sys_Role> roleRepository)
+        public IdRoleStore(IRepository<BaseRole> roleRepository)
         {
             _roleRepository = roleRepository;
         }
@@ -24,32 +24,32 @@ namespace Dark.Web.Authorization.Roles
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
-        public async Task CreateAsync(IdRole role)
+        public async Task CreateAsync(BaseRole role)
         {
             await _roleRepository.InsertAsync(role);
         }
 
-        public async Task DeleteAsync(IdRole role)
+        public async Task DeleteAsync(BaseRole role)
         {
             await _roleRepository.DeleteAsync(role);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
-        public async Task<IdRole> FindByIdAsync(int roleId)
+        public async Task<BaseRole> FindByIdAsync(int roleId)
         {
-            return (IdRole)await _roleRepository.FirstOrDefaultAsync(roleId);
+            return await _roleRepository.FirstOrDefaultAsync(roleId);
         }
 
-        public async Task<IdRole> FindByNameAsync(string roleName)
+        public async Task<BaseRole> FindByNameAsync(string roleName)
         {
-            return (IdRole)await _roleRepository.FirstOrDefaultAsync(u => u.Name.Equals(roleName));
+            return await _roleRepository.FirstOrDefaultAsync(u => u.Name.Equals(roleName));
         }
 
-        public async Task UpdateAsync(IdRole role)
+        public async Task UpdateAsync(BaseRole role)
         {
             await _roleRepository.UpdateAsync(role);
         }

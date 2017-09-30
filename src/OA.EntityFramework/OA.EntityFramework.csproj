@@ -56,6 +56,14 @@
     <Compile Include="Migrations\201709291328046_add sys_role column parentId.Designer.cs">
       <DependentUpon>201709291328046_add sys_role column parentId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709300324050_Role_Set_Required.cs" />
+    <Compile Include="Migrations\201709300324050_Role_Set_Required.Designer.cs">
+      <DependentUpon>201709300324050_Role_Set_Required.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709300608139_UserCount_Changes.cs" />
+    <Compile Include="Migrations\201709300608139_UserCount_Changes.Designer.cs">
+      <DependentUpon>201709300608139_UserCount_Changes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OAEntityFrameworkModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709291328046_add sys_role column parentId.resx">
       <DependentUpon>201709291328046_add sys_role column parentId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709300324050_Role_Set_Required.resx">
+      <DependentUpon>201709300324050_Role_Set_Required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709300608139_UserCount_Changes.resx">
+      <DependentUpon>201709300608139_UserCount_Changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

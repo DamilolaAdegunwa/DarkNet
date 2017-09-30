@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,10 @@ namespace Dark.Core.Authorization.Users
         /// <summary>
         /// 创建人
         /// </summary>
+        [Required]
+        [StringLength(20)]
         public string Name { get; set; }
+
 
         public string Description { get; set; }
 

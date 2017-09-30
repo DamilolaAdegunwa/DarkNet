@@ -94,11 +94,16 @@ namespace Dark.EntityFramework.Uow
             }
         }
 
+        /// <summary>
+        /// 获取dbContext
+        /// </summary>
+        /// <typeparam name="TDbContext"></typeparam>
+        /// <returns></returns>
         public virtual TDbContext GetOrCreateDbContext<TDbContext>()
             where TDbContext : DbContext
         {
+            //1:找到dbContext
             var concreteDbContextType = _dbContextTypeMatcher.GetConcreteType(typeof(TDbContext));
-
 
             var connectionString = ResolveConnectionString();
 

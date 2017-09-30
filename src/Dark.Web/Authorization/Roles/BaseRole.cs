@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abp.Authorization.Users;
+using Dark.Core.Authorization.Users;
 using Dark.Core.Domain.Entity;
-using Dark.Core.Entity;
+using Microsoft.AspNet.Identity;
 
-namespace Dark.Core.Authorization.Users
+namespace Dark.Web.Authorization.Roles
 {
-    public class Sys_Role:EntityBase
+    [Table("Sys_Role")]
+    public abstract class BaseRole : EntityBase, IRole<int>
     {
         /// <summary>
         /// 角色名称
         /// </summary>
+        [Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
         /// <summary>
@@ -23,6 +30,6 @@ namespace Dark.Core.Authorization.Users
         /// <summary>
         /// 角色也可以分级
         /// </summary>
-        public string ParentId { get; set; }
+        public int? ParentId { get; set; }
     }
 }

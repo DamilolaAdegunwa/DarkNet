@@ -23,8 +23,6 @@ namespace Dark.Web
             IocManager.AddRegisterConvention(new MvcRegisterConvention());
             //自定义
             IocManager.Register<IClientInfoProvider, WebClientInfoProvider>(Core.DI.DependencyLife.Transient);
-
-
         }
 
         public override void Initialize()

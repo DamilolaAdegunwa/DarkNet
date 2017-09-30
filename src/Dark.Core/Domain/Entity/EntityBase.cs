@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ namespace Dark.Core.Domain.Entity
     /// </summary>
     public class EntityBase : Entity
     {
-        public EntityBase() { }
         /// <summary>
         /// 创建人
         /// </summary>
@@ -20,7 +20,14 @@ namespace Dark.Core.Domain.Entity
         /// <summary>
         /// 创建日期
         /// </summary>
+        [Required]
         public DateTime CreateTime { get; set; }
+
+
+        public EntityBase()
+        {
+            this.CreateTime = DateTime.Now;
+        }
     }
 
 
@@ -34,6 +41,8 @@ namespace Dark.Core.Domain.Entity
 
     public abstract class Entity<T> : IEntity<T>
     {
+        [Key]
+        [Required]
         public virtual T Id { get; set; }
         /// <summary>
         /// 用于建从Id 键是否存在

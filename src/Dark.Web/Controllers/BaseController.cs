@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Dark.Core.Runtime.Session;
 using Dark.Web.Extensions;
@@ -22,9 +23,9 @@ namespace Dark.Web.Controllers
         //3:权限检查
         //4:DTO规则验证
 
-        protected JsonResult RedirectAjaxData(AjaxResult reuslt)
+        protected async Task<JsonResult> ResultAsync(AjaxResult reuslt)
         {
-            return ToJSON(reuslt);
+            return await Task.FromResult(ToJSON(reuslt));
         }
 
         #region 1.0 Json重构

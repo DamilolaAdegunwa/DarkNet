@@ -46,18 +46,6 @@ namespace Dark.Core.Domain.Uow
                 return defaultConnectionString;
             }
 
-#if NET46
-            if (ConfigurationManager.ConnectionStrings["Default"] != null)
-            {
-                return "Default";
-            }
-
-            if (ConfigurationManager.ConnectionStrings.Count == 1)
-            {
-                return ConfigurationManager.ConnectionStrings[0].ConnectionString;
-            }
-#endif
-
             throw new Exception("Could not find a connection string definition for the application. Set IAbpStartupConfiguration.DefaultNameOrConnectionString or add a 'Default' connection string to application .config file.");
         }
     }

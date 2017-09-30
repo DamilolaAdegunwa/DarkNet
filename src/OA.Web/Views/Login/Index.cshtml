@@ -14,19 +14,19 @@
 </head>
 <body>
     <div>
-        
-            <input name="Account" />
-            <input name="Password" />
-            <button onclick="login()">登陆</button>
+
+        <input name="Account" />
+        <input name="Password" />
+        <button onclick="login()">登陆</button>
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script>
 
         function login() {
             $.ajax({
-                url: "/Home/LoginAsync",
+                url: "/Login/LoginAsync",
                 method: "post",
-                data: { Account: "TEST", Password: "密码" },
+                data: { Account: "TEST", Password: "000" },
                 success: function () {
 
                 }
