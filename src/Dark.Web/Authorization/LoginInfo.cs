@@ -17,7 +17,9 @@ namespace Dark.Web.Authorization
 
         public static string DisableAccount = "账号未激活";
 
-        public static string NoGrant = "账号未被授权";
+        public static string NoGrant = "账号未授权";
+
+        public static string Locked = "账号被锁住";
 
     }
 }

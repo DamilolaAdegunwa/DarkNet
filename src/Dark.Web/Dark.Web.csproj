@@ -89,14 +89,8 @@
     <Compile Include="Auditing\WebClientInfoProvider.cs" />
     <Compile Include="Authorization\LoginInfo.cs" />
     <Compile Include="Authorization\LoginManager.cs" />
-    <Compile Include="Authorization\Roles\BaseRole.cs" />
-    <Compile Include="Authorization\Roles\IdRoleManager.cs" />
-    <Compile Include="Authorization\Roles\IdRoleStore.cs" />
-    <Compile Include="Authorization\Users\BaseUser.cs" />
-    <Compile Include="Authorization\Users\IdUserManager.cs" />
-    <Compile Include="Authorization\Users\IdUserStore.cs" />
+    <Compile Include="Authorization\Users\UserManager.cs" />
     <Compile Include="Authorization\Users\IUserTokenProviderAccessor.cs" />
-    <Compile Include="Authorization\Users\NullUserTokenProviderAccessor.cs" />
     <Compile Include="ControllerFactory\WindsorControllerFactory.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="BaseWebApplication.cs" />
@@ -114,6 +108,7 @@
     <Compile Include="Runtime\Session\HttpContextPrincipalAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Authorization\Roles\" />
     <Folder Include="Domain\Entity\" />
     <Folder Include="Domain\Reposities\" />
     <Folder Include="Validation\" />

@@ -1,17 +1,17 @@
+ï»¿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Dark.Core.Authorization.Users;
-using Dark.Core.Domain.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Dark.Core.Entity;
-using Microsoft.AspNet.Identity;
 
-namespace Abp.Authorization.Users
+namespace Dark.Core.Authorization.Users
 {
-    [Table("Sys_Account")]
-    public abstract class BaseUser : FullEntity, IUser<int>
+    public class Sys_Account:FullEntity
     {
         /// <summary>
-        /// ĞÕÃû
+        /// å§“å
         /// </summary>
         [Required]
         [StringLength(20)]
@@ -27,31 +27,30 @@ namespace Abp.Authorization.Users
         [StringLength(20)]
         public string Account { get; set; }
         /// <summary>
-        /// êÇ³Æ
+        /// æ˜µç§°
         /// </summary>
         public string NickName { get; set; }
 
         /// <summary>
-        /// ÁªÏµ·½Ê½
+        /// è”ç³»æ–¹å¼
         /// </summary>
         public string Phone { get; set; }
 
         /// <summary>
-        /// ÓÊÏä
+        /// é‚®ç®±
         /// </summary>
         public string Email { get; set; }
 
         /// <summary>
-        /// ÊÇ·ñ±»Ëø×¡
+        /// æ˜¯å¦è¢«é”ä½
         /// </summary>
         [Required]
         public bool IsLock { get; set; }
 
         /// <summary>
-        /// ÊÇ·ñÊÇ¼¤»î×´Ì¬
+        /// æ˜¯å¦æ˜¯æ¿€æ´»çŠ¶æ€
         /// </summary>
         [Required]
         public bool IsActive { get; set; }
-
     }
 }

@@ -81,7 +81,9 @@
     <Compile Include="Authorization\Authorize\AuthorizeHelper.cs" />
     <Compile Include="Authorization\Authorize\BaseAuthorizeAttribute.cs" />
     <Compile Include="Authorization\Authorize\SkipAttribute.cs" />
+    <Compile Include="Authorization\Users\Sys_Account.cs" />
     <Compile Include="Authorization\Users\Sys_Permission.cs" />
+    <Compile Include="Authorization\Users\Sys_Role.cs" />
     <Compile Include="Authorization\Users\Sys_UserClaim.cs" />
     <Compile Include="Authorization\Users\Sys_UserLogin.cs" />
     <Compile Include="Authorization\Users\Sys_UserRole.cs" />

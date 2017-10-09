@@ -1,10 +1,26 @@
-using Microsoft.AspNet.Identity;
+
+using Dark.Core.DI;
 
 namespace Abp.Authorization.Users
 {
+
+    public class NullUserTokenProviderAccessor : IUserTokenProviderAccessor, ISingletonDependency
+    {
+        public IUserTokenProvider GetUserTokenProviderOrNull()
+        {
+            return null;
+        }
+    }
+
     public interface IUserTokenProviderAccessor
     {
-        IUserTokenProvider<TUser,int> GetUserTokenProviderOrNull<TUser>() 
-            where TUser : IdUser;
+        IUserTokenProvider GetUserTokenProviderOrNull();
     }
+
+
+    public interface IUserTokenProvider
+    {
+
+    }
+
 }

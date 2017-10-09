@@ -9,7 +9,6 @@ using Dark.Core.Auditing;
 using Dark.Core.Authorization.Users;
 using Dark.Core.DI;
 using Dark.Core.Domain.Repository;
-using Dark.Web.Authorization.Roles;
 using Dark.Web.Authorization.Users;
 using Dark.Web.Models;
 using Microsoft.AspNet.Identity;
@@ -25,27 +24,31 @@ namespace Dark.Web.Authorization
     public class LoginManager : ILoginManager, ITransientDependency
     {
 
-        private IdUserManager UserManager { get; }
+        private IRepository<Sys_Account> accountRepository { get; }
+        private IRepository<Sys_UserRole> userRoleRepository { get; }
+
+        private IUserManager userManager { get; }
+
         private IIocManager IocResolver { get; }
-        private IdRoleManager RoleManager { get; }
         private IClientInfoProvider _clientProvider;
 
         private IRepository<Sys_UserLogin> _loginAttemptsRepository;
 
         public LoginManager(
-            IdUserManager userManager,
+            IRepository<Sys_Account> _accountRepository,
             IIocManager iocResolver,
-            IdRoleManager roleManager,
+            IUserManager _userManager,
+            IRepository<Sys_UserRole> _userRoleRepository,
             IClientInfoProvider clientInfoProvider,
             IRepository<Sys_UserLogin> loginAttemptsRepository)
         {
 
             IocResolver = iocResolver;
-            RoleManager = roleManager;
-            UserManager = userManager;
+            accountRepository = _accountRepository;
             _clientProvider = clientInfoProvider;
             _loginAttemptsRepository = loginAttemptsRepository;
-
+            userRoleRepository = _userRoleRepository;
+            userManager = _userManager;
         }
 
 
@@ -71,19 +74,25 @@ namespace Dark.Web.Authorization
                 throw new ArgumentNullException(nameof(plainPassword));
             }
 
-            var idUser = await UserManager.FindByNameAsync(account);
+            var idUser = await accountRepository.FirstOrDefaultAsync(u => u.Account.Equals(account));
             //1.检查人员是否存在
             if (idUser == null)
             {
                 return AjaxResult.Fail(LoginPrompt.AccountNotExisit);
             }
-            //2.检查密码是否正常
+            //2.账号未被激活
+            if (!idUser.IsActive)
+            {
+                return AjaxResult.Fail(LoginPrompt.DisableAccount);
+            }
+            //3.检查密码是否正常
             if (idUser.Password != plainPassword)
             {
                 return AjaxResult.Fail(LoginPrompt.PwdError);
             }
             //3.检查账户是否有授权
-            if (!await RoleManager.IsGrantAsync(idUser.Id))
+
+            if (await userRoleRepository.FirstOrDefaultAsync(u => u.UserId.Equals(idUser.Id)) == null)
             {
                 return AjaxResult.Fail(LoginPrompt.NoGrant);
             }
@@ -91,20 +100,11 @@ namespace Dark.Web.Authorization
         }
 
 
-        protected virtual async Task<AjaxResult> CreateLoginResultAsync(IdUser user)
+        protected virtual async Task<AjaxResult> CreateLoginResultAsync(Sys_Account user)
         {
-            if (!user.IsActive)
-            {
-                return AjaxResult.Fail(LoginPrompt.DisableAccount);
-            }
-
-            //user.LastTime = DateTime.Now;
-
-            await UserManager.UpdateAsync(user);
-
             return AjaxResult.Ok(
                 LoginPrompt.LoginSuccess,
-                await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie)
+                await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie)
             );
         }
 
@@ -181,7 +181,7 @@ namespace Dark.Web.Authorization
             var loginAttempt = new Sys_UserLogin
             {
 
-                UserId = (loginResult.Data as IdUser)?.Id,
+                UserId = (loginResult.Data as Sys_Account)?.Id,
                 Account = account,
 
                 Result = loginResult.PromptMsg,
