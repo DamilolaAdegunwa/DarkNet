@@ -37,6 +37,7 @@ namespace Dark.Web.Authorization.Users
         /// <returns></returns>
         public async Task<string> CreateIdentityAsync(Sys_Account user, string cookName="Application.Cookie")
         {
+            //1:添加
             return await Task.FromResult("");
         }
     }

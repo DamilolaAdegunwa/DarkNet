@@ -30,8 +30,22 @@ namespace Dark.Core.Runtime.Session
             }
         }
 
+        public override string Account
+        {
+            get
+            {
+                var accountClaim = PrincipalAccessor.Principal?.Claims.FirstOrDefault(c => c.Type == nameof(Account));
+                if (string.IsNullOrEmpty(accountClaim?.Value))
+                {
+                    return string.Empty;
+                }
+                return accountClaim.Value;
+            }
+        }
+
         protected IPrincipalAccessor PrincipalAccessor { get; }
 
+        
 
         public ClaimsSession(IPrincipalAccessor principalAccessor)
         {

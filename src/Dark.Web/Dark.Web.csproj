@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auditing\WebClientInfoProvider.cs" />
-    <Compile Include="Authorization\LoginInfo.cs" />
+    <Compile Include="Authorization\LoginPrompt.cs" />
     <Compile Include="Authorization\LoginManager.cs" />
     <Compile Include="Authorization\Users\UserManager.cs" />
     <Compile Include="Authorization\Users\IUserTokenProviderAccessor.cs" />
