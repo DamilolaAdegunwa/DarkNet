@@ -24,10 +24,10 @@ namespace Dark.Web.Authorization
     public class LoginManager : ILoginManager, ITransientDependency
     {
 
-        private IRepository<Sys_Account> accountRepository { get; }
+
         private IRepository<Sys_UserRole> userRoleRepository { get; }
 
-        private IUserManager userManager { get; }
+        private UserManager userManager { get; }
 
         private IIocManager IocResolver { get; }
         private IClientInfoProvider _clientProvider;
@@ -37,14 +37,14 @@ namespace Dark.Web.Authorization
         public LoginManager(
             IRepository<Sys_Account> _accountRepository,
             IIocManager iocResolver,
-            IUserManager _userManager,
+            UserManager _userManager,
             IRepository<Sys_UserRole> _userRoleRepository,
             IClientInfoProvider clientInfoProvider,
-            IRepository<Sys_UserLogin> loginAttemptsRepository)
+            IRepository<Sys_UserLogin> loginAttemptsRepository
+            )
         {
 
             IocResolver = iocResolver;
-            accountRepository = _accountRepository;
             _clientProvider = clientInfoProvider;
             _loginAttemptsRepository = loginAttemptsRepository;
             userRoleRepository = _userRoleRepository;
@@ -74,7 +74,8 @@ namespace Dark.Web.Authorization
                 throw new ArgumentNullException(nameof(plainPassword));
             }
 
-            var idUser = await accountRepository.FirstOrDefaultAsync(u => u.Account.Equals(account));
+
+            var idUser = await userManager.FindByNameAsync(account);
             //1.检查人员是否存在
             if (idUser == null)
             {
@@ -178,10 +179,11 @@ namespace Dark.Web.Authorization
         /// <returns></returns>
         protected virtual async Task SaveLoginAttempt(AjaxResult loginResult, string account)
         {
+            var user = loginResult.Data as Sys_Account;
             var loginAttempt = new Sys_UserLogin
             {
 
-                UserId = (loginResult.Data as Sys_Account)?.Id,
+                UserId = user==null?0:user.Id,
                 Account = account,
 
                 Result = loginResult.PromptMsg,

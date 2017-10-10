@@ -26,9 +26,7 @@ using EntityFramework.DynamicFilters;
 
 namespace Dark.EntityFramework
 {
-    public abstract class BaseDbContext<TUser, TRole> : DbContext, ITransientDependency
-        where TUser : class, IEntity<int>
-        where TRole : class, IEntity<int>
+    public abstract class BaseDbContext : DbContext, ITransientDependency
     {
         #region 0.0 公共属性
         public ILogger Logger { get; set; }
@@ -145,13 +143,12 @@ namespace Dark.EntityFramework
         #endregion
 
         #region 3.0 系统自带的默认表
-
+        public virtual IDbSet<Sys_Account> Sys_Accounts { get; set; }
         public virtual IDbSet<Sys_Role> Sys_Roles { get; set; }
         public virtual IDbSet<Sys_UserRole> Sys_UserRoles { get; set; }
         public virtual IDbSet<Sys_UserClaim> Sys_UserClaims { get; set; }
         public virtual IDbSet<Sys_UserLogin> Sys_UserLogins { get; set; }
         public virtual IDbSet<Sys_Permission> Sys_Permissions { get; set; }
-        public virtual IDbSet<Sys_Account> Sys_Accounts { get; set; }
         #endregion
 
 
@@ -217,7 +214,7 @@ namespace Dark.EntityFramework
             {
                 case EntityState.Added:
                     CheckAndSetId(entry.Entity);
-                    EntityAuditingHelper.SetCreationAuditProperties(entry, GetAuditUserId());
+                    EntityAuditingHelper.SetCreationAuditProperties(entry.Entity, GetAuditUserId());
                     break;
                     //case EntityState.Deleted: //It's not going here at all
                     //    SetDeletionAuditProperties(entry.Entity, GetAuditUserId());
@@ -350,7 +347,7 @@ namespace Dark.EntityFramework
             {
                 return Session.UserId;
             }
-            return null;
+            return 0;
         }
 
 

@@ -62,3 +62,6 @@ E:\github\DarkNet\src\OA.Application\obj\Debug\OA.Application.csprojResolveAssem
 E:\github\DarkNet\src\OA.Application\obj\Debug\OA.Application.csproj.CoreCompileInputs.cache
 E:\github\DarkNet\src\OA.Application\obj\Debug\OA.Application.dll
 E:\github\DarkNet\src\OA.Application\obj\Debug\OA.Application.pdb
+D:\sutdy\github\DarkNet\src\OA.Application\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\sutdy\github\DarkNet\src\OA.Application\bin\Debug\OA.Core.dll.config
+D:\sutdy\github\DarkNet\src\OA.Application\bin\Debug\Microsoft.AspNet.Identity.Core.xml

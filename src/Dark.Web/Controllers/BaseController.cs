@@ -3,6 +3,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Dark.Core.Domain.Uow;
 using Dark.Core.Runtime.Session;
 using Dark.Web.Extensions;
 using Dark.Web.Models;
@@ -13,7 +14,10 @@ namespace Dark.Web.Controllers
     public class BaseController : Controller
     {
 
-        private IBaseSession BaseSession { get; set; }
+        protected IBaseSession BaseSession { get; set; }
+
+        protected IUnitOfWorkManager UnitOfWorkManager { get; set; }
+
         public BaseController()
         {
             BaseSession = NullSession.Instance;

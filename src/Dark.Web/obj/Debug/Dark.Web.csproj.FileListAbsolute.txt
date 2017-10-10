@@ -128,3 +128,12 @@ E:\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.csprojResolveAssemblyReference
 E:\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.csproj.CoreCompileInputs.cache
 E:\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.dll
 E:\github\DarkNet\src\Dark.Web\obj\Debug\Dark.Web.pdb
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.dll
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.Security.dll
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Owin.dll
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.xml
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.Security.xml
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\sutdy\github\DarkNet\src\Dark.Web\bin\Debug\Microsoft.Owin.Security.OAuth.xml

@@ -13,8 +13,11 @@ using OA.Application.ShopMallApp;
 namespace OA.Web.Controllers
 {
     [Skip]
+    [AllowAnonymous]
     public class LoginController : BaseController
     {
+
+
         private readonly ILoginManager loginManager;
         //private IShopAppService shopAppService;
         public LoginController(ILoginManager _loginManager)
@@ -29,11 +32,15 @@ namespace OA.Web.Controllers
         }
 
         // Post: Login
-        public async Task<ActionResult> LoginAsync(LoginModel loginModel)
+        public async Task<JsonResult> LoginAsync(LoginModel loginModel)
         {
-           
-
             return await ResultAsync(await loginManager.LoginAsync(loginModel));
+        }
+
+        //Post:Register
+        public async Task<JsonResult> RegisterAsync()
+        {
+            return await Task.FromResult(ToJSON(null));
         }
     }
 }

@@ -9,9 +9,8 @@ using OA.Core.Domain.Entities;
 
 namespace OA.EntityFramework.EntityFramework
 {
-    public class OADbContext : BaseDbContext<IdUser,>
+    public class OADbContext : BaseDbContext
     {
-
         /// <summary>
         /// 商品分类
         /// </summary>

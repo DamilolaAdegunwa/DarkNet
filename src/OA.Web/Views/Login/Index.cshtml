@@ -27,8 +27,8 @@
                 url: "/Login/LoginAsync",
                 method: "post",
                 data: { Account: "TEST", Password: "000" },
-                success: function () {
-
+                success: function (data) {
+                    console.log(data);
                 }
             })
         }

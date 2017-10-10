@@ -335,3 +335,4 @@ E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.csprojResolveAssemblyReference.cac
 E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.csproj.CoreCompileInputs.cache
 E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.dll
 E:\github\DarkNet\src\OA.Web\obj\Debug\OA.Web.pdb
+D:\sutdy\github\DarkNet\src\OA.Web\bin\OA.Core.dll.config

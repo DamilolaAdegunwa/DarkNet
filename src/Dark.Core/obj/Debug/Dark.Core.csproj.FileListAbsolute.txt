@@ -55,3 +55,5 @@ E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.csproj.CoreCompileInputs.cac
 E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.dll
 E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.pdb
 E:\github\DarkNet\src\Dark.Core\obj\Debug\Dark.Core.csprojResolveAssemblyReference.cache
+D:\sutdy\github\DarkNet\src\Dark.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\sutdy\github\DarkNet\src\Dark.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
