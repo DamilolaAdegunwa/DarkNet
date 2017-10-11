@@ -6,7 +6,7 @@
     <members>
         <member name="T:Castle.Facilities.Logging.LoggerImplementation">
             <summary>
-              The supported <see cref = "T:Castle.Core.Logging.ILogger" /> implementations
+              The supported <see cref = "T:Castle.Core.Logging.ILoggerFactory" /> implementations.
             </summary>
         </member>
         <member name="T:Castle.Facilities.Logging.LoggerResolver">

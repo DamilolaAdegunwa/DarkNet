@@ -11,3 +11,17 @@ D:\Work\MVCDemo\Dark.Redis\bin\Debug\ServiceStack.Text.xml
 D:\Work\MVCDemo\Dark.Redis\obj\Debug\Dark.Redis.csprojResolveAssemblyReference.cache
 D:\Work\MVCDemo\Dark.Redis\obj\Debug\Dark.Redis.dll
 D:\Work\MVCDemo\Dark.Redis\obj\Debug\Dark.Redis.pdb
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\Dark.Redis.dll
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\Dark.Redis.pdb
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Common.dll
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Interfaces.dll
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Redis.dll
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Text.dll
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Common.xml
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Interfaces.xml
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Redis.xml
+D:\sutdy\github\DarkNet\src\Dark.Redis\bin\Debug\ServiceStack.Text.xml
+D:\sutdy\github\DarkNet\src\Dark.Redis\obj\Debug\Dark.Redis.csprojResolveAssemblyReference.cache
+D:\sutdy\github\DarkNet\src\Dark.Redis\obj\Debug\Dark.Redis.csproj.CoreCompileInputs.cache
+D:\sutdy\github\DarkNet\src\Dark.Redis\obj\Debug\Dark.Redis.dll
+D:\sutdy\github\DarkNet\src\Dark.Redis\obj\Debug\Dark.Redis.pdb

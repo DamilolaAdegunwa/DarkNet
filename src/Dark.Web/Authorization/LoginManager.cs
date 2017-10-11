@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Abp.Authorization.Users;
 using Castle.Core.Internal;
 using Dark.Core.Auditing;
 using Dark.Core.Authorization.Users;
 using Dark.Core.DI;
 using Dark.Core.Domain.Repository;
+using Dark.Core.Runtime.Session;
 using Dark.Web.Authorization.Users;
 using Dark.Web.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OAuth;
 
 namespace Dark.Web.Authorization
 {
@@ -33,6 +37,8 @@ namespace Dark.Web.Authorization
         private IClientInfoProvider _clientProvider;
 
         private IRepository<Sys_UserLogin> _loginAttemptsRepository;
+       
+
 
         public LoginManager(
             IRepository<Sys_Account> _accountRepository,
@@ -40,15 +46,18 @@ namespace Dark.Web.Authorization
             UserManager _userManager,
             IRepository<Sys_UserRole> _userRoleRepository,
             IClientInfoProvider clientInfoProvider,
-            IRepository<Sys_UserLogin> loginAttemptsRepository
+            IRepository<Sys_UserLogin> loginAttemptsRepository,
+            IAuthenticationManager authenticationManager
             )
         {
+            
 
             IocResolver = iocResolver;
             _clientProvider = clientInfoProvider;
             _loginAttemptsRepository = loginAttemptsRepository;
             userRoleRepository = _userRoleRepository;
             userManager = _userManager;
+            //_authenticationManager = authenticationManager;
         }
 
 
@@ -97,15 +106,24 @@ namespace Dark.Web.Authorization
             {
                 return AjaxResult.Fail(LoginPrompt.NoGrant);
             }
-            return await CreateLoginResultAsync(idUser);
+            return await CreateLoginResultAsync(idUser,isRemember);
         }
 
 
-        protected virtual async Task<AjaxResult> CreateLoginResultAsync(Sys_Account user)
+        protected virtual async Task<AjaxResult> CreateLoginResultAsync(Sys_Account user,bool isRemember)
         {
+            //1.创建Identity
+            var identity =await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            if (identity == null)
+            {
+                return AjaxResult.Fail("Identity 未知");
+            }
+            //2.进行登陆
+            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            //AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isRemember }, identity);
+
             return AjaxResult.Ok(
-                LoginPrompt.LoginSuccess,
-                await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie)
+                LoginPrompt.LoginSuccess
             );
         }
 

@@ -12,6 +12,8 @@ using System.Web.Mvc;
 using Dark.Web.Authorization;
 using Dark.Core.Auditing;
 using Dark.Web.Auditing;
+using Dark.Core.Runtime.Session;
+using Dark.Web.Runtime.Session;
 
 namespace Dark.Web
 {
@@ -24,6 +26,9 @@ namespace Dark.Web
             //自定义
             IocManager.Register<IClientInfoProvider, WebClientInfoProvider>(Core.DI.DependencyLife.Transient);
 
+            Configuration.ReplaceService<IPrincipalAccessor, HttpContextPrincipalAccessor>(Core.DI.DependencyLife.Transient);
+
+            
 
         }
 

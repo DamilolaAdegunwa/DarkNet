@@ -14,6 +14,8 @@ namespace OA.Web
     {
         protected override void Application_Start(object sender, EventArgs e)
         {
+            
+
             //1：引入log4net
             Bootstrap.IocManager.IocContainer.AddFacility<LoggingFacility>(
                  f => f.UseDarkLog4Net().WithConfig("log4net.config")

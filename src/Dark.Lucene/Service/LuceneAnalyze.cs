@@ -8,14 +8,13 @@ using Lucene.Net.Index;
 using Lucene.Net.QueryParsers;
 using Lucene.Net.Search;
 using LuceneUtil = Lucene.Net.Util;
-using DarkAsp.Log;
 using Dark.Lucene.Interface;
 
 namespace Dark.Lucene.Service
 {
     public class LuceneAnalyze : ILuceneAnalyze
     {
-        private Logger logger = Logger.CreateLogger(typeof(LuceneAnalyze));
+        //private Logger logger = Logger.CreateLogger(typeof(LuceneAnalyze));
 
         #region AnalyzerKey
         /// <summary>
@@ -60,7 +59,7 @@ namespace Dark.Lucene.Service
             }
             else
             {
-                logger.Debug(string.Format("AnalyzerKey在解析keyword={0}的结果为new string[] { keyword } ", keyword));
+                //logger.Debug(string.Format("AnalyzerKey在解析keyword={0}的结果为new string[] { keyword } ", keyword));
                 return new string[] { keyword };
             }
         }

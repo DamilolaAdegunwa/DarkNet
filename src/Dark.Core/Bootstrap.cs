@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dark.Core.Domain.Uow;
 
 namespace Dark.Core
 {
@@ -63,7 +64,7 @@ namespace Dark.Core
         /// </summary>
         private void InitIntercept()
         {
-
+            UnitOfWorkRegistrar.Initialize(IocManager);
         }
         /// <summary>
         /// 解析日志

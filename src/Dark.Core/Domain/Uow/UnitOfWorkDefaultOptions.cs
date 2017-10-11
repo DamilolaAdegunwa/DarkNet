@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -61,6 +62,11 @@ namespace Dark.Core.Domain.Uow
         /// <param name="filterName">Name of the filter.</param>
         /// <param name="isEnabledByDefault">Is filter enabled by default.</param>
         void OverrideFilter(string filterName, bool isEnabledByDefault);
+
+        bool IsConventionalUowClass(Type type);
+
+        UnitOfWorkAttribute GetUnitOfWorkAttributeOrNull(MethodInfo methodInfo);
+
     }
 
     #endregion
@@ -108,6 +114,11 @@ namespace Dark.Core.Domain.Uow
             _filters.Add(new DataFilterConfiguration(filterName, isEnabledByDefault));
         }
 
+        public bool IsConventionalUowClass(Type type)
+        {
+            return this.ConventionalUowSelectors.Any(selector => selector(type));
+        }
+
         public UnitOfWorkDefaultOptions()
         {
             _filters = new List<DataFilterConfiguration>();
@@ -119,6 +130,28 @@ namespace Dark.Core.Domain.Uow
                 type => typeof(IRepository).IsAssignableFrom(type) ||
                         typeof(IAppService).IsAssignableFrom(type)
             };
+        }
+
+        public  UnitOfWorkAttribute GetUnitOfWorkAttributeOrNull(MethodInfo methodInfo)
+        {
+            var attrs = methodInfo.GetCustomAttributes(true).OfType<UnitOfWorkAttribute>().ToArray();
+            if (attrs.Length > 0)
+            {
+                return attrs[0];
+            }
+
+            attrs = methodInfo.DeclaringType.GetTypeInfo().GetCustomAttributes(true).OfType<UnitOfWorkAttribute>().ToArray();
+            if (attrs.Length > 0)
+            {
+                return attrs[0];
+            }
+
+            if (this.IsConventionalUowClass(methodInfo.DeclaringType))
+            {
+                return new UnitOfWorkAttribute(); //Default
+            }
+
+            return null;
         }
     } 
     #endregion

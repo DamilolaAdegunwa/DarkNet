@@ -19,6 +19,7 @@ namespace Dark.Core.Configuration
 
         string DefaultNameOrConnectionString { get; set; }
 
+        IIocManager IocManager { get; set; }
 
         IUnitOfWorkDefaultOptions UnitOfWorkOpts { get; }
         /// <summary>
@@ -27,6 +28,10 @@ namespace Dark.Core.Configuration
         /// <param name="type"></param>
         /// <param name="replaceAction"></param>
         void ReplaceService(Type type, Action replaceAction);
+
+        void ReplaceService<TInter, TImpl>(DependencyLife lifeStyle)
+            where TInter : class
+            where TImpl : TInter;
     }
 
     #endregion
@@ -40,7 +45,7 @@ namespace Dark.Core.Configuration
         /// </summary>
         public IAuthorizationConfiguration AuthConfig { get; set; }
 
-        private IIocManager _iocManager;
+        public IIocManager IocManager { get; set; }
 
         public string DefaultNameOrConnectionString { get; set; }
 
@@ -54,19 +59,36 @@ namespace Dark.Core.Configuration
 
         public BaseConfiguration(IIocManager iocManager)
         {
-            _iocManager = iocManager;
+            IocManager = iocManager;
             ServiceReplaceActions = new Dictionary<Type, Action>();
         }
 
         public void Initialize()
         {
-            AuthConfig = _iocManager.Resolve<IAuthorizationConfiguration>();
-            UnitOfWorkOpts = _iocManager.Resolve<IUnitOfWorkDefaultOptions>();
+            AuthConfig = IocManager.Resolve<IAuthorizationConfiguration>();
+            UnitOfWorkOpts = IocManager.Resolve<IUnitOfWorkDefaultOptions>();
         }
 
         public void ReplaceService(Type type, Action replaceAction)
         {
             ServiceReplaceActions[type] = replaceAction;
+        }
+
+        /// <summary>
+        /// Used to replace a service type.
+        /// </summary>
+        /// <typeparam name="TType">Type of the service.</typeparam>
+        /// <typeparam name="TImpl">Type of the implementation.</typeparam>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="lifeStyle">Life style.</param>
+        public void ReplaceService<TInter, TImpl>(DependencyLife lifeStyle = DependencyLife.Singleton)
+            where TInter : class
+            where TImpl : TInter
+        {
+            ReplaceService(typeof(TInter), () =>
+            {
+                IocManager.Register<TInter, TImpl>(lifeStyle);
+            });
         }
 
     }
