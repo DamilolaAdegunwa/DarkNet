@@ -16,7 +16,7 @@ namespace Dark.Core.Runtime.Session
         /// <inheritdoc/>
         public override long? UserId => null;
 
-
+        public override string Account => throw new NotImplementedException();
 
         private NullSession()
         {

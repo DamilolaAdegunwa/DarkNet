@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dark.Core.Entity;
-using Microsoft.AspNet.Identity;
 
 namespace Dark.Core.Authorization.Users
 {
-    public partial class Sys_Account:FullEntity,IUser<int>
+    public  class Sys_Account:FullEntity
     {
         /// <summary>
         /// 姓名

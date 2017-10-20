@@ -5,7 +5,6 @@ using Dark.Web.Filter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -22,6 +21,7 @@ namespace Dark.Web
     {
         public override void PreInitialize()
         {
+            //1.定义mvc controller 实现的规则
             IocManager.AddRegisterConvention(new MvcRegisterConvention());
             //自定义
             IocManager.Register<IClientInfoProvider, WebClientInfoProvider>(Core.DI.DependencyLife.Transient);
@@ -34,7 +34,7 @@ namespace Dark.Web
 
         public override void Initialize()
         {
-            IocManager.RegisterConvention(Assembly.GetExecutingAssembly());
+            IocManager.RegisterConvention(typeof(MvcModule).Assembly);
             var controllerFactory = new WindsorControllerFactory(IocManager);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
         }
@@ -42,9 +42,10 @@ namespace Dark.Web
 
         public override void PostInitialize()
         {
+            //1.注册认证过滤器
             GlobalFilters.Filters.Add(IocManager.Resolve<AuthorizeFilter>());
+            //2.注册异常过滤器
             GlobalFilters.Filters.Add(IocManager.Resolve<ExceptionFilter>());
-            //GlobalFilters.Filters.Add(new )
         }
     }
 }

@@ -11,6 +11,8 @@ namespace Dark.Core.Runtime.Session
     public interface IBaseSession
     {
         long? UserId { get; }
+
+        string Account { get; }
     }
 
     /// <summary>
@@ -19,6 +21,8 @@ namespace Dark.Core.Runtime.Session
     public abstract class BaseSession : IBaseSession
     {
         public abstract long? UserId { get; }
+
+        public abstract string Account { get; }
     }
     
 

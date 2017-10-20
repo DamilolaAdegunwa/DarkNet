@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using Abp.Authorization.Users;
 using Castle.Core.Internal;
 using Dark.Core.Auditing;
@@ -11,7 +11,6 @@ using Dark.Core.Authorization.Users;
 using Dark.Core.DI;
 using Dark.Core.Domain.Repository;
 using Dark.Core.Runtime.Session;
-using Dark.Web.Authorization.Users;
 using Dark.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -23,41 +22,43 @@ namespace Dark.Web.Authorization
     public interface ILoginManager
     {
         Task<AjaxResult> LoginAsync(LoginModel login);
+        Task<bool> LoginOut();
     }
 
     public class LoginManager : ILoginManager, ITransientDependency
     {
 
+        private IRepository<Sys_Account> _accountRepository { get; }
 
         private IRepository<Sys_UserRole> userRoleRepository { get; }
 
-        private UserManager userManager { get; }
 
         private IIocManager IocResolver { get; }
+
         private IClientInfoProvider _clientProvider;
 
         private IRepository<Sys_UserLogin> _loginAttemptsRepository;
-       
 
+        private IAuthenticationManager _authenticationManager;
 
         public LoginManager(
             IRepository<Sys_Account> _accountRepository,
             IIocManager iocResolver,
-            UserManager _userManager,
             IRepository<Sys_UserRole> _userRoleRepository,
             IClientInfoProvider clientInfoProvider,
             IRepository<Sys_UserLogin> loginAttemptsRepository,
+            IRepository<Sys_Account> accountRepository,
             IAuthenticationManager authenticationManager
             )
         {
-            
+
 
             IocResolver = iocResolver;
             _clientProvider = clientInfoProvider;
             _loginAttemptsRepository = loginAttemptsRepository;
             userRoleRepository = _userRoleRepository;
-            userManager = _userManager;
-            //_authenticationManager = authenticationManager;
+            this._accountRepository = accountRepository;
+            _authenticationManager = authenticationManager;
         }
 
 
@@ -71,6 +72,13 @@ namespace Dark.Web.Authorization
             return result;
         }
 
+        /// <summary>
+        /// 登陆验证
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="plainPassword"></param>
+        /// <param name="isRemember"></param>
+        /// <returns></returns>
         protected virtual async Task<AjaxResult> LoginAsyncInternal(string account, string plainPassword, bool isRemember)
         {
             if (account.IsNullOrEmpty())
@@ -84,110 +92,65 @@ namespace Dark.Web.Authorization
             }
 
 
-            var idUser = await userManager.FindByNameAsync(account);
+            Sys_Account user = await _accountRepository.FirstOrDefaultAsync(u => u.Account.Equals(account));
             //1.检查人员是否存在
-            if (idUser == null)
+            if (user == null)
             {
                 return AjaxResult.Fail(LoginPrompt.AccountNotExisit);
             }
             //2.账号未被激活
-            if (!idUser.IsActive)
+            if (!user.IsActive)
             {
                 return AjaxResult.Fail(LoginPrompt.DisableAccount);
             }
             //3.检查密码是否正常
-            if (idUser.Password != plainPassword)
+            if (user.Password != plainPassword)
             {
                 return AjaxResult.Fail(LoginPrompt.PwdError);
             }
             //3.检查账户是否有授权
 
-            if (await userRoleRepository.FirstOrDefaultAsync(u => u.UserId.Equals(idUser.Id)) == null)
+            if (await userRoleRepository.FirstOrDefaultAsync(u => u.UserId.Equals(user.Id)) == null)
             {
                 return AjaxResult.Fail(LoginPrompt.NoGrant);
+
             }
-            return await CreateLoginResultAsync(idUser,isRemember);
-        }
 
-
-        protected virtual async Task<AjaxResult> CreateLoginResultAsync(Sys_Account user,bool isRemember)
-        {
-            //1.创建Identity
-            var identity =await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-            if (identity == null)
-            {
-                return AjaxResult.Fail("Identity 未知");
-            }
-            //2.进行登陆
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            //AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isRemember }, identity);
-
-            return AjaxResult.Ok(
-                LoginPrompt.LoginSuccess
-            );
+            return await CreateLoginResultAsync(user, isRemember);
         }
 
         /// <summary>
-        /// 检查是否是第三方登陆
+        /// 创建缓存cookie
         /// </summary>
-        /// <param name="userNameOrEmailAddress"></param>
-        /// <param name="plainPassword"></param>
+        /// <param name="user"></param>
+        /// <param name="isRemember"></param>
         /// <returns></returns>
-        //protected virtual async Task<bool> TryLoginFromExternalAuthenticationSources(string account, string plainPassword)
-        //{
-        //    if (!UserManagementConfig.ExternalAuthenticationSources.Any())
-        //    {
-        //        return false;
-        //    }
+        protected virtual async Task<AjaxResult> CreateLoginResultAsync(Sys_Account user, bool isRemember)
+        {
+            //1:创建证件管理着
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
+            //2：创建证件
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Sid, user.Id.ToString()));
+            claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, user.Account));
 
-        //    foreach (var sourceType in UserManagementConfig.ExternalAuthenticationSources)
-        //    {
-        //        using (var source = IocResolver.ResolveAsDisposable<IExternalAuthenticationSource<TTenant, TUser>>(sourceType))
-        //        {
-        //            if (await source.Object.TryAuthenticateAsync(userNameOrEmailAddress, plainPassword, tenant))
-        //            {
-        //                var tenantId = tenant == null ? (int?)null : tenant.Id;
-        //                using (UnitOfWorkManager.Current.SetTenantId(tenantId))
-        //                {
-        //                    var user = await UserManager.AbpStore.FindByNameOrEmailAsync(tenantId, userNameOrEmailAddress);
-        //                    if (user == null)
-        //                    {
-        //                        user = await source.Object.CreateUserAsync(userNameOrEmailAddress, tenant);
+            //3:登陆
+            _authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            _authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isRemember }, claimsIdentity);
 
-        //                        user.TenantId = tenantId;
-        //                        user.AuthenticationSource = source.Object.Name;
-        //                        user.Password = UserManager.PasswordHasher.HashPassword(Guid.NewGuid().ToString("N").Left(16)); //Setting a random password since it will not be used
-
-        //                        if (user.Roles == null)
-        //                        {
-        //                            user.Roles = new List<UserRole>();
-        //                            foreach (var defaultRole in RoleManager.Roles.Where(r => r.TenantId == tenantId && r.IsDefault).ToList())
-        //                            {
-        //                                user.Roles.Add(new UserRole(tenantId, user.Id, defaultRole.Id));
-        //                            }
-        //                        }
-
-        //                        await UserManager.AbpStore.CreateAsync(user);
-        //                    }
-        //                    else
-        //                    {
-        //                        await source.Object.UpdateUserAsync(user, tenant);
-
-        //                        user.AuthenticationSource = source.Object.Name;
-
-        //                        await UserManager.AbpStore.UpdateAsync(user);
-        //                    }
-
-        //                    await UnitOfWorkManager.Current.SaveChangesAsync();
-
-        //                    return true;
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    return false;
-        //}
+            return await Task.FromResult(AjaxResult.Ok(
+                LoginPrompt.LoginSuccess
+            ));
+        }
+        
+        /// <summary>
+        /// 退出
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task<bool> LoginOut()
+        {
+            _authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return await Task.FromResult(true);
+        }
         /// <summary>
         /// 登陆尝试
         /// </summary>
@@ -201,7 +164,7 @@ namespace Dark.Web.Authorization
             var loginAttempt = new Sys_UserLogin
             {
 
-                UserId = user==null?0:user.Id,
+                UserId = user == null ? 0 : user.Id,
                 Account = account,
 
                 Result = loginResult.PromptMsg,

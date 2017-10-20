@@ -18,7 +18,7 @@ namespace OA.Web.Controllers
     [AllowAnonymous]
     public class LoginController : BaseController
     {
-
+        private readonly IAuthenticationManager _authenticationManager;
         private readonly ILoginManager loginManager;
         public LoginController(ILoginManager _loginManager)
         {
